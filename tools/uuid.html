@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UUID Generator — Dev Tools</title>
+  <meta name="description" content="Generate UUID v4 (random) and v1 (timestamp-based) instantly. Free online tool.">
+  <link rel="stylesheet" href="uuid.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🆔</div>
+        <h1 class="hero-title">UUID Generator</h1>
+        <p class="hero-subtitle">
+          Generate unique identifiers (v1 and v4) instantly.
+        </p>
+        <p class="hero-hint">Choose a version and quantity below.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Version Selector -->
+      <div class="mode-buttons">
+        <button class="mode-btn active" data-version="v4">UUID v4</button>
+        <button class="mode-btn" data-version="v1">UUID v1</button>
+      </div>
+
+      <!-- Quantity Selector -->
+      <p class="label">How many?</p>
+      <div class="quantity-buttons">
+        <button class="qty-btn active" data-qty="1">1</button>
+        <button class="qty-btn" data-qty="5">5</button>
+        <button class="qty-btn" data-qty="10">10</button>
+        <button class="qty-btn" data-qty="25">25</button>
+        <button class="qty-btn" data-qty="50">50</button>
+      </div>
+
+      <!-- Generate Button -->
+      <button class="generate-btn" id="generateBtn" type="button">⚡ Generate UUIDs</button>
+
+      <!-- Copy All -->
+      <button class="copy-all-btn" id="copyAllBtn" type="button">⧉ Copy All</button>
+
+      <!-- Output List -->
+      <div class="uuid-output" id="uuidOutput">
+        <div class="empty-state">
+          <span class="empty-icon">🆔</span>
+          <p>Click <strong>Generate UUIDs</strong> to create unique IDs.</p>
+        </div>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Generate UUIDs first to see details.</p>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>UUID Generator creates <strong>Universally Unique Identifiers</strong> — long strings that are practically guaranteed to be unique across all devices, everywhere.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is a UUID?</h3>
+          <p>A UUID is a 128-bit number, usually written as 32 hex digits in 5 groups:</p>
+          <p><strong>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</strong></p>
+          <p>Example: <strong>a1b2c3d4-e5f6-4789-9abc-def012345678</strong></p>
+        </div>
+
+        <div class="about-block">
+          <h3>Versions</h3>
+          <ul>
+            <li><strong>v1 (Time-based):</strong> Uses timestamp + MAC address. Sortable by time.</li>
+            <li><strong>v4 (Random):</strong> Uses random numbers. Most commonly used today.</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How does it work?</h3>
+          <p>Each UUID has 122 random bits (for v4) — that's about <strong>5.3 × 10³⁶</strong> possible values. The chance of duplicates is astronomically low.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Choose version — <strong>v4</strong> (random) or <strong>v1</strong> (time-based)</li>
+            <li>Choose quantity — 1, 5, 10, 25, or 50</li>
+            <li>Click <strong>⚡ Generate UUIDs</strong></li>
+            <li>Click any UUID to copy it individually</li>
+            <li>Or click <strong>Copy All</strong> to copy everything</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <ul>
+            <li>v4: <strong>f47ac10b-58cc-4372-a567-0e02b2c3d479</strong></li>
+            <li>v1: <strong>2c5ea4c0-4067-11e9-8bad-9b1deb4d3b7d</strong></li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Use <strong>v4</strong> for general purposes</li>
+            <li>Use <strong>v1</strong> if you need time-ordered IDs</li>
+            <li>UUIDs are NOT secret — don't use them as passwords</li>
+            <li>Perfect for database primary keys</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+          <li><a href="timestamp.html">Timestamp</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Useful Tools</h4>
+        <ul>
+          <li><a href="password.html">Password Generator</a></li>
+          <li><a href="qrcode.html">QR Code Generator</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+          <li><a href="base64.html">Base64 Encode</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="uuid.js"></script>
+</body>
+</html>

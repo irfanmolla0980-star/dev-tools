@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Converter — Dev Tools</title>
+  <meta name="description" content="Convert colors between HEX, RGB, and HSL instantly. Free online tool.">
+  <link rel="stylesheet" href="color.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🎨</div>
+        <h1 class="hero-title">Color Converter</h1>
+        <p class="hero-subtitle">
+          Convert colors between HEX, RGB, and HSL instantly.
+        </p>
+        <p class="hero-hint">Pick a color or type a value below.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Color Preview -->
+      <div class="color-preview" id="colorPreview">
+        <input type="color" id="colorPicker" class="color-picker" value="#aa66ff" />
+      </div>
+
+      <!-- Color Inputs -->
+      <div class="color-inputs">
+
+        <div class="input-group">
+          <label class="input-label">HEX</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="hexInput"
+              class="color-input"
+              placeholder="#AA66FF"
+              value="#AA66FF"
+              autocomplete="off"
+              maxlength="7"
+            />
+            <button class="clear-btn small" data-target="hexInput" type="button">✕</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">RGB</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="rgbInput"
+              class="color-input"
+              placeholder="rgb(170, 102, 255)"
+              autocomplete="off"
+            />
+            <button class="clear-btn small" data-target="rgbInput" type="button">✕</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">HSL</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="hslInput"
+              class="color-input"
+              placeholder="hsl(266, 100%, 70%)"
+              autocomplete="off"
+            />
+            <button class="clear-btn small" data-target="hslInput" type="button">✕</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copy Buttons Row -->
+      <div class="copy-row">
+        <button class="copy-chip" data-target="hexInput" type="button">⧉ Copy HEX</button>
+        <button class="copy-chip" data-target="rgbInput" type="button">⧉ Copy RGB</button>
+        <button class="copy-chip" data-target="hslInput" type="button">⧉ Copy HSL</button>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent"></div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Color Converter is a tool that converts a color between three common formats — <strong>HEX</strong>, <strong>RGB</strong>, and <strong>HSL</strong> — instantly.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What are these formats?</h3>
+          <ul>
+            <li><strong>HEX:</strong> A 6-digit code starting with # — like <strong>#FF0000</strong> (red)</li>
+            <li><strong>RGB:</strong> Red, Green, Blue — each from 0 to 255 — like <strong>rgb(255, 0, 0)</strong></li>
+            <li><strong>HSL:</strong> Hue (0–360°), Saturation (0–100%), Lightness (0–100%) — like <strong>hsl(0, 100%, 50%)</strong></li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How does it work?</h3>
+          <p>Each format describes the same color in a different way. The tool reads the value you type, figures out the color, and shows it in the other formats.</p>
+          <ul>
+            <li><strong>#FF0000</strong> = rgb(255, 0, 0) = hsl(0, 100%, 50%)</li>
+            <li><strong>#00FF00</strong> = rgb(0, 255, 0) = hsl(120, 100%, 50%)</li>
+            <li><strong>#0000FF</strong> = rgb(0, 0, 255) = hsl(240, 100%, 50%)</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Click the color preview to pick a color from the palette</li>
+            <li>Or type a HEX / RGB / HSL value in any field</li>
+            <li>All three formats update instantly</li>
+            <li>Click any <strong>Copy</strong> chip to copy that format</li>
+            <li>Click <strong>Details</strong> to see the breakdown</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <ul>
+            <li><strong>#FFFFFF</strong> → rgb(255, 255, 255) → hsl(0, 0%, 100%) — white</li>
+            <li><strong>#000000</strong> → rgb(0, 0, 0) → hsl(0, 0%, 0%) — black</li>
+            <li><strong>#FF5733</strong> → rgb(255, 87, 51) → hsl(11, 100%, 60%) — orange-red</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>HEX always starts with <strong>#</strong> and uses 6 characters</li>
+            <li>RGB values are from <strong>0 to 255</strong></li>
+            <li>Hue in HSL goes from <strong>0 to 360</strong> (a full circle)</li>
+            <li>HEX and RGB are the most common in code</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+          <li><a href="hex-text.html">Hex ↔ Text</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>More Handy Tools</h4>
+        <ul>
+          <li><a href="qrcode.html">QR Code Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+          <li><a href="timestamp.html">Timestamp</a></li>
+          <li><a href="password.html">Password Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="color.js"></script>
+</body>
+</html>

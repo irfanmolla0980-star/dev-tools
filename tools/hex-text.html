@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hex ↔ Text Converter — Dev Tools</title>
+  <meta name="description" content="Convert text to hex and hex to text instantly. Free online tool.">
+  <link rel="stylesheet" href="hex-text.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🔡</div>
+        <h1 class="hero-title">Hex ↔ Text</h1>
+        <p class="hero-subtitle">
+          Convert text to hexadecimal and hex to text instantly.
+        </p>
+        <p class="hero-hint">Type below to get started.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Mode Selector -->
+      <div class="mode-buttons">
+        <button class="mode-btn active" data-mode="text-to-hex">Text → Hex</button>
+        <button class="mode-btn" data-mode="hex-to-text">Hex → Text</button>
+      </div>
+
+      <!-- Input -->
+      <div class="input-wrapper">
+        <textarea
+          id="inputBox"
+          class="input-box"
+          placeholder="Enter text here..."
+          autocomplete="off"
+        ></textarea>
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <!-- Swap Button -->
+      <button class="swap-btn" id="swapBtn" type="button">⇅ Swap</button>
+
+      <!-- Output -->
+      <div class="output-wrapper">
+        <div class="output-header">
+          <span class="output-label">Output</span>
+          <button class="copy-btn" id="copyBtn" type="button">⧉ Copy</button>
+        </div>
+        <textarea
+          id="outputBox"
+          class="output-box"
+          placeholder="Result will appear here..."
+          readonly
+        ></textarea>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent"></div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Hex ↔ Text Converter changes normal text into hexadecimal (base-16) numbers and hex back into readable text — instantly.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is Hexadecimal?</h3>
+          <p>Hexadecimal (or "hex") is a base-16 number system. It uses 16 symbols: <strong>0–9</strong> and <strong>A–F</strong>.</p>
+          <p>Because computers work in binary (0s and 1s), hex is a shorter, easier way to represent binary data. One hex digit equals exactly 4 binary bits.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>How does it work?</h3>
+          <p>Each character in your text has a numeric code. That number is converted into its hexadecimal form — usually 2 hex digits per character.</p>
+          <ul>
+            <li><strong>H</strong> → 72 → <strong>48</strong></li>
+            <li><strong>i</strong> → 105 → <strong>69</strong></li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Pick a mode — <strong>Text → Hex</strong> or <strong>Hex → Text</strong></li>
+            <li>Type your text or hex values in the input box</li>
+            <li>Output appears instantly</li>
+            <li>Click <strong>Copy</strong> to copy the result</li>
+            <li>Use <strong>Swap</strong> to flip input and output</li>
+            <li>Click <strong>Details</strong> to see the character-by-character breakdown</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <ul>
+            <li><strong>Hi</strong> → 48 69</li>
+            <li><strong>Hello</strong> → 48 65 6C 6C 6F</li>
+            <li><strong>A</strong> → 41</li>
+            <li><strong>Space</strong> → 20</li>
+            <li><strong>FF</strong> → ÿ</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Each character is usually 2 hex digits</li>
+            <li>Hex letters can be uppercase (A–F) or lowercase (a–f)</li>
+            <li>Use spaces to separate hex values</li>
+            <li>Hex is shorter than binary — easier to read</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="number.html">Number Converter</a></li>
+          <li><a href="ascii.html">ASCII Converter</a></li>
+          <li><a href="hex-text.html">Hex ↔ Text</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Try These</h4>
+        <ul>
+          <li><a href="binary-text.html">Binary ↔ Text</a></li>
+          <li><a href="unicode.html">Unicode ↔ Text</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="hex-text.js"></script>
+</body>
+</html>

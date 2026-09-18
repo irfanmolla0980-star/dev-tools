@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Number Converter — Dev Tools</title>
+  <meta name="description" content="Convert numbers between Decimal, Binary, Hexadecimal, and Octal instantly. Free online tool.">
+  <link rel="stylesheet" href="number.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🔢</div>
+        <h1 class="hero-title">Number Converter</h1>
+        <p class="hero-subtitle">
+          Convert numbers between Decimal, Binary, Hex, and Octal in real time.
+        </p>
+        <p class="hero-hint">No buttons. No waiting. Just instant conversion.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Input -->
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="numberInput"
+          class="number-input"
+          placeholder="Enter a number..."
+          autocomplete="off"
+        />
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <!-- Base Selector -->
+      <p class="label">Select Input Base</p>
+      <div class="base-buttons">
+        <button class="base-btn active" data-base="10">✦ Decimal (10)</button>
+        <button class="base-btn" data-base="2">Binary (2)</button>
+        <button class="base-btn" data-base="16">Hex (16)</button>
+        <button class="base-btn" data-base="8">Octal (8)</button>
+      </div>
+
+      <!-- Output Grid -->
+      <div class="grid">
+
+        <div class="card-wrapper">
+          <div class="card card-decimal">
+            <div class="card-header">
+              <span class="badge">10</span>
+              <span class="card-title">Decimal</span>
+            </div>
+            <div class="card-value" id="decimalValue">0</div>
+            <div class="card-actions">
+              <button class="icon-btn copy-btn" data-target="decimalValue">⧉</button>
+              <button class="icon-btn toggle-btn" data-target="decimalDetails">⌄</button>
+            </div>
+          </div>
+          <div class="dropdown" id="decimalDetails">
+            <div class="dropdown-content" id="decimalBreakdown"></div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="card card-binary">
+            <div class="card-header">
+              <span class="badge">2</span>
+              <span class="card-title">Binary</span>
+            </div>
+            <div class="card-value" id="binaryValue">0</div>
+            <div class="card-actions">
+              <button class="icon-btn copy-btn" data-target="binaryValue">⧉</button>
+              <button class="icon-btn toggle-btn" data-target="binaryDetails">⌄</button>
+            </div>
+          </div>
+          <div class="dropdown" id="binaryDetails">
+            <div class="dropdown-content" id="binaryBreakdown"></div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="card card-hex">
+            <div class="card-header">
+              <span class="badge">16</span>
+              <span class="card-title">Hexadecimal</span>
+            </div>
+            <div class="card-value" id="hexValue">0</div>
+            <div class="card-actions">
+              <button class="icon-btn copy-btn" data-target="hexValue">⧉</button>
+              <button class="icon-btn toggle-btn" data-target="hexDetails">⌄</button>
+            </div>
+          </div>
+          <div class="dropdown" id="hexDetails">
+            <div class="dropdown-content" id="hexBreakdown"></div>
+          </div>
+        </div>
+
+        <div class="card-wrapper">
+          <div class="card card-octal">
+            <div class="card-header">
+              <span class="badge">8</span>
+              <span class="card-title">Octal</span>
+            </div>
+            <div class="card-value" id="octalValue">0</div>
+            <div class="card-actions">
+              <button class="icon-btn copy-btn" data-target="octalValue">⧉</button>
+              <button class="icon-btn toggle-btn" data-target="octalDetails">⌄</button>
+            </div>
+          </div>
+          <div class="dropdown" id="octalDetails">
+            <div class="dropdown-content" id="octalBreakdown"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Number Converter is a tool that converts numbers between different number systems — Decimal, Binary, Hexadecimal, and Octal — instantly.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>How does it work?</h3>
+          <p>Each number system uses a different base:</p>
+          <ul>
+            <li><strong>Decimal (10):</strong> Uses digits 0–9</li>
+            <li><strong>Binary (2):</strong> Uses digits 0 and 1</li>
+            <li><strong>Hexadecimal (16):</strong> Uses 0–9 and A–F</li>
+            <li><strong>Octal (8):</strong> Uses digits 0–7</li>
+          </ul>
+          <p>The tool reads your number in the selected base and converts it to all other bases.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Select the input base (Decimal, Binary, Hex, or Octal)</li>
+            <li>Type your number in the input box</li>
+            <li>All outputs update instantly</li>
+            <li>Click the copy icon to copy any value</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <ul>
+            <li>Decimal <strong>255</strong> → Binary <strong>11111111</strong></li>
+            <li>Binary <strong>11111111</strong> → Decimal <strong>255</strong></li>
+            <li>Decimal <strong>255</strong> → Hex <strong>FF</strong></li>
+            <li>Hex <strong>FF</strong> → Octal <strong>377</strong></li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Where is it used?</h3>
+          <ul>
+            <li>Programming and software development</li>
+            <li>Computer science studies</li>
+            <li>Digital electronics</li>
+            <li>Data encoding and decoding</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Conversion happens automatically — no button needed</li>
+            <li>Click the ⌄ icon on any card to see the breakdown</li>
+            <li>Works with very large numbers too</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="number.html">Number Converter</a></li>
+          <li><a href="ascii.html">ASCII Converter</a></li>
+          <li><a href="base64.html">Base64</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>More Tools</h4>
+        <ul>
+          <li><a href="binary-text.html">Binary ↔ Text</a></li>
+          <li><a href="hex-text.html">Hex ↔ Text</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="number.js"></script>
+</body>
+</html>

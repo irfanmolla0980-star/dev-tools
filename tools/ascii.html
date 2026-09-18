@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASCII Converter — Dev Tools</title>
+  <meta name="description" content="Convert text to ASCII codes and ASCII codes to text instantly. Free online tool.">
+  <link rel="stylesheet" href="ascii.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🔤</div>
+        <h1 class="hero-title">ASCII Converter</h1>
+        <p class="hero-subtitle">
+          Convert text to ASCII codes and ASCII codes to text instantly.
+        </p>
+        <p class="hero-hint">Type below to get started.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Mode Selector -->
+      <div class="mode-buttons">
+        <button class="mode-btn active" data-mode="text-to-ascii">Text → ASCII</button>
+        <button class="mode-btn" data-mode="ascii-to-text">ASCII → Text</button>
+      </div>
+
+      <!-- Input -->
+      <div class="input-wrapper">
+        <textarea
+          id="inputBox"
+          class="input-box"
+          placeholder="Enter text here..."
+          autocomplete="off"
+        ></textarea>
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <!-- Swap Button -->
+      <button class="swap-btn" id="swapBtn" type="button">⇅ Swap</button>
+
+      <!-- Output -->
+      <div class="output-wrapper">
+        <div class="output-header">
+          <span class="output-label">Output</span>
+          <button class="copy-btn" id="copyBtn" type="button">⧉ Copy</button>
+        </div>
+        <textarea
+          id="outputBox"
+          class="output-box"
+          placeholder="Result will appear here..."
+          readonly
+        ></textarea>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>ASCII Converter is a tool that converts text into ASCII codes and ASCII codes back into text instantly.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is ASCII?</h3>
+          <p>ASCII (American Standard Code for Information Interchange) is a character encoding standard where each letter, digit, and symbol has a unique number from 0 to 127.</p>
+          <ul>
+            <li><strong>A–Z:</strong> 65–90</li>
+            <li><strong>a–z:</strong> 97–122</li>
+            <li><strong>0–9:</strong> 48–57</li>
+            <li><strong>Space:</strong> 32</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How does it work?</h3>
+          <p>Each character in your text is matched to its ASCII number. For example, <strong>A</strong> becomes <strong>65</strong>, and <strong>a</strong> becomes <strong>97</strong>. The tool does this for every character automatically.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Choose mode: <strong>Text → ASCII</strong> or <strong>ASCII → Text</strong></li>
+            <li>Type your text or ASCII codes</li>
+            <li>Output updates instantly</li>
+            <li>Click <strong>Copy</strong> to copy the result</li>
+            <li>Click <strong>Swap</strong> to switch input and output</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <ul>
+            <li><strong>A</strong> → 65</li>
+            <li><strong>a</strong> → 97</li>
+            <li><strong>Hello</strong> → 72 101 108 108 111</li>
+            <li><strong>Hi!</strong> → 72 105 33</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Where is it used?</h3>
+          <ul>
+            <li>Programming and debugging</li>
+            <li>Understanding character encoding</li>
+            <li>Data transmission</li>
+            <li>Learning computer science basics</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Uppercase and lowercase letters have different ASCII codes</li>
+            <li>Space has an ASCII code too — it's <strong>32</strong></li>
+            <li>Only codes from 0 to 127 are valid ASCII</li>
+            <li>Use spaces to separate multiple ASCII codes</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="number.html">Number Converter</a></li>
+          <li><a href="ascii.html">ASCII Converter</a></li>
+          <li><a href="base64.html">Base64</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>More Tools</h4>
+        <ul>
+          <li><a href="binary-text.html">Binary ↔ Text</a></li>
+          <li><a href="hex-text.html">Hex ↔ Text</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="ascii.js"></script>
+</body>
+</html>

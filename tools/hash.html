@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hash Generator — Dev Tools</title>
+  <meta name="description" content="Generate MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, CRC32 hashes instantly.">
+  <link rel="stylesheet" href="hash.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">#️⃣</div>
+        <h1 class="hero-title">Hash Generator</h1>
+        <p class="hero-subtitle">
+          Generate hashes from any text — MD5, SHA family, CRC32.
+        </p>
+        <p class="hero-hint">Type below to get started.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Input -->
+      <div class="input-wrapper">
+        <textarea
+          id="inputBox"
+          class="input-box"
+          placeholder="Enter text to hash..."
+          autocomplete="off"
+        ></textarea>
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <!-- Hash Results (sorted by popularity) -->
+      <div class="hash-results">
+
+        <div class="hash-card">
+          <div class="hash-header">
+            <span class="hash-name">SHA-256</span>
+            <button class="copy-btn" data-target="sha256Output" type="button">⧉</button>
+          </div>
+          <div class="hash-value" id="sha256Output">—</div>
+        </div>
+
+        <div class="hash-card">
+          <div class="hash-header">
+            <span class="hash-name">SHA-512</span>
+            <button class="copy-btn" data-target="sha512Output" type="button">⧉</button>
+          </div>
+          <div class="hash-value" id="sha512Output">—</div>
+        </div>
+
+        <div class="hash-card">
+          <div class="hash-header">
+            <span class="hash-name">SHA-1</span>
+            <button class="copy-btn" data-target="sha1Output" type="button">⧉</button>
+          </div>
+          <div class="hash-value" id="sha1Output">—</div>
+        </div>
+
+        <div class="hash-card">
+          <div class="hash-header">
+            <span class="hash-name">MD5</span>
+            <button class="copy-btn" data-target="md5Output" type="button">⧉</button>
+          </div>
+          <div class="hash-value" id="md5Output">—</div>
+        </div>
+
+        <div class="hash-card">
+          <div class="hash-header">
+            <span class="hash-name">SHA-384</span>
+            <button class="copy-btn" data-target="sha384Output" type="button">⧉</button>
+          </div>
+          <div class="hash-value" id="sha384Output">—</div>
+        </div>
+
+        <div class="hash-card">
+          <div class="hash-header">
+            <span class="hash-name">SHA-224</span>
+            <button class="copy-btn" data-target="sha224Output" type="button">⧉</button>
+          </div>
+          <div class="hash-value" id="sha224Output">—</div>
+        </div>
+
+        <div class="hash-card">
+          <div class="hash-header">
+            <span class="hash-name">CRC32</span>
+            <button class="copy-btn" data-target="crc32Output" type="button">⧉</button>
+          </div>
+          <div class="hash-value" id="crc32Output">—</div>
+        </div>
+
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent"></div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Hash Generator converts any text into a fixed-length string of characters called a <strong>hash</strong>. The same input always produces the same hash.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is a Hash?</h3>
+          <p>A hash is a one-way function. It takes input and produces a unique output — but you cannot reverse it back to the original text.</p>
+          <p>Hashes are used for:</p>
+          <ul>
+            <li>Storing passwords securely</li>
+            <li>Verifying file integrity</li>
+            <li>Digital signatures</li>
+            <li>Blockchain and crypto</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How does it work?</h3>
+          <p>Each algorithm processes your text through a mathematical formula and produces a hash of a fixed length:</p>
+          <ul>
+            <li><strong>MD5:</strong> 128-bit (32 hex chars)</li>
+            <li><strong>SHA-1:</strong> 160-bit (40 hex chars)</li>
+            <li><strong>SHA-224:</strong> 224-bit (56 hex chars)</li>
+            <li><strong>SHA-256:</strong> 256-bit (64 hex chars)</li>
+            <li><strong>SHA-384:</strong> 384-bit (96 hex chars)</li>
+            <li><strong>SHA-512:</strong> 512-bit (128 hex chars)</li>
+            <li><strong>CRC32:</strong> 32-bit (8 hex chars)</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Type your text in the input box</li>
+            <li>All hashes appear instantly</li>
+            <li>Click any <strong>⧉</strong> icon to copy that hash</li>
+            <li>Click <strong>Details</strong> to see input size and hash lengths</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <ul>
+            <li><strong>hello</strong> → MD5: 5d41402abc4b2a76b9719d911017c592</li>
+            <li><strong>hello</strong> → SHA-256: 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824</li>
+            <li><strong>Hello</strong> (capital H) → completely different hash</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Even one character change → totally different hash</li>
+            <li>MD5 and SHA-1 are now considered weak for passwords</li>
+            <li>Use SHA-256 or SHA-512 for security</li>
+            <li>Hashing is <strong>not</strong> the same as encryption</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="base64.html">Base64 Encode</a></li>
+          <li><a href="url.html">URL Encode</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Handy Tools</h4>
+        <ul>
+          <li><a href="uuid.html">UUID Generator</a></li>
+          <li><a href="timestamp.html">Timestamp</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+          <li><a href="number.html">Number Converter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="hash.js"></script>
+</body>
+</html>

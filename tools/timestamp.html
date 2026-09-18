@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timestamp Converter — Dev Tools</title>
+  <meta name="description" content="Convert between Unix timestamp and human-readable date instantly. Free online tool.">
+  <link rel="stylesheet" href="timestamp.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">⏰</div>
+        <h1 class="hero-title">Timestamp Converter</h1>
+        <p class="hero-subtitle">
+          Convert between Unix timestamp and human-readable date instantly.
+        </p>
+        <p class="hero-hint">Live current time + full converter below.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Live Current Time -->
+      <div class="live-box">
+        <div class="live-header">
+          <span class="live-dot"></span>
+          <span class="live-label">Current Time</span>
+        </div>
+        <div class="live-grid">
+          <div class="live-item">
+            <span class="live-key">Unix (s)</span>
+            <span class="live-value" id="liveSeconds">—</span>
+          </div>
+          <div class="live-item">
+            <span class="live-key">Unix (ms)</span>
+            <span class="live-value" id="liveMillis">—</span>
+          </div>
+          <div class="live-item">
+            <span class="live-key">UTC</span>
+            <span class="live-value" id="liveUTC">—</span>
+          </div>
+          <div class="live-item">
+            <span class="live-key">Local</span>
+            <span class="live-value" id="liveLocal">—</span>
+          </div>
+        </div>
+        <div class="live-actions">
+          <button class="mini-btn" id="copyLiveBtn" type="button">⧉ Copy Unix</button>
+          <button class="mini-btn" id="useNowBtn" type="button">⬇ Use Now</button>
+        </div>
+      </div>
+
+      <!-- Mode Selector -->
+      <div class="mode-buttons">
+        <button class="mode-btn active" data-mode="ts-to-date">Timestamp → Date</button>
+        <button class="mode-btn" data-mode="date-to-ts">Date → Timestamp</button>
+      </div>
+
+      <!-- Input -->
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="inputBox"
+          class="input-box"
+          placeholder="Enter Unix timestamp (e.g. 1700000000)..."
+          autocomplete="off"
+        />
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <!-- Unit Selector (for timestamp input) -->
+      <div class="unit-buttons" id="unitButtons">
+        <button class="unit-btn active" data-unit="s">Seconds</button>
+        <button class="unit-btn" data-unit="ms">Milliseconds</button>
+      </div>
+
+      <!-- Output Grid -->
+      <div class="output-grid">
+
+        <div class="output-card">
+          <div class="output-head">
+            <span class="output-label">Unix (s)</span>
+            <button class="copy-btn" data-target="outSeconds" type="button">⧉</button>
+          </div>
+          <div class="output-value" id="outSeconds">—</div>
+        </div>
+
+        <div class="output-card">
+          <div class="output-head">
+            <span class="output-label">Unix (ms)</span>
+            <button class="copy-btn" data-target="outMillis" type="button">⧉</button>
+          </div>
+          <div class="output-value" id="outMillis">—</div>
+        </div>
+
+        <div class="output-card wide">
+          <div class="output-head">
+            <span class="output-label">UTC</span>
+            <button class="copy-btn" data-target="outUTC" type="button">⧉</button>
+          </div>
+          <div class="output-value" id="outUTC">—</div>
+        </div>
+
+        <div class="output-card wide">
+          <div class="output-head">
+            <span class="output-label">Local</span>
+            <button class="copy-btn" data-target="outLocal" type="button">⧉</button>
+          </div>
+          <div class="output-value" id="outLocal">—</div>
+        </div>
+
+        <div class="output-card wide">
+          <div class="output-head">
+            <span class="output-label">ISO 8601</span>
+            <button class="copy-btn" data-target="outISO" type="button">⧉</button>
+          </div>
+          <div class="output-value" id="outISO">—</div>
+        </div>
+
+        <div class="output-card wide">
+          <div class="output-head">
+            <span class="output-label">Relative</span>
+            <button class="copy-btn" data-target="outRelative" type="button">⧉</button>
+          </div>
+          <div class="output-value" id="outRelative">—</div>
+        </div>
+
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent"></div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Timestamp Converter changes between <strong>Unix timestamp</strong> (a big number like 1700000000) and a <strong>human-readable date</strong> — and back.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is a Unix Timestamp?</h3>
+          <p>A Unix timestamp is the number of <strong>seconds</strong> that have passed since <strong>January 1, 1970, 00:00:00 UTC</strong>. It is used everywhere in programming.</p>
+          <ul>
+            <li><strong>Seconds:</strong> 10 digits (e.g. 1700000000)</li>
+            <li><strong>Milliseconds:</strong> 13 digits (e.g. 1700000000000)</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How does it work?</h3>
+          <p>The tool converts the number to a date using your device's clock and timezone. It also works in reverse — a date is converted to its timestamp.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Choose mode — <strong>Timestamp → Date</strong> or <strong>Date → Timestamp</strong></li>
+            <li>Type a timestamp or a date string</li>
+            <li>Output appears instantly in multiple formats</li>
+            <li>Click <strong>⧉</strong> to copy any value</li>
+            <li>Use <strong>⬇ Use Now</strong> to fill the current timestamp</li>
+            <li>Click <strong>Details</strong> for the full breakdown</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <ul>
+            <li><strong>0</strong> → Jan 1, 1970</li>
+            <li><strong>1700000000</strong> → Nov 14, 2023</li>
+            <li><strong>2000-01-01</strong> → 946684800</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Seconds have <strong>10 digits</strong>, milliseconds <strong>13</strong></li>
+            <li>Timestamps are always in <strong>UTC</strong></li>
+            <li>Web APIs use <strong>milliseconds</strong> (JavaScript)</li>
+            <li>Databases often use <strong>seconds</strong> (Unix)</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="timestamp.html">Timestamp</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Time & Date</h4>
+        <ul>
+          <li><a href="timezone.html">Time Zone Converter</a></li>
+          <li><a href="number.html">Number Converter</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+          <li><a href="base64.html">Base64 Encode</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="timestamp.js"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Formatter — Dev Tools</title>
+  <meta name="description" content="Format, validate, minify, and convert JSON/JS objects instantly. Free online tool.">
+  <link rel="stylesheet" href="json.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">📝</div>
+        <h1 class="hero-title">JSON Formatter</h1>
+        <p class="hero-subtitle">
+          Format, validate, minify, and convert JSON ↔ JS objects instantly.
+        </p>
+        <p class="hero-hint">Paste your code below.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Action Buttons (Row 1) -->
+      <div class="action-buttons">
+        <button class="action-btn active" data-action="beautify" type="button">🎨 Beautify</button>
+        <button class="action-btn" data-action="minify" type="button">📦 Minify</button>
+        <button class="action-btn" data-action="validate" type="button">✓ Validate</button>
+      </div>
+
+      <!-- Action Buttons (Row 2 - Converter) -->
+      <div class="action-buttons">
+        <button class="action-btn converter" data-action="js-to-json" type="button">↻ JS → JSON</button>
+        <button class="action-btn converter" data-action="json-to-js" type="button">↺ JSON → JS</button>
+      </div>
+
+      <!-- Input -->
+      <div class="input-wrapper">
+        <textarea
+          id="inputBox"
+          class="input-box"
+          placeholder='Paste JSON or JS object here... e.g. {"name": "John"}'
+          autocomplete="off"
+          spellcheck="false"
+        ></textarea>
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <!-- Status Bar -->
+      <div class="status-bar" id="statusBar">
+        <span class="status-icon">📋</span>
+        <span class="status-text">Ready — paste JSON or JS object to start</span>
+      </div>
+
+      <!-- Output Header -->
+      <div class="output-header">
+        <span class="output-label">Output</span>
+        <div class="output-actions">
+          <button class="mini-btn" id="copyBtn" type="button">⧉ Copy</button>
+          <button class="mini-btn" id="downloadBtn" type="button">⬇ Download</button>
+          <button class="mini-btn" id="sampleBtn" type="button">📄 Sample</button>
+        </div>
+      </div>
+
+      <!-- Output -->
+      <div class="output-box" id="outputBox">
+        <pre id="outputPre"><span class="output-placeholder">Formatted JSON will appear here...</span></pre>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+          <span class="stat-key">Lines</span>
+          <span class="stat-value" id="statLines">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Chars</span>
+          <span class="stat-value" id="statChars">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Keys</span>
+          <span class="stat-value" id="statKeys">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Size</span>
+          <span class="stat-value" id="statSize">0 B</span>
+        </div>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Format some JSON first to see details.</p>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>JSON Formatter is a complete tool for <strong>formatting, validating, minifying</strong>, and <strong>converting</strong> between JSON and JavaScript objects.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is JSON?</h3>
+          <p><strong>JSON</strong> (JavaScript Object Notation) is a strict data format used by APIs and config files. It requires <strong>double quotes</strong> around keys and strings.</p>
+          <p>Example: <strong>{"name": "John", "age": 30}</strong></p>
+        </div>
+
+        <div class="about-block">
+          <h3>JSON vs JavaScript Object</h3>
+          <ul>
+            <li><strong>JSON:</strong> Keys must be in double quotes — <strong>{"key": "value"}</strong></li>
+            <li><strong>JS Object:</strong> Keys can be unquoted — <strong>{key: "value"}</strong> or <strong>{key: 'value'}</strong></li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Actions</h3>
+          <ul>
+            <li><strong>🎨 Beautify:</strong> Adds indentation for readability</li>
+            <li><strong>📦 Minify:</strong> Removes whitespace to shrink size</li>
+            <li><strong>✓ Validate:</strong> Checks if JSON is valid</li>
+            <li><strong>↻ JS → JSON:</strong> Converts JavaScript object to valid JSON</li>
+            <li><strong>↺ JSON → JS:</strong> Converts JSON to a JavaScript object</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Paste your JSON or JS object</li>
+            <li>Pick an action from the buttons above</li>
+            <li>Output updates instantly</li>
+            <li>Click <strong>⧉ Copy</strong> or <strong>⬇ Download</strong></li>
+            <li>Click <strong>Details</strong> for extra info</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <p><strong>JS Input:</strong> {name: "John", age: 30}</p>
+          <p><strong>JSON Output:</strong> {"name": "John", "age": 30}</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>JSON keys need <strong>double quotes</strong>, not single</li>
+            <li>Trailing commas are <strong>not allowed</strong> in JSON</li>
+            <li>Functions are <strong>removed</strong> when converting to JSON</li>
+            <li>Use <strong>Beautify</strong> for reading, <strong>Minify</strong> for sending</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="json.html">JSON Formatter</a></li>
+          <li><a href="regex.html">Regex Tester</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Code Tools</h4>
+        <ul>
+          <li><a href="base64.html">Base64 Encode</a></li>
+          <li><a href="url.html">URL Encode</a></li>
+          <li><a href="markdown.html">Markdown Preview</a></li>
+          <li><a href="timestamp.html">Timestamp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="json.js"></script>
+</body>
+</html>
