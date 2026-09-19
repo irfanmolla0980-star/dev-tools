@@ -39,10 +39,44 @@ body {
   white-space: nowrap;
 }
 
+/* ==========NAV TOGGLE WRAPPER (see all tools > ☰)============= */
+
+.nav-toggle-wrapper {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-toggle-label {
+  color: #00bfff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.nav-toggle-arrow {
+  color: #00bfff;
+  font-size: 18px;
+  font-weight: 800;
+  animation: arrowSlide 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowSlide {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+}
+
 .nav-toggle {
   display: none;
   background: transparent;
-  border: 1.5px solid #1e90ff;
+  border: 1.5px solid #00bfff;
   color: #00bfff;
   font-size: 20px;
   width: 42px;
@@ -321,9 +355,9 @@ body {
 }
 
 .icon-btn {
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 7px;
   background: transparent;
   border: 1.5px solid;
   color: inherit;
@@ -661,6 +695,19 @@ body {
 
 /* ===== Navbar Mobile Menu ===== */
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+  @media (max-width: 768px) {
+  .nav-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .nav-toggle {
     display: flex;
     align-items: center;

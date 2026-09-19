@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regex Tester — Dev Tools</title>
+  <meta name="description" content="Test regular expressions with live highlighting, groups, and match details. Free online tool.">
+  <link rel="stylesheet" href="regex.css" />
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- ===== Hero Section ===== -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🔍</div>
+        <h1 class="hero-title">Regex Tester</h1>
+        <p class="hero-subtitle">
+          Test regular expressions with live highlight, groups, and match details.
+        </p>
+        <p class="hero-hint">Write a pattern, paste your text, see matches instantly.</p>
+      </div>
+    </section>
+
+    <!-- ===== Tool Section ===== -->
+    <section class="tool-section">
+
+      <!-- Pattern Input -->
+      <div class="input-group">
+        <label class="input-label">Pattern</label>
+        <div class="pattern-wrapper">
+          <span class="pattern-slash">/</span>
+          <input
+            type="text"
+            id="patternInput"
+            class="pattern-input"
+            placeholder="\d+"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <span class="pattern-slash">/</span>
+          <input
+            type="text"
+            id="flagsInput"
+            class="flags-input"
+            placeholder="g"
+            maxlength="6"
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+      </div>
+
+      <!-- Quick Patterns -->
+      <p class="label">Quick Patterns</p>
+      <div class="preset-buttons">
+        <button class="preset-btn" data-pattern="\d+" data-flags="g" type="button">Digits</button>
+        <button class="preset-btn" data-pattern="[a-zA-Z]+" data-flags="g" type="button">Letters</button>
+        <button class="preset-btn" data-pattern="\w+" data-flags="g" type="button">Words</button>
+        <button class="preset-btn" data-pattern="\s+" data-flags="g" type="button">Spaces</button>
+        <button class="preset-btn" data-pattern="^.*$" data-flags="gm" type="button">Lines</button>
+        <button class="preset-btn" data-pattern="[\w.-]+@[\w.-]+\.\w+" data-flags="g" type="button">Email</button>
+        <button class="preset-btn" data-pattern="https?:\/\/[^\s]+" data-flags="g" type="button">URL</button>
+        <button class="preset-btn" data-pattern="\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b" data-flags="g" type="button">IP</button>
+        <button class="preset-btn" data-pattern="#[0-9A-Fa-f]{6}" data-flags="g" type="button">Hex</button>
+        <button class="preset-btn" data-pattern="<[^>]+>" data-flags="g" type="button">HTML</button>
+      </div>
+
+      <!-- Flags -->
+      <p class="label">Flags (click to toggle)</p>
+      <div class="flags-info">
+        <span class="flag-chip" data-flag="g">g — global</span>
+        <span class="flag-chip" data-flag="i">i — ignore case</span>
+        <span class="flag-chip" data-flag="m">m — multiline</span>
+        <span class="flag-chip" data-flag="s">s — dot all</span>
+        <span class="flag-chip" data-flag="u">u — unicode</span>
+        <span class="flag-chip" data-flag="y">y — sticky</span>
+      </div>
+
+      <!-- Test String -->
+      <div class="input-group">
+        <label class="input-label">Test String</label>
+        <div class="input-wrapper">
+          <textarea
+            id="testInput"
+            class="test-input"
+            placeholder="Paste your text here..."
+            autocomplete="off"
+            spellcheck="false"
+          ></textarea>
+          <button class="clear-btn" id="clearBtn" type="button">✕</button>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="status-bar" id="statusBar">
+        <span class="status-icon">🔍</span>
+        <span class="status-text">Write a pattern to start testing</span>
+      </div>
+
+      <!-- Output Header -->
+      <div class="output-header">
+        <span class="output-label">Highlighted Text</span>
+        <div class="output-actions">
+          <button class="mini-btn" id="copyBtn" type="button">⧉</button>
+          <button class="mini-btn" id="sampleBtn" type="button">📄 Sample</button>
+        </div>
+      </div>
+
+      <!-- Highlighted Output -->
+      <div class="highlight-box" id="highlightBox">
+        <span class="output-placeholder">Highlighted matches will appear here...</span>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-key">Matches</span>
+          <span class="stat-value" id="statMatches">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Groups</span>
+          <span class="stat-value" id="statGroups">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Pattern</span>
+          <span class="stat-value" id="statPattern">—</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Flags</span>
+          <span class="stat-value" id="statFlags">—</span>
+        </div>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Match Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Run a pattern to see match details.</p>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Regex Tester is a tool that lets you test <strong>regular expressions</strong> against sample text in real time. It highlights matches and shows detailed group information.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is a Regex?</h3>
+          <p>A <strong>regular expression</strong> (regex) is a pattern used to search, match, or replace text. Regex is used everywhere — validation, parsing, search-and-replace.</p>
+          <p>Example: <strong>\d+</strong> matches one or more digits.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Common Patterns</h3>
+          <ul>
+            <li><strong>\d</strong> — any digit (0–9)</li>
+            <li><strong>\w</strong> — any word character (a–z, A–Z, 0–9, _)</li>
+            <li><strong>\s</strong> — any whitespace</li>
+            <li><strong>.</strong> — any character except newline</li>
+            <li><strong>+</strong> — one or more</li>
+            <li><strong>*</strong> — zero or more</li>
+            <li><strong>?</strong> — zero or one</li>
+            <li><strong>[abc]</strong> — any of a, b, c</li>
+            <li><strong>(abc)</strong> — capture group</li>
+            <li><strong>^</strong> and <strong>$</strong> — start / end of line</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Flags</h3>
+          <ul>
+            <li><strong>g</strong> — global (find all matches)</li>
+            <li><strong>i</strong> — ignore case</li>
+            <li><strong>m</strong> — multiline (^ and $ match line by line)</li>
+            <li><strong>s</strong> — dot all (. matches newlines)</li>
+            <li><strong>u</strong> — unicode support</li>
+            <li><strong>y</strong> — sticky (matches from lastIndex)</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Type your regex pattern in the pattern field</li>
+            <li>Add flags (like <strong>g</strong>, <strong>i</strong>, <strong>m</strong>)</li>
+            <li>Paste or type your test text</li>
+            <li>Matches are highlighted live</li>
+            <li>Click <strong>Match Details</strong> to see each match and its groups</li>
+            <li>Use <strong>Quick Patterns</strong> for common regexes</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <ul>
+            <li><strong>\d+</strong> on "abc 123 xyz 456" → matches <strong>123</strong> and <strong>456</strong></li>
+            <li><strong>[A-Z]\w+</strong> on "Hello world" → matches <strong>Hello</strong></li>
+            <li><strong>(\w+)@(\w+\.\w+)</strong> on "user@site.com" → groups: user, site.com</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Use <strong>g</strong> flag to find all matches, not just the first</li>
+            <li>Escape special characters with <strong>\</strong> (like \. for a literal dot)</li>
+            <li>Use <strong>(?:...)</strong> for non-capturing groups</li>
+            <li>Test regexes on real data before using them in code</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="regex.html">Regex Tester</a></li>
+          <li><a href="json.html">JSON Formatter</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Popular Picks</h4>
+        <ul>
+          <li><a href="base64.html">Base64 Encode</a></li>
+          <li><a href="url.html">URL Encode</a></li>
+          <li><a href="timestamp.html">Timestamp</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="regex.js"></script>
+</body>
+</html>

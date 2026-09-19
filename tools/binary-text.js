@@ -108,6 +108,15 @@ inputBox.addEventListener('input', () => {
       outputBox.value = text;
     }
   }
+
+  // Update Details
+  if (currentMode === 'text-to-binary') {
+    buildBinaryDetails(raw, currentMode);
+  } else {
+    if (detailsContent) {
+      detailsContent.innerHTML = '<p style="color:#6666aa;">Details only available in Text → Binary mode.</p>';
+    }
+  }
 });
 
 // Clear Button
@@ -155,3 +164,56 @@ swapBtn.addEventListener('click', () => {
     clearBtn.classList.remove('show');
   }
 });
+
+// ===================
+// DETAILS TOGGLE
+// ===================
+
+const detailsToggle = document.getElementById('detailsToggle');
+const detailsDropdown = document.getElementById('detailsDropdown');
+const detailsContent = document.getElementById('detailsContent');
+
+if (detailsToggle && detailsDropdown) {
+  detailsToggle.addEventListener('click', () => {
+    detailsDropdown.classList.toggle('open');
+    detailsToggle.classList.toggle('open');
+  });
+}
+
+// ============================
+// BINARY DETAILS BUILDER
+// ============================
+
+function buildBinaryDetails(text, mode) {
+  if (!detailsContent) return;
+
+  if (!text || text.length === 0) {
+    detailsContent.innerHTML = '<p style="color:#6666aa;">No details yet. Type something above.</p>';
+    return;
+  }
+
+  let html = '';
+
+  if (mode === 'text-to-binary') {
+    // Text → Binary
+    for (let i = 0; i < text.length; i++) {
+      const char = text[i];
+      const code = text.charCodeAt(i);
+      const binary = code.toString(2).padStart(8, '0');
+      const displayChar = char === ' ' ? '␣' : char;
+
+      html += `
+        <div class="detail-row">
+          <span class="detail-char">${displayChar}</span>
+          <span class="detail-arrow">→</span>
+          <span class="detail-value">${code} → ${binary}</span>
+        </div>
+      `;
+    }
+  } else {
+    detailsContent.innerHTML = '<p style="color:#6666aa;">Details only available in Text → Binary mode.</p>';
+    return;
+  }
+
+  detailsContent.innerHTML = html;
+}

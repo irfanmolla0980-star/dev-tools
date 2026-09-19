@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorem Ipsum Generator — Dev Tools</title>
+  <meta name="description" content="Generate dummy Lorem Ipsum text in paragraphs, sentences, words, or characters. Free online tool.">
+  <link rel="stylesheet" href="lorem.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">📋</div>
+        <h1 class="hero-title">Lorem Ipsum</h1>
+        <p class="hero-subtitle">Generate dummy text for layouts, prototypes, and testing.</p>
+        <p class="hero-hint">Choose mode and quantity below.</p>
+      </div>
+    </section>
+
+    <!-- Tool -->
+    <section class="tool-section">
+
+      <!-- Mode Tabs -->
+      <div class="mode-tabs">
+        <button class="mode-tab active" data-mode="generate" type="button">⚡ Generate</button>
+        <button class="mode-tab" data-mode="replace" type="button">🔄 Replace</button>
+      </div>
+
+      <!-- Generate Panel -->
+      <div class="mode-panel active" id="generatePanel">
+
+        <p class="label">Type</p>
+        <div class="type-buttons">
+          <button class="type-btn active" data-type="paragraphs" type="button">Paragraphs</button>
+          <button class="type-btn" data-type="sentences" type="button">Sentences</button>
+          <button class="type-btn" data-type="words" type="button">Words</button>
+          <button class="type-btn" data-type="characters" type="button">Characters</button>
+        </div>
+
+        <p class="label">Quantity</p>
+        <div class="quantity-row">
+          <input type="range" id="qtySlider" class="qty-slider" min="1" max="20" value="3" />
+          <div class="qty-display" id="qtyDisplay">3</div>
+        </div>
+
+        <p class="label">Word Source</p>
+        <div class="source-buttons">
+          <button class="source-btn active" data-source="classic" type="button">Classic Lorem</button>
+          <button class="source-btn" data-source="custom" type="button">Custom Words</button>
+        </div>
+
+        <div class="custom-words-wrapper" id="customWordsWrapper">
+          <textarea id="customWords" class="custom-words-input" placeholder="Enter your words separated by comma — e.g. code, dev, tools, fast" spellcheck="false"></textarea>
+        </div>
+
+        <p class="label">Options</p>
+        <div class="options-grid">
+          <label class="option-item">
+            <input type="checkbox" id="optStartLorem" checked />
+            <span class="option-check"></span>
+            <span class="option-text">Start with "Lorem ipsum..."</span>
+          </label>
+          <label class="option-item">
+            <input type="checkbox" id="optHtml" />
+            <span class="option-check"></span>
+            <span class="option-text">Wrap in &lt;p&gt; tags</span>
+          </label>
+          <label class="option-item">
+            <input type="checkbox" id="optUppercase" />
+            <span class="option-check"></span>
+            <span class="option-text">UPPERCASE</span>
+          </label>
+          <label class="option-item">
+            <input type="checkbox" id="optBullets" />
+            <span class="option-check"></span>
+            <span class="option-text">Bullet points</span>
+          </label>
+        </div>
+
+        <div class="action-row">
+          <button class="action-btn primary" id="generateBtn" type="button">⚡ Generate</button>
+          <button class="action-btn secondary" id="regenerateBtn" type="button">🔄 New</button>
+        </div>
+
+      </div>
+
+      <!-- Replace Panel -->
+      <div class="mode-panel" id="replacePanel">
+
+        <p class="label">Your Text</p>
+        <div class="input-wrapper">
+          <textarea id="replaceInput" class="replace-input" placeholder="Paste your real text here — it will be converted to Lorem Ipsum..." spellcheck="false"></textarea>
+          <button class="clear-btn" id="clearBtn" type="button">✕</button>
+        </div>
+
+        <div class="action-row">
+          <button class="action-btn primary" id="loremifyBtn" type="button">🔄 Loremify</button>
+          <button class="action-btn secondary" id="unloremifyBtn" type="button">↩ Restore</button>
+        </div>
+
+      </div>
+
+      <!-- Output -->
+      <div class="output-header">
+        <span class="output-label">Output</span>
+        <div class="output-actions">
+          <button class="mini-btn" id="copyBtn" type="button">⧉ Copy</button>
+          <button class="mini-btn" id="downloadBtn" type="button">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="output-box" id="outputBox">
+        <p class="output-placeholder">Your generated text will appear here...</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-key">Words</span>
+          <span class="stat-value" id="statWords">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Chars</span>
+          <span class="stat-value" id="statChars">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Sentences</span>
+          <span class="stat-value" id="statSentences">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Paragraphs</span>
+          <span class="stat-value" id="statParagraphs">0</span>
+        </div>
+      </div>
+
+      <!-- Details -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Generate text first to see details.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Lorem Ipsum Generator creates <strong>dummy text</strong> for testing layouts, prototypes, and designs. It can also replace your real text with Lorem — and restore it back.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is Lorem Ipsum?</h3>
+          <p>Lorem Ipsum is dummy Latin text used since the 1500s. It has a normal-looking word distribution, so designers use it to test how real content will look without being distracted by readable words.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Two Modes</h3>
+          <ul>
+            <li><strong>⚡ Generate:</strong> Create Lorem Ipsum or custom words — as paragraphs, sentences, words, or characters</li>
+            <li><strong>🔄 Replace:</strong> Turn your real text into Lorem — and restore it back with one click</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Options</h3>
+          <ul>
+            <li><strong>Start with "Lorem ipsum..."</strong> — classic opening</li>
+            <li><strong>Wrap in &lt;p&gt; tags</strong> — ready for HTML</li>
+            <li><strong>UPPERCASE</strong> — all caps output</li>
+            <li><strong>Bullet points</strong> — list format</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Pick <strong>Generate</strong> or <strong>Replace</strong></li>
+            <li>Choose type and quantity (or paste your text)</li>
+            <li>Adjust options if needed</li>
+            <li>Click <strong>⚡ Generate</strong> or <strong>🔄 Loremify</strong></li>
+            <li>Copy or download the output</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Use <strong>Custom Words</strong> to generate text from your own word list</li>
+            <li>Wrap in <strong>&lt;p&gt;</strong> tags to paste directly into HTML</li>
+            <li>In Replace mode, click <strong>Restore</strong> to get your original text back</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="lorem.html">Lorem Ipsum</a></li>
+          <li><a href="password.html">Password Generator</a></li>
+          <li><a href="regex.html">Regex Tester</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Text Tools</h4>
+        <ul>
+          <li><a href="json.html">JSON Formatter</a></li>
+          <li><a href="base64.html">Base64</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="markdown.html">Markdown</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="lorem.js"></script>
+</body>
+</html>

@@ -12,7 +12,11 @@
   <!-- Navbar -->
   <nav class="navbar">
     <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
-    <button class="nav-toggle" id="navToggle">☰</button>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
     <ul class="nav-menu" id="navMenu">
       <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
       <li><a href="number.html" class="nav-link">🔢 Number</a></li>
@@ -88,7 +92,18 @@
           readonly
         ></textarea>
       </div>
+      
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
 
+      <!-- Details Dropdown -->
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent"></div>
+      </div>
+      
       <!-- About Section -->
       <section class="about-section">
         <h2 class="about-title">📖 About This Tool</h2>
