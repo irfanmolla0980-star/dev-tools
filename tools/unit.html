@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unit Converter — Dev Tools</title>
+  <meta name="description" content="Convert between length, weight, temperature, data, time, area, volume, speed, energy, and pressure units. Free online tool.">
+  <link rel="stylesheet" href="unit.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">📏</div>
+        <h1 class="hero-title">Unit Converter</h1>
+        <p class="hero-subtitle">Convert between 10 categories of units instantly.</p>
+        <p class="hero-hint">Pick a category and type a value.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Category Selector -->
+      <p class="label">Category</p>
+      <div class="category-buttons" id="categoryButtons">
+        <button class="cat-btn active" data-cat="length" type="button">📏 Length</button>
+        <button class="cat-btn" data-cat="weight" type="button">⚖️ Weight</button>
+        <button class="cat-btn" data-cat="temperature" type="button">🌡️ Temperature</button>
+        <button class="cat-btn" data-cat="area" type="button">📐 Area</button>
+        <button class="cat-btn" data-cat="volume" type="button">🧊 Volume</button>
+        <button class="cat-btn" data-cat="time" type="button">⏱️ Time</button>
+        <button class="cat-btn" data-cat="speed" type="button">🚀 Speed</button>
+        <button class="cat-btn" data-cat="data" type="button">💾 Data</button>
+        <button class="cat-btn" data-cat="energy" type="button">🔋 Energy</button>
+        <button class="cat-btn" data-cat="pressure" type="button">📊 Pressure</button>
+      </div>
+
+      <!-- Input Row -->
+      <p class="label">Value</p>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="inputValue"
+          class="value-input"
+          placeholder="Enter a value..."
+          value="1"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <!-- From / Swap / To -->
+      <div class="from-to-grid">
+
+        <div class="select-wrapper">
+          <label class="select-label">From</label>
+          <select id="fromUnit" class="unit-select"></select>
+        </div>
+
+        <button class="swap-btn" id="swapBtn" type="button" title="Swap">⇅</button>
+
+        <div class="select-wrapper">
+          <label class="select-label">To</label>
+          <select id="toUnit" class="unit-select"></select>
+        </div>
+
+      </div>
+
+      <!-- Main Output -->
+      <div class="main-output" id="mainOutput">
+        <div class="main-output-value" id="mainValue">—</div>
+        <button class="main-copy-btn" id="mainCopyBtn" type="button">⧉</button>
+      </div>
+
+      <!-- All Units Header -->
+      <div class="all-units-header">
+        <span class="all-units-title">All Units</span>
+        <button class="mini-btn" id="copyAllBtn" type="button">⧉ Copy All</button>
+      </div>
+
+      <!-- All Units List -->
+      <div class="all-units-list" id="allUnitsList">
+        <!-- JS will fill -->
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Enter a value to see details.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Unit Converter is a tool that converts a value from one unit to <strong>every other unit</strong> in the same category — instantly.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Categories Supported</h3>
+          <ul>
+            <li><strong>📏 Length</strong> — m, km, cm, mm, µm, nm, mile, yard, foot, inch</li>
+            <li><strong>⚖️ Weight</strong> — kg, g, mg, µg, ton, pound, ounce, stone</li>
+            <li><strong>🌡️ Temperature</strong> — Celsius, Fahrenheit, Kelvin</li>
+            <li><strong>📐 Area</strong> — m², km², cm², ft², in², acre, hectare</li>
+            <li><strong>🧊 Volume</strong> — liter, ml, m³, gallon, pint, cup, fl oz</li>
+            <li><strong>⏱️ Time</strong> — ns, µs, ms, s, min, hour, day, week, year</li>
+            <li><strong>🚀 Speed</strong> — m/s, km/h, mph, knot, ft/s</li>
+            <li><strong>💾 Data</strong> — bit, byte, KB, MB, GB, TB, PB</li>
+            <li><strong>🔋 Energy</strong> — joule, calorie, kWh, BTU, eV</li>
+            <li><strong>📊 Pressure</strong> — pascal, bar, atm, psi, mmHg</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How does it work?</h3>
+          <p>Every unit is converted to a <strong>base unit</strong> first (meter, kilogram, second, etc.), then to your target unit. This ensures perfect accuracy across all conversions.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Pick a category (Length, Weight, etc.)</li>
+            <li>Type a value</li>
+            <li>Choose <strong>From</strong> and <strong>To</strong> units</li>
+            <li>The result updates instantly</li>
+            <li>See <strong>all other units</strong> at once below</li>
+            <li>Click <strong>⇅ Swap</strong> to flip units</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Examples</h3>
+          <ul>
+            <li><strong>1 meter</strong> = 100 cm = 1000 mm = 3.28 ft = 39.37 in</li>
+            <li><strong>1 kg</strong> = 1000 g = 2.205 lb = 35.27 oz</li>
+            <li><strong>100 °C</strong> = 212 °F = 373.15 K</li>
+            <li><strong>1 GB</strong> = 1024 MB = 1048576 KB</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>All units in the category are shown <strong>at once</strong></li>
+            <li>Click any value to copy it</li>
+            <li>Use <strong>⇅ Swap</strong> to reverse the conversion</li>
+            <li>Results are rounded to 6 significant digits</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="unit.html">Unit Converter</a></li>
+          <li><a href="timezone.html">Time Zone</a></li>
+          <li><a href="timestamp.html">Timestamp</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Useful Tools</h4>
+        <ul>
+          <li><a href="number.html">Number Converter</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+          <li><a href="password.html">Password Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="unit.js"></script>
+</body>
+</html>

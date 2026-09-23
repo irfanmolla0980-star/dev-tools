@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QR Code Generator — Dev Tools</title>
+  <meta name="description" content="Generate QR codes for text, URL, email, phone, SMS, Wi-Fi, vCard, location, UPI, image, event, WhatsApp, YouTube, Spotify, crypto, and more.">
+  <link rel="stylesheet" href="qrcode.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">📱</div>
+        <h1 class="hero-title">QR Code Generator</h1>
+        <p class="hero-subtitle">Generate QR codes for anything — 16 types, full customization.</p>
+        <p class="hero-hint">Pick a type, fill the fields, download.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- QR Type Tabs -->
+      <p class="label">QR Type</p>
+      <div class="type-tabs">
+        <button class="type-tab active" data-type="text" type="button">📝 Text</button>
+        <button class="type-tab" data-type="url" type="button">🔗 URL</button>
+        <button class="type-tab" data-type="email" type="button">📧 Email</button>
+        <button class="type-tab" data-type="phone" type="button">📞 Phone</button>
+        <button class="type-tab" data-type="sms" type="button">💬 SMS</button>
+        <button class="type-tab" data-type="wifi" type="button">📶 Wi-Fi</button>
+        <button class="type-tab" data-type="vcard" type="button">👤 vCard</button>
+        <button class="type-tab" data-type="location" type="button">📍 Location</button>
+        <button class="type-tab" data-type="upi" type="button">💳 UPI</button>
+        <button class="type-tab" data-type="image" type="button">🖼️ Image</button>
+        <button class="type-tab" data-type="event" type="button">📅 Event</button>
+        <button class="type-tab" data-type="whatsapp" type="button">💬 WhatsApp</button>
+        <button class="type-tab" data-type="youtube" type="button">📹 YouTube</button>
+        <button class="type-tab" data-type="spotify" type="button">🎵 Spotify</button>
+        <button class="type-tab" data-type="crypto" type="button">₿ Crypto</button>
+        <button class="type-tab" data-type="pdf" type="button">📄 PDF/Link</button>
+      </div>
+
+      <!-- ==== TEXT PANEL ==== -->
+      <div class="panel active" id="panel-text">
+        <p class="label">Text</p>
+        <textarea id="textInput" class="input-field" placeholder="Enter any text..." spellcheck="false"></textarea>
+      </div>
+
+      <!-- ==== URL PANEL ==== -->
+      <div class="panel" id="panel-url">
+        <p class="label">URL</p>
+        <input type="text" id="urlInput" class="input-field" placeholder="https://example.com" autocomplete="off" spellcheck="false" />
+      </div>
+
+      <!-- ==== EMAIL PANEL ==== -->
+      <div class="panel" id="panel-email">
+        <p class="label">Email</p>
+        <input type="email" id="emailTo" class="input-field" placeholder="to@example.com" autocomplete="off" />
+        <input type="text" id="emailSubject" class="input-field" placeholder="Subject (optional)" autocomplete="off" />
+        <textarea id="emailBody" class="input-field" placeholder="Message (optional)" spellcheck="false"></textarea>
+      </div>
+
+      <!-- ==== PHONE PANEL ==== -->
+      <div class="panel" id="panel-phone">
+        <p class="label">Phone Number</p>
+        <input type="tel" id="phoneInput" class="input-field" placeholder="+91 98765 43210" autocomplete="off" />
+      </div>
+
+      <!-- ==== SMS PANEL ==== -->
+      <div class="panel" id="panel-sms">
+        <p class="label">SMS</p>
+        <input type="tel" id="smsPhone" class="input-field" placeholder="+91 98765 43210" autocomplete="off" />
+        <textarea id="smsMessage" class="input-field" placeholder="Message" spellcheck="false"></textarea>
+      </div>
+
+      <!-- ==== WIFI PANEL ==== -->
+      <div class="panel" id="panel-wifi">
+        <p class="label">Wi-Fi Details</p>
+        <input type="text" id="wifiSsid" class="input-field" placeholder="Network name (SSID)" autocomplete="off" />
+        <input type="text" id="wifiPassword" class="input-field" placeholder="Password" autocomplete="off" />
+        <div class="select-row">
+          <div class="select-wrapper">
+            <label class="select-label">Security</label>
+            <select id="wifiSecurity" class="select-field">
+              <option value="WPA">WPA / WPA2</option>
+              <option value="WEP">WEP</option>
+              <option value="nopass">None (Open)</option>
+            </select>
+          </div>
+          <div class="select-wrapper">
+            <label class="select-label">Hidden</label>
+            <select id="wifiHidden" class="select-field">
+              <option value="false">No</option>
+              <option value="true">Yes</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==== VCARD PANEL (Extended) ==== -->
+      <div class="panel" id="panel-vcard">
+        <p class="label">Contact Card</p>
+        <input type="text" id="vcardName" class="input-field" placeholder="Full name *" autocomplete="off" />
+        <input type="text" id="vcardNickname" class="input-field" placeholder="Nickname (optional)" autocomplete="off" />
+        <input type="tel" id="vcardPhone" class="input-field" placeholder="Phone" autocomplete="off" />
+        <input type="tel" id="vcardPhone2" class="input-field" placeholder="Second phone (optional)" autocomplete="off" />
+        <input type="email" id="vcardEmail" class="input-field" placeholder="Email" autocomplete="off" />
+        <input type="text" id="vcardCompany" class="input-field" placeholder="Company (optional)" autocomplete="off" />
+        <input type="text" id="vcardTitle" class="input-field" placeholder="Job title (optional)" autocomplete="off" />
+        <input type="text" id="vcardWebsite" class="input-field" placeholder="Website (optional)" autocomplete="off" />
+        <input type="date" id="vcardBirthday" class="input-field" placeholder="Birthday (optional)" />
+        <input type="text" id="vcardAddress" class="input-field" placeholder="Address (optional)" autocomplete="off" />
+        <input type="text" id="vcardPhotoUrl" class="input-field" placeholder="Photo URL (optional)" autocomplete="off" />
+        <textarea id="vcardNotes" class="input-field" placeholder="Notes (optional)" spellcheck="false"></textarea>
+      </div>
+
+      <!-- ==== LOCATION PANEL (Extended) ==== -->
+      <div class="panel" id="panel-location">
+        <p class="label">Location</p>
+        <input type="text" id="locationLat" class="input-field" placeholder="Latitude (e.g. 28.6139)" autocomplete="off" />
+        <input type="text" id="locationLng" class="input-field" placeholder="Longitude (e.g. 77.2090)" autocomplete="off" />
+        <input type="text" id="locationAltitude" class="input-field" placeholder="Altitude (optional, meters)" autocomplete="off" />
+        <input type="text" id="locationLabel" class="input-field" placeholder="Label (optional, e.g. My Office)" autocomplete="off" />
+        <input type="text" id="locationQuery" class="input-field" placeholder="Query / Place name (optional)" autocomplete="off" />
+        <button class="mini-btn" id="getLocationBtn" type="button">📍 Use My Location</button>
+      </div>
+
+      <!-- ==== UPI PANEL (Extended) ==== -->
+      <div class="panel" id="panel-upi">
+        <p class="label">UPI Payment</p>
+        <input type="text" id="upiId" class="input-field" placeholder="UPI ID (e.g. name@upi) *" autocomplete="off" />
+        <input type="text" id="upiName" class="input-field" placeholder="Payee name" autocomplete="off" />
+        <input type="text" id="upiAmount" class="input-field" placeholder="Amount (optional)" autocomplete="off" />
+        <input type="text" id="upiNote" class="input-field" placeholder="Note (optional)" autocomplete="off" />
+        <input type="text" id="upiRef" class="input-field" placeholder="Reference ID (optional)" autocomplete="off" />
+        <div class="select-wrapper">
+          <label class="select-label">Currency</label>
+          <select id="upiCurrency" class="select-field">
+            <option value="INR">INR — Indian Rupee</option>
+            <option value="USD">USD — US Dollar</option>
+            <option value="EUR">EUR — Euro</option>
+            <option value="GBP">GBP — British Pound</option>
+            <option value="AED">AED — UAE Dirham</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ==== IMAGE PANEL ==== -->
+      <div class="panel" id="panel-image">
+        <p class="label">Upload Image</p>
+        <div class="file-upload-wrapper">
+          <input type="file" id="imageInput" class="file-input" accept="image/*" />
+          <label for="imageInput" class="file-label">
+            <span class="file-icon">🖼️</span>
+            <span class="file-text">Click to upload image</span>
+            <span class="file-hint">PNG, JPG, GIF, WebP — Max ~2KB for QR</span>
+          </label>
+        </div>
+        <div class="image-info" id="imageInfo"></div>
+        <p class="hint-text">
+          ⚠️ QR codes can only hold ~2KB of data. Small icons (16×16 or 32×32 px) work best.
+        </p>
+      </div>
+
+      <!-- ==== EVENT PANEL ==== -->
+      <div class="panel" id="panel-event">
+        <p class="label">Event Details</p>
+        <input type="text" id="eventTitle" class="input-field" placeholder="Event title *" autocomplete="off" />
+        <input type="text" id="eventLocation" class="input-field" placeholder="Location" autocomplete="off" />
+        <textarea id="eventDescription" class="input-field" placeholder="Description (optional)" spellcheck="false"></textarea>
+        <div class="select-row">
+          <div class="select-wrapper">
+            <label class="select-label">Start Date & Time</label>
+            <input type="datetime-local" id="eventStart" class="input-field" />
+          </div>
+          <div class="select-wrapper">
+            <label class="select-label">End Date & Time</label>
+            <input type="datetime-local" id="eventEnd" class="input-field" />
+          </div>
+        </div>
+        <div class="select-wrapper">
+          <label class="select-label">All Day Event?</label>
+          <select id="eventAllDay" class="select-field">
+            <option value="false">No</option>
+            <option value="true">Yes</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ==== WHATSAPP PANEL ==== -->
+      <div class="panel" id="panel-whatsapp">
+        <p class="label">WhatsApp Message</p>
+        <input type="tel" id="waPhone" class="input-field" placeholder="Phone with country code (e.g. 919876543210) *" autocomplete="off" />
+        <textarea id="waMessage" class="input-field" placeholder="Pre-filled message (optional)" spellcheck="false"></textarea>
+        <p class="hint-text">💡 Include country code without + or spaces. Example: 919876543210</p>
+      </div>
+
+      <!-- ==== YOUTUBE PANEL ==== -->
+      <div class="panel" id="panel-youtube">
+        <p class="label">YouTube Video</p>
+        <input type="text" id="ytUrl" class="input-field" placeholder="https://youtube.com/watch?v=... *" autocomplete="off" />
+        <p class="hint-text">💡 Paste any YouTube URL — video, shorts, or channel.</p>
+      </div>
+
+      <!-- ==== SPOTIFY PANEL ==== -->
+      <div class="panel" id="panel-spotify">
+        <p class="label">Spotify Link</p>
+        <input type="text" id="spotifyUrl" class="input-field" placeholder="https://open.spotify.com/track/... *" autocomplete="off" />
+        <p class="hint-text">💡 Track, album, playlist, or artist link.</p>
+      </div>
+
+      <!-- ==== CRYPTO PANEL ==== -->
+      <div class="panel" id="panel-crypto">
+        <p class="label">Cryptocurrency</p>
+        <div class="select-wrapper">
+          <label class="select-label">Coin</label>
+          <select id="cryptoCoin" class="select-field">
+            <option value="bitcoin">₿ Bitcoin (BTC)</option>
+            <option value="ethereum">Ξ Ethereum (ETH)</option>
+            <option value="litecoin">Ł Litecoin (LTC)</option>
+            <option value="dogecoin">Ð Dogecoin (DOGE)</option>
+            <option value="bitcoincash">₿ Bitcoin Cash (BCH)</option>
+          </select>
+        </div>
+        <input type="text" id="cryptoAddress" class="input-field" placeholder="Wallet address *" autocomplete="off" spellcheck="false" />
+        <input type="text" id="cryptoAmount" class="input-field" placeholder="Amount (optional)" autocomplete="off" />
+        <input type="text" id="cryptoLabel" class="input-field" placeholder="Label (optional, e.g. My Wallet)" autocomplete="off" />
+      </div>
+
+      <!-- ==== PDF/LINK PANEL ==== -->
+      <div class="panel" id="panel-pdf">
+        <p class="label">PDF / File Link</p>
+        <input type="text" id="pdfTitle" class="input-field" placeholder="Document title *" autocomplete="off" />
+        <input type="text" id="pdfUrl" class="input-field" placeholder="File URL (PDF, DOC, etc.) *" autocomplete="off" />
+        <input type="text" id="pdfDescription" class="input-field" placeholder="Description (optional)" autocomplete="off" />
+      </div>
+
+      <!-- ==== QR OPTIONS ==== -->
+      <p class="label">Options</p>
+
+      <div class="options-grid">
+        <div class="select-wrapper">
+          <label class="select-label">Size</label>
+          <select id="sizeSelect" class="select-field">
+            <option value="200">200 × 200</option>
+            <option value="300" selected>300 × 300</option>
+            <option value="400">400 × 400</option>
+            <option value="512">512 × 512</option>
+            <option value="768">768 × 768</option>
+            <option value="1024">1024 × 1024</option>
+          </select>
+        </div>
+        <div class="select-wrapper">
+          <label class="select-label">Error Level</label>
+          <select id="errorSelect" class="select-field">
+            <option value="L">L — Low (7%)</option>
+            <option value="M" selected>M — Medium (15%)</option>
+            <option value="Q">Q — Quartile (25%)</option>
+            <option value="H">H — High (30%)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="options-grid">
+        <div class="color-picker-wrap">
+          <label class="select-label">Foreground</label>
+          <div class="color-row">
+            <input type="color" id="fgColor" class="color-input" value="#051520" />
+            <span class="color-text" id="fgText">#051520</span>
+          </div>
+        </div>
+        <div class="color-picker-wrap">
+          <label class="select-label">Background</label>
+          <div class="color-row">
+            <input type="color" id="bgColor" class="color-input" value="#ffffff" />
+            <span class="color-text" id="bgText">#FFFFFF</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="select-wrapper">
+        <label class="select-label">Margin (Quiet Zone)</label>
+        <select id="marginSelect" class="select-field">
+          <option value="0">None</option>
+          <option value="2">Small</option>
+          <option value="4" selected>Normal</option>
+          <option value="8">Large</option>
+        </select>
+      </div>
+
+      <!-- ==== QR PREVIEW ==== -->
+      <p class="label">Preview</p>
+      <div class="qr-preview" id="qrPreview">
+        <div class="qr-placeholder" id="qrPlaceholder">
+          <span class="placeholder-icon">📱</span>
+          <p>Your QR code will appear here</p>
+        </div>
+      </div>
+
+      <!-- ==== ACTION BUTTONS ==== -->
+      <div class="action-row">
+        <button class="action-btn primary" id="generateBtn" type="button">⚡ Generate QR</button>
+        <button class="action-btn secondary" id="clearBtn" type="button">✕ Clear</button>
+      </div>
+
+      <p class="label">Download</p>
+      <div class="download-grid">
+        <button class="download-btn" id="downloadPngBtn" type="button">⬇ PNG</button>
+        <button class="download-btn" id="downloadJpgBtn" type="button">⬇ JPG</button>
+        <button class="download-btn" id="downloadJpegBtn" type="button">⬇ JPEG</button>
+        <button class="download-btn" id="downloadWebpBtn" type="button">⬇ WebP</button>
+        <button class="download-btn" id="downloadSvgBtn" type="button">⬇ SVG</button>
+        <button class="download-btn" id="downloadDataBtn" type="button">⬇ .txt</button>
+      </div>
+
+      <!-- ==== DATA PREVIEW ==== -->
+      <p class="label">Encoded Data</p>
+      <div class="data-preview" id="dataPreview">
+        <p class="output-placeholder">Encoded data will appear here...</p>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Generate a QR code first to see details.</p>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>QR Code Generator creates scannable QR codes for <strong>16 different types</strong> of data — text, URL, email, phone, SMS, Wi-Fi, vCard, location, UPI, image, event, WhatsApp, YouTube, Spotify, crypto, and PDF links.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>QR Types</h3>
+          <ul>
+            <li><strong>📝 Text</strong> — plain text or note</li>
+            <li><strong>🔗 URL</strong> — website or link</li>
+            <li><strong>📧 Email</strong> — pre-filled email</li>
+            <li><strong>📞 Phone</strong> — dial a number</li>
+            <li><strong>💬 SMS</strong> — pre-filled message</li>
+            <li><strong>📶 Wi-Fi</strong> — auto-connect to Wi-Fi</li>
+            <li><strong>👤 vCard</strong> — digital contact card (12 fields)</li>
+            <li><strong>📍 Location</strong> — map coordinates + label</li>
+            <li><strong>💳 UPI</strong> — payment link (India)</li>
+            <li><strong>🖼️ Image</strong> — small image inside QR</li>
+            <li><strong>📅 Event</strong> — calendar event</li>
+            <li><strong>💬 WhatsApp</strong> — chat or message</li>
+            <li><strong>📹 YouTube</strong> — video link</li>
+            <li><strong>🎵 Spotify</strong> — track or playlist</li>
+            <li><strong>₿ Crypto</strong> — wallet address</li>
+            <li><strong>📄 PDF / Link</strong> — file or document</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Error Correction Levels</h3>
+          <ul>
+            <li><strong>L (Low)</strong> — 7% damage recoverable</li>
+            <li><strong>M (Medium)</strong> — 15% — recommended</li>
+            <li><strong>Q (Quartile)</strong> — 25%</li>
+            <li><strong>H (High)</strong> — 30% — best for images</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Pick a <strong>type</strong> (Text, URL, Wi-Fi, etc.)</li>
+            <li>Fill in the fields</li>
+            <li>Adjust <strong>size, colors, error level</strong> if needed</li>
+            <li>Click <strong>⚡ Generate QR</strong></li>
+            <li>Download as <strong>PNG, JPG, JPEG, WebP, SVG</strong>, or <strong>.txt</strong></li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Download Formats</h3>
+          <ul>
+            <li><strong>PNG</strong> — lossless, transparent</li>
+            <li><strong>JPG</strong> — smaller, no transparency</li>
+            <li><strong>JPEG</strong> — same as JPG</li>
+            <li><strong>WebP</strong> — modern, small</li>
+            <li><strong>SVG</strong> — vector, scales infinitely</li>
+            <li><strong>.txt</strong> — just the encoded data</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Test the QR with your phone before sharing</li>
+            <li>Use <strong>H</strong> error level if you add an image</li>
+            <li>Keep dark foreground and light background</li>
+            <li>Wi-Fi QR is great for cafes and offices</li>
+            <li>QR codes can hold ~2KB of data max</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="qrcode.html">QR Code</a></li>
+          <li><a href="image-base64.html">Image → Base64</a></li>
+          <li><a href="base64.html">Base64</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Popular</h4>
+        <ul>
+          <li><a href="url.html">URL Encode</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="qrcode.js"></script>
+</body>
+</html>

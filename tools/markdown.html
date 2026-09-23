@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markdown Preview — Dev Tools</title>
+  <meta name="description" content="Write Markdown and see live HTML preview. Copy HTML, download .md or .html. Free online tool.">
+  <link rel="stylesheet" href="markdown.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">📊</div>
+        <h1 class="hero-title">Markdown Preview</h1>
+        <p class="hero-subtitle">Write Markdown — see live HTML preview. Copy or download.</p>
+        <p class="hero-hint">Perfect for GitHub README, blogs, and docs.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- View Toggle + Actions -->
+      <div class="top-row">
+        <div class="view-tabs">
+          <button class="view-tab active" data-view="split" type="button">⚏ Split</button>
+          <button class="view-tab" data-view="editor" type="button">✏️ Editor</button>
+          <button class="view-tab" data-view="preview" type="button">👁️ Preview</button>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" id="themeBtn" type="button" title="Toggle theme">🌙</button>
+          <button class="icon-btn" id="cheatBtn" type="button" title="Cheat sheet">?</button>
+          <button class="icon-btn" id="importBtn" type="button" title="Import .md">📁</button>
+          <button class="icon-btn" id="moreBtn" type="button" title="More options">⚙️</button>
+          <input type="file" id="importFile" accept=".md,.txt,.markdown" style="display:none;" />
+        </div>
+      </div>
+
+      <!-- More Options Dropdown -->
+      <div class="more-dropdown" id="moreDropdown">
+        <div class="more-header">⚙️ Options</div>
+
+        <label class="option-line">
+          <input type="checkbox" id="optAutoSave" checked />
+          <span class="opt-check"></span>
+          <span class="opt-label">Auto-save (localStorage)</span>
+        </label>
+
+        <label class="option-line">
+          <input type="checkbox" id="optScrollSync" checked />
+          <span class="opt-check"></span>
+          <span class="opt-label">Scroll Sync</span>
+        </label>
+
+        <label class="option-line">
+          <input type="checkbox" id="optWordWrap" checked />
+          <span class="opt-check"></span>
+          <span class="opt-label">Word Wrap</span>
+        </label>
+
+        <label class="option-line">
+          <input type="checkbox" id="optLineNumbers" />
+          <span class="opt-check"></span>
+          <span class="opt-label">Line Numbers (approx)</span>
+        </label>
+
+        <div class="option-slider">
+          <span class="opt-label">Font Size: <span id="fontSizeValue">14</span>px</span>
+          <input type="range" id="fontSizeSlider" min="12" max="20" value="14" />
+        </div>
+
+        <div class="more-actions">
+          <button class="more-btn" id="findReplaceBtn" type="button">🔍 Find & Replace</button>
+          <button class="more-btn" id="tocBtn" type="button">📑 TOC</button>
+          <button class="more-btn" id="emojiBtn" type="button">😊 Emoji</button>
+          <button class="more-btn" id="printBtn" type="button">🖨️ Print</button>
+          <button class="more-btn" id="richCopyBtn" type="button">📋 Copy Rich</button>
+          <button class="more-btn" id="clearStorageBtn" type="button">🗑️ Clear Saved</button>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <p class="label">Toolbar</p>
+      <div class="toolbar">
+
+        <!-- Heading dropdown -->
+        <div class="tool-dropdown">
+          <button class="tool-btn dropdown-toggle" id="headingToggle" type="button" title="Headings">
+            H ▾
+          </button>
+          <div class="tool-dropdown-menu" id="headingMenu">
+            <button class="dropdown-item" data-action="h1" type="button">H1 — Heading 1</button>
+            <button class="dropdown-item" data-action="h2" type="button">H2 — Heading 2</button>
+            <button class="dropdown-item" data-action="h3" type="button">H3 — Heading 3</button>
+            <button class="dropdown-item" data-action="h4" type="button">H4 — Heading 4</button>
+            <button class="dropdown-item" data-action="h5" type="button">H5 — Heading 5</button>
+            <button class="dropdown-item" data-action="h6" type="button">H6 — Heading 6</button>
+          </div>
+        </div>
+
+        <button class="tool-btn" data-action="bold" title="Bold" type="button"><b>B</b></button>
+        <button class="tool-btn" data-action="italic" title="Italic" type="button"><i>I</i></button>
+        <button class="tool-btn" data-action="strike" title="Strike" type="button"><s>S</s></button>
+        <button class="tool-btn" data-action="code" title="Inline Code" type="button">&lt;/&gt;</button>
+        <button class="tool-btn" data-action="codeblock" title="Code Block" type="button">{ }</button>
+        <button class="tool-btn" data-action="link" title="Link" type="button">🔗</button>
+        <button class="tool-btn" data-action="image" title="Image" type="button">🖼️</button>
+        <button class="tool-btn" data-action="ul" title="Bullet List" type="button">•</button>
+        <button class="tool-btn" data-action="ol" title="Numbered List" type="button">1.</button>
+        <button class="tool-btn" data-action="quote" title="Quote" type="button">❝</button>
+        <button class="tool-btn" data-action="hr" title="Horizontal Line" type="button">—</button>
+        <button class="tool-btn" data-action="table" title="Table" type="button">▦</button>
+        <button class="tool-btn" data-action="task" title="Task List" type="button">☐</button>
+      </div>
+
+      <!-- Find & Replace Panel -->
+      <div class="find-panel" id="findPanel">
+        <div class="find-row">
+          <input type="text" id="findInput" class="find-input" placeholder="Find..." />
+          <input type="text" id="replaceInput" class="find-input" placeholder="Replace with..." />
+        </div>
+        <div class="find-actions">
+          <button class="mini-btn" id="findNextBtn" type="button">Find Next</button>
+          <button class="mini-btn" id="replaceOneBtn" type="button">Replace</button>
+          <button class="mini-btn" id="replaceAllBtn" type="button">Replace All</button>
+          <button class="mini-btn" id="closeFindBtn" type="button">✕</button>
+        </div>
+      </div>
+
+      <!-- Emoji Picker -->
+      <div class="emoji-picker" id="emojiPicker">
+        <div class="emoji-header">😊 Emoji</div>
+        <div class="emoji-grid" id="emojiGrid"></div>
+      </div>
+
+      <!-- Split View -->
+      <div class="split-view" id="splitView">
+
+        <!-- Editor -->
+        <div class="editor-panel">
+          <div class="panel-header">
+            <span class="panel-title">✏️ Markdown</span>
+            <button class="mini-btn" id="clearBtn" type="button">✕ Clear</button>
+          </div>
+          <textarea
+            id="editorInput"
+            class="editor-input"
+            placeholder="# Hello World
+
+Write your **Markdown** here..."
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <!-- Preview -->
+        <div class="preview-panel">
+          <div class="panel-header">
+            <span class="panel-title">👁️ Preview</span>
+            <button class="mini-btn" id="sampleBtn" type="button">📄 Sample</button>
+          </div>
+          <div class="preview-content" id="previewContent">
+            <p class="preview-placeholder">Your Markdown preview will appear here...</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Stats -->
+      <p class="label">Stats</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-key">Words</span>
+          <span class="stat-value" id="statWords">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Chars</span>
+          <span class="stat-value" id="statChars">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Lines</span>
+          <span class="stat-value" id="statLines">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Read Time</span>
+          <span class="stat-value" id="statTime">0 min</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Headings</span>
+          <span class="stat-value" id="statHeadings">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Links</span>
+          <span class="stat-value" id="statLinks">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Images</span>
+          <span class="stat-value" id="statImages">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Code Blocks</span>
+          <span class="stat-value" id="statCodeBlocks">0</span>
+        </div>
+      </div>
+
+      <!-- Export -->
+      <p class="label">Export</p>
+      <div class="action-grid">
+        <button class="action-btn" id="copyHtmlBtn" type="button">⧉ Copy HTML</button>
+        <button class="action-btn" id="copyMdBtn" type="button">⧉ Copy Markdown</button>
+        <button class="action-btn" id="downloadMdBtn" type="button">⬇ .md</button>
+        <button class="action-btn" id="downloadHtmlBtn" type="button">⬇ .html</button>
+      </div>
+
+      <!-- HTML Output -->
+      <p class="label">HTML Output</p>
+      <div class="output-header">
+        <span class="output-label">Rendered HTML</span>
+        <button class="mini-btn" id="copyRawBtn" type="button">⧉ Copy</button>
+      </div>
+      <div class="output-box" id="htmlOutput">
+        <p class="output-placeholder">HTML code will appear here...</p>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Start typing to see details.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Markdown Preview lets you write <strong>Markdown</strong> and see the rendered HTML in real time. Copy the HTML or download the file.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is Markdown?</h3>
+          <p>Markdown is a lightweight markup language for writing formatted text. Used everywhere — GitHub READMEs, blogs, documentation, notes.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>All Features</h3>
+          <ul>
+            <li><strong>Live Preview</strong> — real-time rendering</li>
+            <li><strong>Split View</strong> — Editor + Preview, or fullscreen either</li>
+            <li><strong>Toolbar</strong> — H1–H6, bold, italic, code, link, lists</li>
+            <li><strong>Auto-Save</strong> — saved in your browser</li>
+            <li><strong>Scroll Sync</strong> — both panels scroll together</li>
+            <li><strong>Import .md</strong> — load existing Markdown files</li>
+            <li><strong>Find &amp; Replace</strong> — search and swap text</li>
+            <li><strong>Emoji Picker</strong> — insert emojis quickly</li>
+            <li><strong>Dark / Light theme</strong></li>
+            <li><strong>Font size</strong> — adjust editor text size</li>
+            <li><strong>Print / PDF</strong> — via browser print</li>
+            <li><strong>Copy Rich Text</strong> — paste into Word with formatting</li>
+            <li><strong>TOC</strong> — outline of all headings</li>
+            <li><strong>Download</strong> — .md or .html</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Markdown Syntax</h3>
+          <ul>
+            <li><code># H1</code> to <code>###### H6</code></li>
+            <li><code>**bold**</code>, <code>*italic*</code>, <code>~~strike~~</code></li>
+            <li><code>`code`</code> and <code>```block```</code></li>
+            <li><code>[link](url)</code>, <code>![img](url)</code></li>
+            <li><code>- item</code>, <code>1. item</code></li>
+            <li><code>&gt; quote</code>, <code>---</code> hr</li>
+            <li><code>| a | b |</code> table</li>
+            <li><code>- [ ] task</code></li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Type or paste Markdown in the editor</li>
+            <li>See the live preview on the right</li>
+            <li>Use the <strong>toolbar</strong> for quick formatting</li>
+            <li>Open <strong>⚙️ More Options</strong> for extras</li>
+            <li>Click <strong>Copy HTML</strong> or download</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Use more <strong>#</strong> for smaller headings</li>
+            <li>Leave a blank line between paragraphs</li>
+            <li>Use <strong>```language</strong> for code blocks with highlighting</li>
+            <li>Perfect for writing GitHub README files</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Cheat Sheet Modal -->
+  <div class="modal-overlay" id="cheatModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>📖 Markdown Cheat Sheet</h3>
+        <button class="modal-close" id="closeCheatBtn" type="button">✕</button>
+      </div>
+      <div class="modal-body">
+        <h4>Headings</h4>
+        <pre><code># H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6</code></pre>
+
+        <h4>Text Style</h4>
+        <pre><code>**bold**
+*italic*
+~~strikethrough~~
+`inline code`</code></pre>
+
+        <h4>Links & Images</h4>
+        <pre><code>[link text](https://example.com)
+![alt text](image.png)</code></pre>
+
+        <h4>Lists</h4>
+        <pre><code>- Item 1
+- Item 2
+  - Nested
+
+1. First
+2. Second</code></pre>
+
+        <h4>Task List</h4>
+        <pre><code>- [x] Done
+- [ ] Pending</code></pre>
+
+        <h4>Quote</h4>
+        <pre><code>&gt; This is a quote</code></pre>
+
+        <h4>Code Block</h4>
+        <pre><code>```javascript
+console.log("hello");
+```</code></pre>
+
+        <h4>Table</h4>
+        <pre><code>| Col 1 | Col 2 |
+|-------|-------|
+| A     | B     |</code></pre>
+
+        <h4>Horizontal Line</h4>
+        <pre><code>---</code></pre>
+
+        <h4>Line Break</h4>
+        <pre><code>End a line with two spaces  
+for a line break.</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOC Modal -->
+  <div class="modal-overlay" id="tocModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>📑 Table of Contents</h3>
+        <button class="modal-close" id="closeTocBtn" type="button">✕</button>
+      </div>
+      <div class="modal-body" id="tocBody">
+        <p class="no-details">No headings yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="markdown.html">Markdown Preview</a></li>
+          <li><a href="json.html">JSON Formatter</a></li>
+          <li><a href="regex.html">Regex Tester</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Popular</h4>
+        <ul>
+          <li><a href="base64.html">Base64</a></li>
+          <li><a href="url.html">URL Encode</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/common.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js"></script>
+
+  <script src="markdown.js"></script>
+</body>
+</html>

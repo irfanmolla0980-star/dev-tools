@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time Zone Converter — Dev Tools</title>
+  <meta name="description" content="Convert time between 70+ time zones with UTC, GMT offset, DST info. Free online tool.">
+  <link rel="stylesheet" href="timezone.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🕐</div>
+        <h1 class="hero-title">Time Zone Converter</h1>
+        <p class="hero-subtitle">Convert time between 70+ time zones instantly.</p>
+        <p class="hero-hint">Search, pick, and convert.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Live Clock -->
+      <div class="live-clock-box">
+        <div class="live-clock-header">
+          <span class="live-dot"></span>
+          <span class="live-label">Your Local Time</span>
+        </div>
+        <div class="live-clock-time" id="liveClockTime">—</div>
+        <div class="live-clock-date" id="liveClockDate">—</div>
+        <div class="live-clock-zone" id="liveClockZone">—</div>
+      </div>
+
+      <!-- UTC Box -->
+      <div class="utc-box">
+        <div class="utc-header">
+          <span class="utc-icon">🌍</span>
+          <span class="utc-label">UTC (Coordinated Universal Time)</span>
+        </div>
+        <div class="utc-time" id="utcTime">—</div>
+        <div class="utc-date" id="utcDate">—</div>
+        <button class="utc-copy-btn" id="utcCopyBtn" type="button">⧉ Copy UTC</button>
+      </div>
+
+      <!-- Date + Time Row -->
+      <p class="label">Date &amp; Time</p>
+      <div class="datetime-row">
+        <input type="date" id="dateInput" class="datetime-input" />
+        <input type="time" id="timeInput" class="datetime-input" />
+        <button class="now-btn" id="nowBtn" type="button" title="Set to now">Now</button>
+      </div>
+
+      <!-- Format Toggle + Offset Info -->
+      <div class="meta-row">
+        <div class="format-toggle">
+          <button class="format-btn active" data-format="12" type="button">12h</button>
+          <button class="format-btn" data-format="24" type="button">24h</button>
+        </div>
+        <div class="time-diff" id="timeDiff">—</div>
+      </div>
+
+      <!-- From / Swap / To -->
+      <p class="label">From / To</p>
+      <div class="from-to-grid">
+
+        <div class="select-wrapper">
+          <label class="select-label">From</label>
+          <div class="zone-picker" id="fromPicker">
+            <div class="zone-picker-display" id="fromDisplay">
+              <span class="zone-picker-text">Select zone...</span>
+              <span class="zone-picker-arrow">▾</span>
+            </div>
+            <div class="zone-picker-dropdown" id="fromDropdown">
+              <input type="text" class="zone-picker-search" id="fromSearch" placeholder="Search..." autocomplete="off" spellcheck="false" />
+              <div class="zone-picker-list" id="fromList"></div>
+            </div>
+          </div>
+        </div>
+
+        <button class="swap-btn" id="swapBtn" type="button" title="Swap">⇅</button>
+
+        <div class="select-wrapper">
+          <label class="select-label">To</label>
+          <div class="zone-picker" id="toPicker">
+            <div class="zone-picker-display" id="toDisplay">
+              <span class="zone-picker-text">Select zone...</span>
+              <span class="zone-picker-arrow">▾</span>
+            </div>
+            <div class="zone-picker-dropdown" id="toDropdown">
+              <input type="text" class="zone-picker-search" id="toSearch" placeholder="Search..." autocomplete="off" spellcheck="false" />
+              <div class="zone-picker-list" id="toList"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main Output -->
+      <div class="main-output" id="mainOutput">
+        <div class="main-output-value" id="mainValue">—</div>
+        <button class="main-copy-btn" id="mainCopyBtn" type="button">⧉</button>
+      </div>
+
+      <!-- Quick Zones -->
+      <p class="label">Quick Zones</p>
+      <div class="quick-zones">
+        <button class="quick-zone" data-zone="Asia/Kolkata" type="button">IST — India</button>
+        <button class="quick-zone" data-zone="America/New_York" type="button">EST — New York</button>
+        <button class="quick-zone" data-zone="America/Los_Angeles" type="button">PST — Los Angeles</button>
+        <button class="quick-zone" data-zone="Europe/London" type="button">GMT — London</button>
+        <button class="quick-zone" data-zone="Europe/Berlin" type="button">CET — Berlin</button>
+        <button class="quick-zone" data-zone="Asia/Tokyo" type="button">JST — Tokyo</button>
+        <button class="quick-zone" data-zone="Asia/Dubai" type="button">GST — Dubai</button>
+        <button class="quick-zone" data-zone="Asia/Singapore" type="button">SGT — Singapore</button>
+        <button class="quick-zone" data-zone="Australia/Sydney" type="button">AEDT — Sydney</button>
+        <button class="quick-zone" data-zone="UTC" type="button">UTC — Universal</button>
+      </div>
+
+      <!-- All Zones Header with Search -->
+      <p class="label">All Time Zones</p>
+
+      <div class="search-wrapper">
+        <input
+          type="text"
+          id="zoneSearch"
+          class="zone-search"
+          placeholder="Search country, city, or code — e.g. India, Tokyo, IST..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="search-clear-btn" id="searchClearBtn" type="button">✕</button>
+      </div>
+
+      <div class="all-zones-header">
+        <span class="all-zones-title" id="zonesCount">70 time zones</span>
+        <button class="mini-btn" id="copyAllBtn" type="button">⧉ Copy All</button>
+      </div>
+
+      <!-- All Zones List -->
+      <div class="all-zones-list" id="allZonesList">
+        <p class="output-placeholder">Time conversions will appear here...</p>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Enter a date and time to see details.</p>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Time Zone Converter shows you the same moment in time across <strong>70+ time zones</strong> — instantly. Includes UTC, GMT offset, DST detection, and more.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Why is it useful?</h3>
+          <ul>
+            <li>Scheduling meetings across countries</li>
+            <li>Understanding API timestamps</li>
+            <li>Server logs and debugging</li>
+            <li>International deadlines and events</li>
+            <li>Travel planning</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>What is UTC?</h3>
+          <p><strong>UTC</strong> (Coordinated Universal Time) is the global standard. All other zones are expressed as an offset from UTC — like +5:30, -8:00, etc.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is DST?</h3>
+          <p><strong>DST</strong> (Daylight Saving Time) — many countries move their clocks forward by 1 hour in summer. This tool automatically detects DST.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Features</h3>
+          <ul>
+            <li><strong>70+ time zones</strong> with cities and abbreviations</li>
+            <li><strong>Live local clock</strong> and <strong>UTC clock</strong></li>
+            <li><strong>Search bar</strong> — find any country, city, or code</li>
+            <li><strong>Custom dropdowns</strong> with their own search</li>
+            <li><strong>12h / 24h format</strong> toggle</li>
+            <li><strong>Time difference</strong> between two zones</li>
+            <li><strong>All zones at once</strong> — click any to copy</li>
+            <li><strong>Details</strong> — offset, DST, abbreviation, difference</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Pick a <strong>date</strong> and <strong>time</strong> (or click <strong>Now</strong>)</li>
+            <li>Choose <strong>From</strong> and <strong>To</strong> zones (search inside dropdown)</li>
+            <li>The result updates instantly</li>
+            <li>Use the search bar to filter all zones</li>
+            <li>Click any row to copy that value</li>
+            <li>Use <strong>⇅ Swap</strong> to reverse</li>
+            <li>Toggle <strong>12h / 24h</strong> as needed</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Use <strong>UTC</strong> when working with servers</li>
+            <li>Click <strong>Now</strong> to jump to the current time</li>
+            <li>Your local time zone is auto-detected</li>
+            <li>DST is handled automatically</li>
+            <li>Click <strong>Copy UTC</strong> to grab the UTC time</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="timezone.html">Time Zone</a></li>
+          <li><a href="timestamp.html">Timestamp</a></li>
+          <li><a href="unit.html">Unit Converter</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Time Tools</h4>
+        <ul>
+          <li><a href="timestamp.html">Timestamp Converter</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="password.html">Password Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="timezone.js"></script>
+</body>
+</html>

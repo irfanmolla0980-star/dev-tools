@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image → Base64 — Dev Tools</title>
+  <meta name="description" content="Convert images to Base64 and back. Supports PNG, JPEG, WebP, GIF, SVG. Free online tool.">
+  <link rel="stylesheet" href="image-base64.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🖼️</div>
+        <h1 class="hero-title">Image → Base64</h1>
+        <p class="hero-subtitle">Convert images to Base64 code and back — copy in any format.</p>
+        <p class="hero-hint">Drop, paste, or upload an image.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Mode Tabs -->
+      <p class="label">Mode</p>
+      <div class="mode-tabs">
+        <button class="mode-tab active" data-mode="img2b64" type="button">🖼️ Image → Base64</button>
+        <button class="mode-tab" data-mode="b642img" type="button">🔁 Base64 → Image</button>
+      </div>
+
+      <!-- ============ IMAGE → BASE64 ============ -->
+      <div class="mode-panel active" id="panel-img2b64">
+
+        <!-- Drop Zone -->
+        <div class="drop-zone" id="dropZone">
+          <input type="file" id="fileInput" class="file-input" accept="image/*" />
+          <div class="drop-content">
+            <div class="drop-icon">📤</div>
+            <p class="drop-title">Drop image here</p>
+            <p class="drop-sub">or click to browse</p>
+            <p class="drop-hint">PNG, JPG, JPEG, WebP, GIF, SVG, BMP, ICO</p>
+          </div>
+        </div>
+
+        <!-- Paste & Actions -->
+        <div class="quick-actions">
+          <button class="mini-btn" id="pasteBtn" type="button">📋 Paste Image</button>
+          <button class="mini-btn" id="clearImgBtn" type="button">✕ Clear</button>
+        </div>
+
+        <!-- Image Info -->
+        <div class="image-info" id="imageInfo" style="display: none;">
+          <div class="info-preview">
+            <img id="imgPreview" alt="preview" />
+          </div>
+          <div class="info-details">
+            <div class="info-row">
+              <span class="info-key">Name</span>
+              <span class="info-value" id="infoName">—</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Type</span>
+              <span class="info-value" id="infoType">—</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Original Size</span>
+              <span class="info-value" id="infoOrigSize">—</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Dimensions</span>
+              <span class="info-value" id="infoDimensions">—</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Base64 Size</span>
+              <span class="info-value" id="infoB64Size">—</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">Size Increase</span>
+              <span class="info-value" id="infoIncrease">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Options -->
+        <p class="label">Options</p>
+        <div class="options-grid">
+          <div class="select-wrapper">
+            <label class="select-label">Convert Format</label>
+            <select id="convertFormat" class="select-field">
+              <option value="original">Original</option>
+              <option value="png">PNG</option>
+              <option value="jpeg">JPEG</option>
+              <option value="webp">WebP</option>
+            </select>
+          </div>
+          <div class="select-wrapper">
+            <label class="select-label">Quality (JPEG/WebP)</label>
+            <select id="qualitySelect" class="select-field">
+              <option value="0.6">60%</option>
+              <option value="0.8" selected>80%</option>
+              <option value="0.9">90%</option>
+              <option value="1">100%</option>
+            </select>
+          </div>
+        </div>
+
+        <label class="checkbox-item">
+          <input type="checkbox" id="resizeCheck" />
+          <span class="checkbox-box"></span>
+          <span class="checkbox-text">Resize image</span>
+        </label>
+
+        <div class="resize-row" id="resizeRow" style="display: none;">
+          <input type="number" id="resizeWidth" class="input-field small" placeholder="Width" min="1" />
+          <input type="number" id="resizeHeight" class="input-field small" placeholder="Height" min="1" />
+          <label class="checkbox-item compact">
+            <input type="checkbox" id="keepRatio" checked />
+            <span class="checkbox-box"></span>
+            <span class="checkbox-text">Keep ratio</span>
+          </label>
+        </div>
+
+        <!-- Output Format Tabs -->
+        <p class="label">Copy Format</p>
+        <div class="format-tabs">
+          <button class="format-tab active" data-format="raw" type="button">Raw</button>
+          <button class="format-tab" data-format="datauri" type="button">Data URI</button>
+          <button class="format-tab" data-format="css" type="button">CSS</button>
+          <button class="format-tab" data-format="html" type="button">HTML img</button>
+          <button class="format-tab" data-format="htmlpic" type="button">HTML picture</button>
+          <button class="format-tab" data-format="markdown" type="button">Markdown</button>
+        </div>
+
+        <!-- Output -->
+        <div class="output-header">
+          <span class="output-label">Output</span>
+          <div class="output-actions">
+            <button class="mini-btn" id="copyBtn" type="button">⧉ Copy</button>
+            <button class="mini-btn" id="downloadTxtBtn" type="button">⬇ .txt</button>
+            <button class="mini-btn" id="downloadImgBtn" type="button">⬇ Image</button>
+          </div>
+        </div>
+
+        <div class="output-box" id="outputBox">
+          <p class="output-placeholder">Base64 code will appear here...</p>
+        </div>
+
+      </div>
+
+      <!-- ============ BASE64 → IMAGE ============ -->
+      <div class="mode-panel" id="panel-b642img">
+
+        <p class="label">Paste Base64</p>
+        <textarea id="b64Input" class="input-field" placeholder="Paste Base64 string or Data URI here..." spellcheck="false"></textarea>
+
+        <div class="quick-actions">
+          <button class="mini-btn" id="pasteB64Btn" type="button">📋 Paste Text</button>
+          <button class="mini-btn" id="convertBtn" type="button">🔁 Convert</button>
+          <button class="mini-btn" id="clearB64Btn" type="button">✕ Clear</button>
+        </div>
+
+        <div class="status-bar" id="b64Status">
+          <span class="status-icon">🔁</span>
+          <span class="status-text">Paste a Base64 string and click Convert</span>
+        </div>
+
+        <p class="label">Preview</p>
+        <div class="b64-preview" id="b64Preview">
+          <div class="b64-placeholder">
+            <span class="placeholder-icon">🔁</span>
+            <p>Image will appear here</p>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button class="action-btn primary" id="downloadDecodedBtn" type="button">⬇ Download Image</button>
+        </div>
+
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Upload an image or paste Base64 to see details.</p>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Image → Base64 converts images into <strong>Base64 text</strong> that can be embedded directly in HTML, CSS, JSON, or APIs. It also works in reverse — Base64 back to an image.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is Base64?</h3>
+          <p>Base64 is a way of encoding binary data (like images) into plain text using 64 characters: <strong>A–Z, a–z, 0–9, +, /</strong>.</p>
+          <p>This makes it safe to put images inside HTML, CSS, JSON, or email.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Why use it?</h3>
+          <ul>
+            <li><strong>Fewer HTTP requests</strong> — image travels with HTML/CSS</li>
+            <li><strong>APIs</strong> — send images as JSON text</li>
+            <li><strong>Email</strong> — images show inside the message</li>
+            <li><strong>Single-file apps</strong> — everything in one HTML file</li>
+            <li><strong>Offline apps</strong> — no external files needed</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Copy Formats</h3>
+          <ul>
+            <li><strong>Raw</strong> — plain Base64 string</li>
+            <li><strong>Data URI</strong> — <code>data:image/png;base64,...</code></li>
+            <li><strong>CSS</strong> — <code>background: url('data:...')</code></li>
+            <li><strong>HTML img</strong> — <code>&lt;img src="data:..."&gt;</code></li>
+            <li><strong>HTML picture</strong> — responsive picture tag</li>
+            <li><strong>Markdown</strong> — <code>![alt](data:...)</code></li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Drop, paste, or click to choose an image</li>
+            <li>Adjust format, quality, or resize options</li>
+            <li>Pick a copy format (Raw, CSS, HTML, etc.)</li>
+            <li>Click <strong>⧉ Copy</strong> or download</li>
+            <li>Paste anywhere — HTML, CSS, JSON, API</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Best for <strong>small images</strong> (icons, logos) under 10 KB</li>
+            <li>Base64 is <strong>~33% larger</strong> than the original</li>
+            <li>Compress or resize before converting</li>
+            <li>Use <strong>WebP</strong> for smallest size</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="image-base64.html">Image → Base64</a></li>
+          <li><a href="base64.html">Base64 Text</a></li>
+          <li><a href="qrcode.html">QR Code</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Popular</h4>
+        <ul>
+          <li><a href="url.html">URL Encode</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="image-base64.js"></script>
+</body>
+</html>
