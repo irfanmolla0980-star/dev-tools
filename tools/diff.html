@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diff Checker — Dev Tools</title>
+  <meta name="description" content="Compare two texts or code files and see the differences instantly. Free online diff checker.">
+  <link rel="stylesheet" href="diff.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+    <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+    <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+    <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+    <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+    <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+    <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+    <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+    <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+    <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+    <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+    <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+    <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+    <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+    <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+    <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+    <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+    <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+    <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+    <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+    <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+    <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+    <li><a href="diff.html" class="nav-link">🔍 Diff</a></li>
+    <li><a href="case.html" class="nav-link">🔤 Case</a></li>
+    <li><a href="css-minify.html" class="nav-link">📐 CSS Min</a></li>
+    <li><a href="palette.html" class="nav-link">🎨 Palette</a></li>
+    <li><a href="cron.html" class="nav-link">⏰ Cron</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🔍</div>
+        <h1 class="hero-title">Diff Checker</h1>
+        <p class="hero-subtitle">Compare two texts or files and see exactly what changed.</p>
+        <p class="hero-hint">Paste or drop two files to compare.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Top Actions -->
+      <div class="top-actions">
+        <button class="icon-btn" id="themeBtn" type="button" title="Toggle theme">🌙</button>
+        <button class="icon-btn" id="swapBtn" type="button" title="Swap sides">⇅</button>
+        <button class="icon-btn" id="moreBtn" type="button" title="More options">⚙️</button>
+      </div>
+
+      <!-- More Options Dropdown -->
+      <div class="more-dropdown" id="moreDropdown">
+        <div class="more-header">⚙️ Options</div>
+
+        <label class="option-line">
+          <input type="checkbox" id="optIgnoreCase" />
+          <span class="opt-check"></span>
+          <span class="opt-label">Ignore case</span>
+        </label>
+
+        <label class="option-line">
+          <input type="checkbox" id="optIgnoreWhitespace" />
+          <span class="opt-check"></span>
+          <span class="opt-label">Ignore whitespace</span>
+        </label>
+
+        <label class="option-line">
+          <input type="checkbox" id="optIgnoreBlank" />
+          <span class="opt-check"></span>
+          <span class="opt-label">Ignore blank lines</span>
+        </label>
+
+        <label class="option-line">
+          <input type="checkbox" id="optLineNumbers" checked />
+          <span class="opt-check"></span>
+          <span class="opt-label">Show line numbers</span>
+        </label>
+
+        <label class="option-line">
+          <input type="checkbox" id="optHighlightWords" />
+          <span class="opt-check"></span>
+          <span class="opt-label">Highlight changed words</span>
+        </label>
+      </div>
+
+      <!-- View Tabs -->
+      <div class="view-tabs">
+        <button class="view-tab active" data-view="split" type="button">⚏ Side by Side</button>
+        <button class="view-tab" data-view="unified" type="button">☰ Unified</button>
+        <button class="view-tab" data-view="inline" type="button">↔ Inline</button>
+      </div>
+
+      <!-- Input Panels -->
+      <div class="input-area" id="inputArea">
+
+        <div class="input-panel">
+          <div class="panel-header">
+            <span class="panel-title">📄 Original</span>
+            <div class="panel-actions">
+              <button class="mini-btn" id="paste1Btn" type="button">📋 Paste</button>
+              <button class="mini-btn" id="clear1Btn" type="button">✕</button>
+            </div>
+          </div>
+          <textarea
+            id="text1"
+            class="text-area"
+            placeholder="Paste the original text or code here..."
+            spellcheck="false"
+          ></textarea>
+          <div class="drop-hint" id="drop1">📁 Drop a file here</div>
+        </div>
+
+        <div class="input-panel">
+          <div class="panel-header">
+            <span class="panel-title">📄 Changed</span>
+            <div class="panel-actions">
+              <button class="mini-btn" id="paste2Btn" type="button">📋 Paste</button>
+              <button class="mini-btn" id="clear2Btn" type="button">✕</button>
+            </div>
+          </div>
+          <textarea
+            id="text2"
+            class="text-area"
+            placeholder="Paste the changed text or code here..."
+            spellcheck="false"
+          ></textarea>
+          <div class="drop-hint" id="drop2">📁 Drop a file here</div>
+        </div>
+
+      </div>
+
+      <!-- Action Row -->
+      <div class="action-row">
+        <button class="action-btn primary" id="compareBtn" type="button">🔍 Compare</button>
+        <button class="action-btn secondary" id="sampleBtn" type="button">📄 Sample</button>
+        <button class="action-btn secondary" id="clearAllBtn" type="button">✕ Clear All</button>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card stat-added">
+          <span class="stat-key">Added</span>
+          <span class="stat-value" id="statAdded">0</span>
+        </div>
+        <div class="stat-card stat-removed">
+          <span class="stat-key">Removed</span>
+          <span class="stat-value" id="statRemoved">0</span>
+        </div>
+        <div class="stat-card stat-changed">
+          <span class="stat-key">Changed</span>
+          <span class="stat-value" id="statChanged">0</span>
+        </div>
+        <div class="stat-card stat-same">
+          <span class="stat-key">Unchanged</span>
+          <span class="stat-value" id="statSame">0</span>
+        </div>
+      </div>
+
+      <!-- Diff Output Header -->
+      <div class="output-header">
+        <span class="output-label">Diff Result</span>
+        <div class="output-actions">
+          <button class="mini-btn" id="copyDiffBtn" type="button">⧉ Copy</button>
+          <button class="mini-btn" id="downloadDiffBtn" type="button">⬇ .patch</button>
+          <button class="mini-btn" id="downloadHtmlBtn" type="button">⬇ .html</button>
+        </div>
+      </div>
+
+      <!-- Diff Output -->
+      <div class="diff-output" id="diffOutput">
+        <p class="output-placeholder">Paste two texts and click Compare to see differences.</p>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Run a comparison to see details.</p>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Diff Checker compares two pieces of text or code and shows exactly what <strong>changed, added, or removed</strong>.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Why use it?</h3>
+          <ul>
+            <li><strong>Git workflow</strong> — see changes before committing</li>
+            <li><strong>Code review</strong> — compare two versions</li>
+            <li><strong>API responses</strong> — find what changed between calls</li>
+            <li><strong>Config files</strong> — compare .env or config.json</li>
+            <li><strong>Translations</strong> — match two language files</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Three View Modes</h3>
+          <ul>
+            <li><strong>Side by Side</strong> — two columns, easy to scan</li>
+            <li><strong>Unified</strong> — one column, Git-style</li>
+            <li><strong>Inline</strong> — side by side with inline word highlighting</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Options</h3>
+          <ul>
+            <li><strong>Ignore case</strong> — treat A and a as same</li>
+            <li><strong>Ignore whitespace</strong> — ignore spaces and tabs</li>
+            <li><strong>Ignore blank lines</strong> — skip empty lines</li>
+            <li><strong>Line numbers</strong> — show line numbers</li>
+            <li><strong>Highlight words</strong> — highlight changed words</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Paste original text on the left</li>
+            <li>Paste changed text on the right</li>
+            <li>Or drop files into the panels</li>
+            <li>Adjust options if needed</li>
+            <li>Click <strong>🔍 Compare</strong></li>
+            <li>Copy or download the result</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Use <strong>Swap</strong> to reverse left and right</li>
+            <li>Use <strong>Unified view</strong> to see Git-style output</li>
+            <li>Download <strong>.patch</strong> to apply in Git</li>
+            <li>Works with any text — code, docs, config</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="diff.html">Diff Checker</a></li>
+          <li><a href="json.html">JSON Formatter</a></li>
+          <li><a href="regex.html">Regex Tester</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Popular</h4>
+        <ul>
+          <li><a href="base64.html">Base64</a></li>
+          <li><a href="url.html">URL Encode</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="diff.js"></script>
+</body>
+</html>
