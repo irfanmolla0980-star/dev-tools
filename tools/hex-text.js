@@ -58,6 +58,30 @@ if (detailsToggle && detailsDropdown) {
   });
 }
 
+// ===== Theme Toggle (Dark mode toggle, light default) =====
+const themeBtn = document.getElementById('themeBtn');
+
+if (themeBtn) {
+  const savedTheme = localStorage.getItem('devtools_theme') || 'light';
+
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeBtn.querySelector('.theme-icon').textContent = '☀️';
+    themeBtn.querySelector('.theme-label').textContent = 'Light Mode';
+  } else {
+    themeBtn.querySelector('.theme-icon').textContent = '🌙';
+    themeBtn.querySelector('.theme-label').textContent = 'Dark Mode';
+  }
+
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    themeBtn.querySelector('.theme-icon').textContent = isDark ? '☀️' : '🌙';
+    themeBtn.querySelector('.theme-label').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    localStorage.setItem('devtools_theme', isDark ? 'dark' : 'light');
+  });
+}
+
 // Mode Switch
 modeButtons.forEach(btn => {
   btn.addEventListener('click', () => {

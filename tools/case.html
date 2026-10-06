@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Converter — Dev Tools</title>
+  <meta name="description" content="Convert text between camelCase, snake_case, UPPERCASE, lowercase, Title Case, and 12+ other case styles. Free online tool.">
+  <link rel="stylesheet" href="case.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+      <li><a href="diff.html" class="nav-link">🔍 Diff</a></li>
+      <li><a href="http-status.html" class="nav-link">🌐 HTTP</a></li>
+      <li><a href="jwt.html" class="nav-link">🎫 JWT</a></li>
+      <li><a href="html-entity.html" class="nav-link">📋 HTML Entity</a></li>
+      <li><a href="hmac.html" class="nav-link">🔐 HMAC</a></li>
+      <li><a href="subnet.html" class="nav-link">🌍 Subnet</a></li>
+      <li><a href="case.html" class="nav-link">🔤 Case</a></li>
+      <li><a href="css-minify.html" class="nav-link">📐 CSS Min</a></li>
+      <li><a href="palette.html" class="nav-link">🎨 Palette</a></li>
+      <li><a href="cron.html" class="nav-link">⏰ Cron</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🔤</div>
+        <h1 class="hero-title">Case Converter</h1>
+        <p class="hero-subtitle">Convert text to 12+ case styles instantly.</p>
+        <p class="hero-hint">camelCase, snake_case, UPPERCASE, and more.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Theme Toggle -->
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle" id="themeBtn" type="button">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Dark Mode</span>
+        </button>
+      </div>
+
+      <!-- Input -->
+      <p class="label">Input Text</p>
+      <div class="input-wrapper">
+        <textarea
+          id="inputBox"
+          class="input-box"
+          placeholder="Type or paste your text here..."
+          spellcheck="false"
+        ></textarea>
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <div class="quick-actions">
+        <button class="mini-btn" id="pasteBtn" type="button">📋 Paste</button>
+        <button class="mini-btn" id="sampleBtn" type="button">📄 Sample</button>
+        <button class="mini-btn" id="swapCaseBtn" type="button">⇅ Swap Case</button>
+      </div>
+
+      <!-- Options -->
+      <p class="label">Options</p>
+      <div class="options-grid">
+        <label class="option-line">
+          <input type="checkbox" id="optTrim" checked />
+          <span class="opt-check"></span>
+          <span class="opt-label">Trim spaces</span>
+        </label>
+        <label class="option-line">
+          <input type="checkbox" id="optRemoveExtra" checked />
+          <span class="opt-check"></span>
+          <span class="opt-label">Remove extra spaces</span>
+        </label>
+        <label class="option-line">
+          <input type="checkbox" id="optRemoveSpecial" />
+          <span class="opt-check"></span>
+          <span class="opt-label">Remove special chars</span>
+        </label>
+        <label class="option-line">
+          <input type="checkbox" id="optRemoveNumbers" />
+          <span class="opt-check"></span>
+          <span class="opt-label">Remove numbers</span>
+        </label>
+      </div>
+
+      <!-- Stats -->
+      <p class="label">Stats</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-key">Words</span>
+          <span class="stat-value" id="statWords">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Chars</span>
+          <span class="stat-value" id="statChars">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Lines</span>
+          <span class="stat-value" id="statLines">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Sentences</span>
+          <span class="stat-value" id="statSentences">0</span>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <p class="label">Results (click any to copy)</p>
+      <div class="results-grid" id="resultsGrid">
+        <p class="output-placeholder">Type something to see 12 case styles...</p>
+      </div>
+
+      <!-- Actions -->
+      <div class="action-row">
+        <button class="action-btn primary" id="copyAllBtn" type="button">⧉ Copy All</button>
+        <button class="action-btn secondary" id="downloadBtn" type="button">⬇ Download</button>
+        <button class="action-btn secondary" id="clearAllBtn" type="button">✕ Clear</button>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Type something to see details.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>Case Converter transforms text into <strong>12+ different case styles</strong> used in programming, APIs, and databases.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Case Types</h3>
+          <ul>
+            <li><strong>UPPERCASE</strong> — all capital letters</li>
+            <li><strong>lowercase</strong> — all small letters</li>
+            <li><strong>Title Case</strong> — Every Word Capitalized</li>
+            <li><strong>Sentence case</strong> — First letter capital</li>
+            <li><strong>camelCase</strong> — firstWordSmall, restCapital</li>
+            <li><strong>PascalCase</strong> — EveryWordCapital</li>
+            <li><strong>snake_case</strong> — words_with_underscores</li>
+            <li><strong>kebab-case</strong> — words-with-hyphens</li>
+            <li><strong>CONSTANT_CASE</strong> — ALL_CAPS_WITH_UNDERSCORES</li>
+            <li><strong>dot.case</strong> — words.with.dots</li>
+            <li><strong>path/case</strong> — words/with/slashes</li>
+            <li><strong>aLtErNaTiNg</strong> — alternating caps</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Where is it used?</h3>
+          <ul>
+            <li><strong>camelCase</strong> — JavaScript variables, JSON keys</li>
+            <li><strong>PascalCase</strong> — React components, classes</li>
+            <li><strong>snake_case</strong> — Python variables, database columns</li>
+            <li><strong>kebab-case</strong> — CSS classes, URL slugs, file names</li>
+            <li><strong>CONSTANT_CASE</strong> — constants, environment variables</li>
+            <li><strong>UPPERCASE</strong> — acronyms, constants</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Type or paste text in the input box</li>
+            <li>See all 12 case styles instantly</li>
+            <li>Click any card to copy that case</li>
+            <li>Adjust options if needed</li>
+            <li>Click <strong>Copy All</strong> or download</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Use <strong>camelCase</strong> for JS variables</li>
+            <li>Use <strong>snake_case</strong> for Python and databases</li>
+            <li>Use <strong>kebab-case</strong> for CSS and URLs</li>
+            <li>Use <strong>CONSTANT_CASE</strong> for constants</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="case.html">Case Converter</a></li>
+          <li><a href="json.html">JSON Formatter</a></li>
+          <li><a href="regex.html">Regex Tester</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Popular</h4>
+        <ul>
+          <li><a href="base64.html">Base64</a></li>
+          <li><a href="url.html">URL Encode</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="case.js"></script>
+</body>
+</html>

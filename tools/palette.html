@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Palette Generator — Dev Tools</title>
+  <meta name="description" content="Generate color palettes, tints, shades, Tailwind scales, and check contrast. Free online color palette generator.">
+  <link rel="stylesheet" href="palette.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+      <li><a href="diff.html" class="nav-link">🔍 Diff</a></li>
+      <li><a href="http-status.html" class="nav-link">🌐 HTTP</a></li>
+      <li><a href="jwt.html" class="nav-link">🎫 JWT</a></li>
+      <li><a href="html-entity.html" class="nav-link">📋 HTML Entity</a></li>
+      <li><a href="hmac.html" class="nav-link">🔐 HMAC</a></li>
+      <li><a href="subnet.html" class="nav-link">🌍 Subnet</a></li>
+      <li><a href="case.html" class="nav-link">🔤 Case</a></li>
+      <li><a href="css-minify.html" class="nav-link">📐 CSS Min</a></li>
+      <li><a href="palette.html" class="nav-link">🎨 Palette</a></li>
+      <li><a href="cron.html" class="nav-link">⏰ Cron</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🎨</div>
+        <h1 class="hero-title">Color Palette Generator</h1>
+        <p class="hero-subtitle">Generate tints, shades, Tailwind scales, harmony palettes, and check contrast — all from one base color.</p>
+        <p class="hero-hint">Pick a color to begin.</p>
+        <div class="hero-secure">
+        🎨 <strong>Tailwind-ready shade scales</strong><br>
+        Export to CSS, SCSS, Tailwind, or JSON — copy and paste.
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Theme Toggle -->
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle" id="themeBtn" type="button">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Dark Mode</span>
+        </button>
+      </div>
+
+      <!-- Base Color Input -->
+      <p class="label">Base Color</p>
+      <div class="color-input-row">
+        <input type="color" id="colorPicker" class="color-picker" value="#3b82f6" />
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="hexInput"
+            class="input-box"
+            placeholder="#3b82f6"
+            autocomplete="off"
+            spellcheck="false"
+            maxlength="7"
+          />
+          <button class="clear-btn" id="clearBtn" type="button">✕</button>
+        </div>
+        <button class="random-btn" id="randomBtn" type="button" title="Random Color">🎲</button>
+      </div>
+
+      <!-- Quick Swatches -->
+      <p class="label">Quick Colors</p>
+      <div class="swatch-grid" id="swatchGrid">
+        <button class="swatch" data-color="#3b82f6" style="background:#3b82f6" type="button"></button>
+        <button class="swatch" data-color="#ef4444" style="background:#ef4444" type="button"></button>
+        <button class="swatch" data-color="#22c55e" style="background:#22c55e" type="button"></button>
+        <button class="swatch" data-color="#f59e0b" style="background:#f59e0b" type="button"></button>
+        <button class="swatch" data-color="#9944ff" style="background:#9944ff" type="button"></button>
+        <button class="swatch" data-color="#ec4899" style="background:#ec4899" type="button"></button>
+        <button class="swatch" data-color="#14b8a6" style="background:#14b8a6" type="button"></button>
+        <button class="swatch" data-color="#f97316" style="background:#f97316" type="button"></button>
+        <button class="swatch" data-color="#6366f1" style="background:#6366f1" type="button"></button>
+        <button class="swatch" data-color="#84cc16" style="background:#84cc16" type="button"></button>
+      </div>
+
+      <!-- Status -->
+      <div class="status-bar" id="statusBar">
+        <span class="status-icon">🎨</span>
+        <span class="status-text">Pick a color to generate palette</span>
+      </div>
+
+      <!-- Full Shade Scale -->
+      <p class="label">Full Shade Scale (50–950)</p>
+      <div class="shade-scale" id="shadeScale"></div>
+
+      <!-- Harmony Palettes -->
+      <p class="label">Color Harmony</p>
+      <div class="harmony-grid" id="harmonyGrid"></div>
+
+      <!-- Contrast Checker -->
+      <p class="label">Contrast Checker (WCAG)</p>
+      <div class="contrast-section" id="contrastSection"></div>
+
+      <!-- Export -->
+      <p class="label">Export</p>
+      <div class="export-tabs">
+        <button class="export-tab active" data-format="css" type="button">CSS</button>
+        <button class="export-tab" data-format="tailwind" type="button">Tailwind</button>
+        <button class="export-tab" data-format="scss" type="button">SCSS</button>
+        <button class="export-tab" data-format="json" type="button">JSON</button>
+      </div>
+
+      <div class="output-wrapper">
+        <div class="output-header">
+          <span class="output-label" id="exportLabel">CSS Variables</span>
+          <button class="copy-btn" id="copyExportBtn" type="button">⧉ Copy</button>
+        </div>
+        <textarea
+          id="exportBox"
+          class="output-box"
+          readonly
+        ></textarea>
+      </div>
+
+      <!-- Action Row -->
+      <div class="action-row">
+        <button class="action-btn primary" id="copyAllBtn" type="button">⧉ Copy All</button>
+        <button class="action-btn secondary" id="downloadBtn" type="button">⬇ Download</button>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details — How it works</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Pick a color to see step-by-step details.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is a Color Palette?</h3>
+          <p>A color palette is a set of colors that work well together. Developers and designers use palettes to keep a website or app visually consistent.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Why do developers need it?</h3>
+          <ul>
+            <li><strong>Consistency</strong> — same colors everywhere</li>
+            <li><strong>Tailwind / design systems</strong> — need 50–950 scales</li>
+            <li><strong>Accessibility</strong> — must pass WCAG contrast</li>
+            <li><strong>Speed</strong> — no manual color picking</li>
+            <li><strong>Export ready</strong> — copy-paste into your code</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>What is a Shade Scale?</h3>
+          <p>A shade scale is one base color broken into 11 steps from lightest (<strong>50</strong>) to darkest (<strong>950</strong>). Tailwind CSS and most design systems use this exact pattern.</p>
+          <p><strong>Example:</strong> <code>blue-500</code> is the base, <code>blue-100</code> is very light, <code>blue-900</code> is very dark.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is Color Harmony?</h3>
+          <ul>
+            <li><strong>Complementary</strong> — opposite on the color wheel (180°)</li>
+            <li><strong>Analogous</strong> — neighbors (±30°)</li>
+            <li><strong>Triadic</strong> — three evenly spaced (120°)</li>
+            <li><strong>Monochromatic</strong> — same hue, different lightness</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>What is WCAG Contrast?</h3>
+          <p>WCAG (Web Content Accessibility Guidelines) defines minimum contrast between text and background so everyone can read it.</p>
+          <ul>
+            <li><strong>AA</strong> — ratio ≥ 4.5 (normal text)</li>
+            <li><strong>AAA</strong> — ratio ≥ 7 (normal text)</li>
+            <li><strong>AA Large</strong> — ratio ≥ 3 (18pt+ text)</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Where is it used?</h3>
+          <ul>
+            <li>Tailwind, Bootstrap, Material UI — all use shade scales</li>
+            <li>Figma, Adobe XD — design tokens</li>
+            <li>Any website — CSS variables for theming</li>
+            <li>Dark mode / light mode — needs both light &amp; dark shades</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Pro tip</h3>
+          <p>Always test your palette in both light and dark mode. A color that looks great on white might fail on black. Use the Contrast Checker above before shipping.</p>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="palette.html">Palette Generator</a></li>
+          <li><a href="color.html">Color Converter</a></li>
+          <li><a href="css-minify.html">CSS Minifier</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Design Tools</h4>
+        <ul>
+          <li><a href="color.html">Color Converter</a></li>
+          <li><a href="palette.html">Palette</a></li>
+          <li><a href="qrcode.html">QR Code</a></li>
+          <li><a href="image-base64.html">Image Base64</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="palette.js"></script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Minifier — Dev Tools</title>
+  <meta name="description" content="Minify CSS code instantly. Remove comments, spaces, and newlines to reduce file size. Free online CSS minifier.">
+  <link rel="stylesheet" href="css-minify.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+      <li><a href="diff.html" class="nav-link">🔍 Diff</a></li>
+      <li><a href="http-status.html" class="nav-link">🌐 HTTP</a></li>
+      <li><a href="jwt.html" class="nav-link">🎫 JWT</a></li>
+      <li><a href="html-entity.html" class="nav-link">📋 HTML Entity</a></li>
+      <li><a href="hmac.html" class="nav-link">🔐 HMAC</a></li>
+      <li><a href="subnet.html" class="nav-link">🌍 Subnet</a></li>
+      <li><a href="case.html" class="nav-link">🔤 Case</a></li>
+      <li><a href="css-minify.html" class="nav-link">📐 CSS Min</a></li>
+      <li><a href="palette.html" class="nav-link">🎨 Palette</a></li>
+      <li><a href="cron.html" class="nav-link">⏰ Cron</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">📐</div>
+        <h1 class="hero-title">CSS Minifier</h1>
+        <p class="hero-subtitle">Minify CSS instantly — remove comments, spaces, and newlines to reduce file size.</p>
+        <p class="hero-hint">Paste your CSS below to begin.</p>
+        <div class="hero-secure">
+         🔒 <strong>Your CSS stays yours</strong><br>
+           100% browser-based — no upload, no server, no tracking.
+          </div>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Theme Toggle -->
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle" id="themeBtn" type="button">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Dark Mode</span>
+        </button>
+      </div>
+
+      <!-- Input -->
+      <p class="label">CSS Input</p>
+      <div class="input-wrapper">
+        <textarea
+          id="inputBox"
+          class="input-box"
+          placeholder="Paste your CSS code here... e.g. body { color: red; }"
+          autocomplete="off"
+          spellcheck="false"
+        ></textarea>
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <button class="mini-btn" id="pasteBtn" type="button">📋 Paste</button>
+        <button class="mini-btn" id="sampleBtn" type="button">📄 Sample</button>
+        <button class="mini-btn" id="clearAllBtn" type="button">✕ Clear</button>
+      </div>
+
+      <!-- Status -->
+      <div class="status-bar" id="statusBar">
+        <span class="status-icon">📐</span>
+        <span class="status-text">Paste CSS to minify</span>
+      </div>
+
+      <!-- Stats Grid -->
+      <p class="label">Size Comparison</p>
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+          <span class="stat-label">Original</span>
+          <span class="stat-value" id="origSize">0 B</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Minified</span>
+          <span class="stat-value highlight" id="minSize">0 B</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Saved</span>
+          <span class="stat-value" id="savedBytes">0 B</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Reduction</span>
+          <span class="stat-value highlight" id="savedPercent">0%</span>
+        </div>
+      </div>
+
+      <!-- Output -->
+      <p class="label">Minified Output</p>
+      <div class="output-wrapper">
+        <div class="output-header">
+          <span class="output-label">Result</span>
+          <button class="copy-btn" id="copyBtn" type="button">⧉ Copy</button>
+        </div>
+        <textarea
+          id="outputBox"
+          class="output-box"
+          placeholder="Minified CSS will appear here..."
+          readonly
+        ></textarea>
+      </div>
+
+      <!-- Action Row -->
+      <div class="action-row">
+        <button class="action-btn primary" id="copyAllBtn" type="button">⧉ Copy Minified</button>
+        <button class="action-btn secondary" id="downloadBtn" type="button">⬇ Download</button>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details — How it works</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Paste CSS to see step-by-step details.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is CSS Minification?</h3>
+          <p>CSS minification is the process of removing unnecessary characters from CSS code — like comments, extra spaces, and newlines — without changing how it works. The result is a smaller file that loads faster.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Why do developers need it?</h3>
+          <ul>
+            <li><strong>Faster page load</strong> — smaller files download quicker</li>
+            <li><strong>Less bandwidth</strong> — saves data for users and servers</li>
+            <li><strong>Better SEO</strong> — Google ranks fast sites higher</li>
+            <li><strong>Production ready</strong> — every serious website ships minified CSS</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>What gets removed?</h3>
+          <ul>
+            <li><strong>Comments</strong> — <code>/* like this */</code></li>
+            <li><strong>Extra spaces</strong> — around <code>{ } : ;</code></li>
+            <li><strong>Newlines</strong> — line breaks become nothing</li>
+            <li><strong>Trailing semicolons</strong> — the last <code>;</code> before <code>}</code></li>
+            <li><strong>Extra whitespace</strong> — tabs, double spaces, etc.</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Example</h3>
+          <p><strong>Before:</strong></p>
+          <p><code>body {<br>&nbsp;&nbsp;color: red;<br>&nbsp;&nbsp;margin: 0px;<br>}</code></p>
+          <p><strong>After:</strong></p>
+          <p><code>body{color:red;margin:0}</code></p>
+        </div>
+
+        <div class="about-block">
+          <h3>Where is it used?</h3>
+          <ul>
+            <li>Bootstrap, Tailwind, Bulma — all ship minified CSS</li>
+            <li>WordPress, React, Vue — production builds minify automatically</li>
+            <li>CDN hosting — smaller files = lower cost</li>
+            <li>Any live website — minified CSS is standard practice</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>⚠️ When NOT to minify</h3>
+          <ul>
+            <li>While developing — keep readable code for editing</li>
+            <li>If you need to debug — minified code is hard to read</li>
+            <li>Source maps not set up — debugging becomes painful</li>
+          </ul>
+          <p><strong>Rule:</strong> Develop with readable CSS, minify only for production.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Pro tip</h3>
+          <p>Always keep your original CSS file. Minify a copy, not the original. Use build tools like Webpack, Vite, or PostCSS to automate minification in real projects.</p>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="css-minify.html">CSS Minifier</a></li>
+          <li><a href="palette.html">Color Palette</a></li>
+          <li><a href="cron.html">Cron Parser</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Code Tools</h4>
+        <ul>
+          <li><a href="json.html">JSON Formatter</a></li>
+          <li><a href="regex.html">Regex Tester</a></li>
+          <li><a href="diff.html">Diff Checker</a></li>
+          <li><a href="markdown.html">Markdown</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="css-minify.js"></script>
+</body>
+</html>

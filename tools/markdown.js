@@ -5,14 +5,12 @@ if (navToggle && navMenu) {
   navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
 }
 
-// Active link
 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-link').forEach(link => {
   const linkPath = link.getAttribute('href').split('/').pop();
   if (linkPath === currentPath) link.classList.add('active');
 });
 
-// Back to top
 const backToTop = document.getElementById('backToTop');
 if (backToTop) {
   window.addEventListener('scroll', () => {
@@ -42,7 +40,6 @@ const moreDropdown = document.getElementById('moreDropdown');
 const optAutoSave = document.getElementById('optAutoSave');
 const optScrollSync = document.getElementById('optScrollSync');
 const optWordWrap = document.getElementById('optWordWrap');
-const optLineNumbers = document.getElementById('optLineNumbers');
 const fontSizeSlider = document.getElementById('fontSizeSlider');
 const fontSizeValue = document.getElementById('fontSizeValue');
 
@@ -94,13 +91,12 @@ const tocModal = document.getElementById('tocModal');
 const closeTocBtn = document.getElementById('closeTocBtn');
 const tocBody = document.getElementById('tocBody');
 
-// State
 let currentHtml = '';
 let currentMarkdown = '';
 let currentFontSize = 14;
 let findIndex = 0;
 
-// Configure marked
+// Marked options
 if (window.marked) {
   marked.setOptions({
     breaks: true,
@@ -182,7 +178,6 @@ function updateStats(md, html) {
   statCodeBlocks.textContent = codeBlocks;
 }
 
-// Reset stats
 function resetStats() {
   statWords.textContent = '0';
   statChars.textContent = '0';
@@ -203,14 +198,14 @@ function buildDetails(md, html) {
   const mdSize = new Blob([md]).size;
 
   let out = '';
-  out += `<div class="detail-row"><span class="detail-char">Markdown size</span><span class="detail-arrow">→</span><span class="detail-value">${formatBytes(mdSize)}</span></div>`;
-  out += `<div class="detail-row"><span class="detail-char">HTML size</span><span class="detail-arrow">→</span><span class="detail-value">${formatBytes(htmlSize)}</span></div>`;
-  out += `<div class="detail-row"><span class="detail-char">Words</span><span class="detail-arrow">→</span><span class="detail-value">${words.toLocaleString()}</span></div>`;
-  out += `<div class="detail-row"><span class="detail-char">Lines</span><span class="detail-arrow">→</span><span class="detail-value">${lines.toLocaleString()}</span></div>`;
-  out += `<div class="detail-row"><span class="detail-char">Ratio (HTML/MD)</span><span class="detail-arrow">→</span><span class="detail-value">${(htmlSize / mdSize).toFixed(2)}×</span></div>`;
-  out += `<div class="detail-row"><span class="detail-char">Parser</span><span class="detail-arrow">→</span><span class="detail-value">marked.js</span></div>`;
-  out += `<div class="detail-row"><span class="detail-char">Sanitizer</span><span class="detail-arrow">→</span><span class="detail-value">DOMPurify</span></div>`;
-  out += `<div class="detail-row"><span class="detail-char">Highlight</span><span class="detail-arrow">→</span><span class="detail-value">highlight.js</span></div>`;
+  out += '<div class="detail-row"><span class="detail-char">Markdown size</span><span class="detail-arrow">→</span><span class="detail-value">' + formatBytes(mdSize) + '</span></div>';
+  out += '<div class="detail-row"><span class="detail-char">HTML size</span><span class="detail-arrow">→</span><span class="detail-value">' + formatBytes(htmlSize) + '</span></div>';
+  out += '<div class="detail-row"><span class="detail-char">Words</span><span class="detail-arrow">→</span><span class="detail-value">' + words.toLocaleString() + '</span></div>';
+  out += '<div class="detail-row"><span class="detail-char">Lines</span><span class="detail-arrow">→</span><span class="detail-value">' + lines.toLocaleString() + '</span></div>';
+  out += '<div class="detail-row"><span class="detail-char">Ratio (HTML/MD)</span><span class="detail-arrow">→</span><span class="detail-value">' + (htmlSize / mdSize).toFixed(2) + '×</span></div>';
+  out += '<div class="detail-row"><span class="detail-char">Parser</span><span class="detail-arrow">→</span><span class="detail-value">marked.js</span></div>';
+  out += '<div class="detail-row"><span class="detail-char">Sanitizer</span><span class="detail-arrow">→</span><span class="detail-value">DOMPurify</span></div>';
+  out += '<div class="detail-row"><span class="detail-char">Highlight</span><span class="detail-arrow">→</span><span class="detail-value">highlight.js</span></div>';
 
   detailsContent.innerHTML = out;
 }
@@ -302,42 +297,7 @@ clearBtn.addEventListener('click', () => {
 
 // Sample
 sampleBtn.addEventListener('click', () => {
-  editorInput.value = `# Welcome to Markdown
-
-This is **bold** and this is *italic*.
-
-## Features
-
-- Live preview
-- Auto-save
-- Scroll sync
-
-## Code
-
-\`\`\`javascript
-function greet(name) {
-  return "Hello, " + name + "!";
-}
-\`\`\`
-
-## Table
-
-| Tool | Purpose |
-|------|---------|
-| Base64 | Encode/Decode |
-| JSON | Format |
-| Regex | Test |
-
-> Markdown is used everywhere.
-
-[Visit Google](https://google.com)
-
-- [x] Task done
-- [ ] Task pending
-
----
-
-**Dev Tools** — Made with ❤️`;
+  editorInput.value = '# Welcome to Markdown\n\nThis is **bold** and this is *italic*.\n\n## Features\n\n- Live preview\n- Auto-save\n- Scroll sync\n\n## Code\n\n```javascript\nfunction greet(name) {\n  return "Hello, " + name + "!";\n}\n```\n\n## Table\n\n| Tool | Purpose |\n|------|---------|\n| Base64 | Encode/Decode |\n| JSON | Format |\n| Regex | Test |\n\n> Markdown is used everywhere.\n\n[Visit Google](https://google.com)\n\n- [x] Task done\n- [ ] Task pending\n\n---\n\n**Dev Tools** — Made with ❤️';
   renderMarkdown();
 });
 
@@ -353,7 +313,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Auto-save toggle
+// Auto-save
 optAutoSave.addEventListener('change', () => {
   if (optAutoSave.checked) {
     localStorage.setItem('md_draft', editorInput.value);
@@ -405,9 +365,7 @@ findReplaceBtn.addEventListener('click', () => {
   }
 });
 
-closeFindBtn.addEventListener('click', () => {
-  findPanel.classList.remove('open');
-});
+closeFindBtn.addEventListener('click', () => findPanel.classList.remove('open'));
 
 findNextBtn.addEventListener('click', () => {
   const term = findInput.value;
@@ -418,10 +376,7 @@ findNextBtn.addEventListener('click', () => {
     findIndex = 0;
     idx = text.indexOf(term, 0);
   }
-  if (idx === -1) {
-    alert('Not found.');
-    return;
-  }
+  if (idx === -1) { alert('Not found.'); return; }
   editorInput.focus();
   editorInput.setSelectionRange(idx, idx + term.length);
   findIndex = idx + term.length;
@@ -457,24 +412,7 @@ function escapeRegExp(s) {
 }
 
 // Emoji picker
-const EMOJIS = [
-  '😀','😃','😄','😁','😆','😅','🤣','😂','🙂','🙃',
-  '😉','😊','😇','🥰','😍','🤩','😘','😗','😚','😙',
-  '😋','😛','😜','🤪','😝','🤑','🤗','🤭','🤫','🤔',
-  '🤐','🤨','😐','😑','😶','😏','😒','🙄','😬','🤥',
-  '😌','😔','😪','🤤','😴','😷','🤒','🤕','🤢','🤮',
-  '🥵','🥶','😵','🤯','🤠','🥳','😎','🤓','🧐','😕',
-  '😟','🙁','😮','😯','😲','😳','🥺','😦','😧','😨',
-  '😰','😥','😢','😭','😱','😖','😣','😞','😓','😩',
-  '😫','🥱','😤','😡','😠','🤬','😈','👿','💀','☠️',
-  '💩','🤡','👹','👺','👻','👽','👾','🤖','😺','😸',
-  '❤️','🧡','💛','💚','💙','💜','🖤','🤍','🤎','💔',
-  '❣️','💕','💞','💓','💗','💖','💘','💝','💟','✨',
-  '⭐','🌟','💫','⚡','🔥','💥','💢','💦','💨','🎉',
-  '🎊','🎈','🎁','🎀','🏆','🥇','🥈','🥉','👍','👎',
-  '👏','🙌','🤝','🙏','✌️','🤞','🤟','👌','🤌','🤏',
-  '👈','👉','👆','👇','☝️','✋','🤚','🖐️','🖖','👋'
-];
+const EMOJIS = ['😀','😃','😄','😁','😆','😅','🤣','😂','🙂','🙃','😉','😊','😇','🥰','😍','🤩','😘','😗','😚','😙','😋','😛','😜','🤪','😝','🤑','🤗','🤭','🤫','🤔','🤐','🤨','😐','😑','😶','😏','😒','🙄','😬','🤥','😌','😔','😪','🤤','😴','😷','🤒','🤕','🤢','🤮','🥵','🥶','😵','🤯','🤠','🥳','😎','🤓','🧐','😕','😟','🙁','😮','😯','😲','😳','🥺','😦','😧','😨','😰','😥','😢','😭','😱','😖','😣','😞','😓','😩','😫','🥱','😤','😡','😠','🤬','😈','👿','💀','☠️','💩','🤡','👹','👺','👻','👽','👾','🤖','😺','😸','❤️','🧡','💛','💚','💙','💜','🖤','🤍','🤎','💔','❣️','💕','💞','💓','💗','💖','💘','💝','💟','✨','⭐','🌟','💫','⚡','🔥','💥','💢','💦','💨','🎉','🎊','🎈','🎁','🎀','🏆','🥇','🥈','🥉','👍','👎','👏','🙌','🤝','🙏','✌️','🤞','🤟','👌','🤌','🤏','👈','👉','👆','👇','☝️','✋','🤚','🖐️','🖖','👋'];
 
 EMOJIS.forEach(e => {
   const btn = document.createElement('button');
@@ -493,25 +431,12 @@ EMOJIS.forEach(e => {
   emojiGrid.appendChild(btn);
 });
 
-emojiBtn.addEventListener('click', () => {
-  emojiPicker.classList.toggle('open');
-});
+emojiBtn.addEventListener('click', () => emojiPicker.classList.toggle('open'));
 
 // Print
 printBtn.addEventListener('click', () => {
   const w = window.open('', '_blank');
-  w.document.write(`<!DOCTYPE html><html><head><title>Markdown Print</title>
-    <style>
-      body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.7; color: #000; }
-      h1, h2, h3 { color: #00887a; }
-      pre { background: #f5f5f5; padding: 12px; border-radius: 6px; overflow-x: auto; }
-      code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
-      table { border-collapse: collapse; width: 100%; }
-      th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
-      th { background: #e8f5f0; }
-      blockquote { border-left: 4px solid #00887a; padding: 8px 14px; background: #f5faf8; }
-      img { max-width: 100%; }
-    </style></head><body>${currentHtml}</body></html>`);
+  w.document.write('<!DOCTYPE html><html><head><title>Markdown Print</title><style>body{font-family:-apple-system,sans-serif;max-width:800px;margin:40px auto;padding:20px;line-height:1.7;color:#000;}h1,h2,h3{color:#00887a;}pre{background:#f5f5f5;padding:12px;border-radius:6px;overflow-x:auto;}code{background:#f0f0f0;padding:2px 6px;border-radius:3px;}table{border-collapse:collapse;width:100%;}th,td{border:1px solid #ccc;padding:8px 12px;text-align:left;}th{background:#e8f5f0;}blockquote{border-left:4px solid #00887a;padding:8px 14px;background:#f5faf8;}img{max-width:100%;}</style></head><body>' + currentHtml + '</body></html>');
   w.document.close();
   w.focus();
   setTimeout(() => w.print(), 300);
@@ -553,7 +478,7 @@ tocBtn.addEventListener('click', () => {
       const match = h.match(/^(#{1,6})\s+(.+)$/);
       const level = match[1].length;
       const text = match[2];
-      html += `<a class="toc-item h${level}" data-text="${escapeHTML(text)}">${escapeHTML(text)}</a>`;
+      html += '<a class="toc-item h' + level + '" data-text="' + escapeHTML(text) + '">' + escapeHTML(text) + '</a>';
     });
     tocBody.innerHTML = html;
 
@@ -586,7 +511,7 @@ cheatModal.addEventListener('click', (e) => {
   if (e.target === cheatModal) cheatModal.classList.remove('open');
 });
 
-// Escape key closes modals
+// Escape key
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     cheatModal.classList.remove('open');
@@ -598,7 +523,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Import file
+// Import
 importBtn.addEventListener('click', () => importFile.click());
 
 importFile.addEventListener('change', (e) => {
@@ -614,12 +539,22 @@ importFile.addEventListener('change', (e) => {
 });
 
 // Theme toggle
-themeBtn.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
-  const isLight = document.body.classList.contains('light-mode');
-  themeBtn.textContent = isLight ? '☀️' : '🌙';
-  localStorage.setItem('md_theme', isLight ? 'light' : 'dark');
-});
+if (themeBtn) {
+  const savedTheme = localStorage.getItem('md_theme') || 'light';
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeBtn.textContent = '☀️';
+  } else {
+    themeBtn.textContent = '🌙';
+  }
+
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    themeBtn.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('md_theme', isDark ? 'dark' : 'light');
+  });
+}
 
 // Copy buttons
 copyHtmlBtn.addEventListener('click', () => {
@@ -662,31 +597,7 @@ downloadMdBtn.addEventListener('click', () => {
 // Download .html
 downloadHtmlBtn.addEventListener('click', () => {
   if (!currentHtml) { alert('Write something first.'); return; }
-  const fullHtml = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Markdown Preview</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/atom-one-dark.min.css">
-<style>
-body{background:#0a0a0f;color:#ddeeff;font-family:-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px;line-height:1.7;}
-h1{color:#33ffcc;border-bottom:2px solid rgba(51,255,204,.3);padding-bottom:8px;}
-h2{color:#33ccff;border-bottom:1px solid rgba(51,204,255,.2);padding-bottom:6px;}
-h3{color:#66ffee;}h4{color:#99ffee;}
-a{color:#33ffcc;}code{background:rgba(51,255,204,.1);color:#33ffcc;padding:2px 6px;border-radius:4px;}
-pre{background:#050505;border-left:3px solid #33ffcc;border-radius:8px;padding:14px;overflow-x:auto;}
-pre code{background:transparent;color:#ddeeff;}
-blockquote{border-left:4px solid #33ffcc;padding:8px 14px;background:rgba(51,255,204,.05);}
-table{border-collapse:collapse;width:100%;}
-th,td{border:1px solid #333;padding:8px 12px;text-align:left;}
-th{background:rgba(51,255,204,.1);color:#33ffcc;}
-img{max-width:100%;border-radius:8px;}
-</style>
-</head>
-<body>
-${currentHtml}
-</body>
-</html>`;
+  const fullHtml = '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<title>Markdown Preview</title>\n<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/atom-one-dark.min.css">\n<style>\nbody{background:#ffffff;color:#003333;font-family:-apple-system,sans-serif;max-width:800px;margin:0 auto;padding:40px 20px;line-height:1.7;}\nh1{color:#00887a;border-bottom:2px solid rgba(0,136,122,.3);padding-bottom:8px;}\nh2{color:#0066cc;border-bottom:1px solid rgba(0,102,204,.2);padding-bottom:6px;}\nh3{color:#005599;}h4{color:#005599;}\na{color:#0066cc;}code{background:rgba(0,136,122,.1);color:#00887a;padding:2px 6px;border-radius:4px;}\npre{background:#f5faf8;border-left:3px solid #00887a;border-radius:8px;padding:14px;overflow-x:auto;}\npre code{background:transparent;color:#003333;}\nblockquote{border-left:4px solid #00887a;padding:8px 14px;background:rgba(0,136,122,.08);}\ntable{border-collapse:collapse;width:100%;}\nth,td{border:1px solid #c0ddd8;padding:8px 12px;text-align:left;}\nth{background:rgba(0,136,122,.1);color:#00887a;}\nimg{max-width:100%;border-radius:8px;}\n</style>\n</head>\n<body>\n' + currentHtml + '\n</body>\n</html>';
   const blob = new Blob([fullHtml], { type: 'text/html' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -704,57 +615,18 @@ if (detailsToggle && detailsDropdown) {
   });
 }
 
+// Escape HTML
+function escapeHTML(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 // Init
 (function init() {
-  // Load theme
-  const savedTheme = localStorage.getItem('md_theme');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-mode');
-    themeBtn.textContent = '☀️';
-  }
-
-  // Load draft
   const savedDraft = localStorage.getItem('md_draft');
   if (savedDraft) {
     editorInput.value = savedDraft;
   } else {
-    editorInput.value = `# Welcome to Markdown
-
-This is **bold** and this is *italic*.
-
-## Features
-
-- Live preview
-- Auto-save
-- Scroll sync
-
-## Code
-
-\`\`\`javascript
-function greet(name) {
-  return "Hello, " + name + "!";
-}
-\`\`\`
-
-## Table
-
-| Tool | Purpose |
-|------|---------|
-| Base64 | Encode/Decode |
-| JSON | Format |
-
-> Markdown is everywhere.
-
-[Visit Google](https://google.com)
-
-- [x] Task done
-- [ ] Task pending
-
----
-
-**Dev Tools** — Made with ❤️`;
+    editorInput.value = '# Welcome to Markdown\n\nThis is **bold** and this is *italic*.\n\n## Features\n\n- Live preview\n- Auto-save\n- Scroll sync\n\n## Code\n\n```javascript\nfunction greet(name) {\n  return "Hello, " + name + "!";\n}\n```\n\n## Table\n\n| Tool | Purpose |\n|------|---------|\n| Base64 | Encode/Decode |\n| JSON | Format |\n\n> Markdown is everywhere.\n\n[Visit Google](https://google.com)\n\n- [x] Task done\n- [ ] Task pending\n\n---\n\n**Dev Tools** — Made with ❤️';
   }
-
   renderMarkdown();
 })();
-

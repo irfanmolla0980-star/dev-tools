@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Entity Encoder/Decoder — Dev Tools</title>
+  <meta name="description" content="Encode and decode HTML entities. Convert special characters to safe HTML. Free online tool.">
+  <link rel="stylesheet" href="html-entity.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+      <li><a href="diff.html" class="nav-link">🔍 Diff</a></li>
+      <li><a href="http-status.html" class="nav-link">🌐 HTTP</a></li>
+      <li><a href="jwt.html" class="nav-link">🎫 JWT</a></li>
+      <li><a href="html-entity.html" class="nav-link">📋 HTML Entity</a></li>
+      <li><a href="hmac.html" class="nav-link">🔐 HMAC</a></li>
+      <li><a href="subnet.html" class="nav-link">🌍 Subnet</a></li>
+      <li><a href="case.html" class="nav-link">🔤 Case</a></li>
+      <li><a href="css-minify.html" class="nav-link">📐 CSS Min</a></li>
+      <li><a href="palette.html" class="nav-link">🎨 Palette</a></li>
+      <li><a href="cron.html" class="nav-link">⏰ Cron</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">📋</div>
+        <h1 class="hero-title">HTML Entity</h1>
+        <p class="hero-subtitle">Encode and decode HTML entities instantly.</p>
+        <p class="hero-hint">Protect your HTML from special characters.</p>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Theme Toggle -->
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle" id="themeBtn" type="button">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Dark Mode</span>
+        </button>
+      </div>
+
+      <!-- Mode Tabs -->
+      <p class="label">Mode</p>
+      <div class="mode-tabs">
+        <button class="mode-tab active" data-mode="encode" type="button">🔒 Encode</button>
+        <button class="mode-tab" data-mode="decode" type="button">🔓 Decode</button>
+      </div>
+
+      <!-- Input -->
+      <p class="label">Input</p>
+      <div class="input-wrapper">
+        <textarea
+          id="inputBox"
+          class="input-box"
+          placeholder="Type or paste your text here..."
+          spellcheck="false"
+        ></textarea>
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <div class="quick-actions">
+        <button class="mini-btn" id="pasteBtn" type="button">📋 Paste</button>
+        <button class="mini-btn" id="sampleBtn" type="button">📄 Sample</button>
+        <button class="mini-btn" id="swapBtn" type="button">⇅ Swap</button>
+      </div>
+
+      <!-- Options -->
+      <p class="label">Options</p>
+      <div class="options-grid">
+        <label class="option-line">
+          <input type="checkbox" id="optHtmlSpecial" checked />
+          <span class="opt-check"></span>
+          <span class="opt-label">HTML special only (&lt; &gt; &amp; " ')</span>
+        </label>
+        <label class="option-line">
+          <input type="checkbox" id="optNonAscii" />
+          <span class="opt-check"></span>
+          <span class="opt-label">Encode non-ASCII (বাংলা, emoji)</span>
+        </label>
+        <label class="option-line">
+          <input type="checkbox" id="optNumeric" />
+          <span class="opt-check"></span>
+          <span class="opt-label">Use numeric entities (&#60;)</span>
+        </label>
+        <label class="option-line">
+          <input type="checkbox" id="optQuotes" checked />
+          <span class="opt-check"></span>
+          <span class="opt-label">Encode quotes (" ')</span>
+        </label>
+      </div>
+
+      <!-- Output -->
+      <p class="label">Output</p>
+      <div class="output-header">
+        <span class="output-label">Result</span>
+        <div class="output-actions">
+          <button class="mini-btn" id="copyBtn" type="button">⧉ Copy</button>
+          <button class="mini-btn" id="downloadBtn" type="button">⬇ Download</button>
+        </div>
+      </div>
+      <div class="output-box" id="outputBox">
+        <p class="output-placeholder">Encoded/Decoded text will appear here...</p>
+      </div>
+
+      <!-- Stats -->
+      <p class="label">Stats</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-key">Input</span>
+          <span class="stat-value" id="statInput">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Output</span>
+          <span class="stat-value" id="statOutput">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Entities</span>
+          <span class="stat-value" id="statEntities">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-key">Increase</span>
+          <span class="stat-value" id="statIncrease">0%</span>
+        </div>
+      </div>
+
+      <!-- Quick Entities -->
+      <p class="label">Quick Entities (click to insert)</p>
+      <div class="entity-tabs">
+        <button class="entity-tab active" data-cat="common" type="button">Common</button>
+        <button class="entity-tab" data-cat="symbols" type="button">Symbols</button>
+        <button class="entity-tab" data-cat="arrows" type="button">Arrows</button>
+        <button class="entity-tab" data-cat="math" type="button">Math</button>
+        <button class="entity-tab" data-cat="currency" type="button">Currency</button>
+        <button class="entity-tab" data-cat="greek" type="button">Greek</button>
+      </div>
+      <div class="entities-grid" id="entitiesGrid">
+        <!-- JS will fill -->
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Type something to see details.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>HTML Entity Encoder/Decoder converts special characters into HTML entities (like <code>&lt;</code> → <code>&amp;lt;</code>) and back.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Why is it needed?</h3>
+          <ul>
+            <li><strong>XSS Protection</strong> — Prevent script injection from user input</li>
+            <li><strong>Display code</strong> — Show <code>&lt;div&gt;</code> as text, not tag</li>
+            <li><strong>Special characters</strong> — Show ©, ®, ™, →, ♥</li>
+            <li><strong>Email templates</strong> — Safe HTML rendering</li>
+            <li><strong>Blog/Forums</strong> — Display user comments safely</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Common Entities</h3>
+          <ul>
+            <li><code>&amp;lt;</code> → <code>&lt;</code></li>
+            <li><code>&amp;gt;</code> → <code>&gt;</code></li>
+            <li><code>&amp;amp;</code> → <code>&amp;</code></li>
+            <li><code>&amp;quot;</code> → <code>"</code></li>
+            <li><code>&amp;#39;</code> → <code>'</code></li>
+            <li><code>&amp;nbsp;</code> → non-breaking space</li>
+            <li><code>&amp;copy;</code> → <code>©</code></li>
+            <li><code>&amp;reg;</code> → <code>®</code></li>
+            <li><code>&amp;trade;</code> → <code>™</code></li>
+            <li><code>&amp;euro;</code> → <code>€</code></li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>XSS Attack Prevention</h3>
+          <p>If a user submits:</p>
+          <pre><code>&lt;script&gt;alert('hacked')&lt;/script&gt;</code></pre>
+          <p>After encoding, it becomes safe text — the browser shows it as-is instead of running the script.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>How to use?</h3>
+          <ol>
+            <li>Pick mode — <strong>Encode</strong> or <strong>Decode</strong></li>
+            <li>Type or paste text</li>
+            <li>Choose options if needed</li>
+            <li>See output instantly</li>
+            <li>Click a quick entity to insert</li>
+            <li>Copy or download result</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Tips</h3>
+          <ul>
+            <li>Always encode user input before showing in HTML</li>
+            <li>Use <strong>numeric entities</strong> for emoji compatibility</li>
+            <li><code>&amp;amp;</code> must be encoded first in any HTML output</li>
+            <li>Use <code>&amp;nbsp;</code> to prevent line breaks</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="html-entity.html">HTML Entity</a></li>
+          <li><a href="jwt.html">JWT Decoder</a></li>
+          <li><a href="http-status.html">HTTP Status</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Popular</h4>
+        <ul>
+          <li><a href="base64.html">Base64</a></li>
+          <li><a href="url.html">URL Encode</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="html-entity.js"></script>
+</body>
+</html>

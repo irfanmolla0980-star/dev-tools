@@ -11,9 +11,9 @@ if (navToggle && navMenu) {
   });
 }
 
-// =========================================
+// =========================
 // ACTIVE LINK HIGHLIGHT
-// =========================================
+// ===========================
 
 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-link').forEach(link => {
@@ -23,9 +23,9 @@ document.querySelectorAll('.nav-link').forEach(link => {
   }
 });
 
-// =========================================
+// =================
 // BACK TO TOP
-// =========================================
+// =================
 
 const backToTop = document.getElementById('backToTop');
 
@@ -43,9 +43,9 @@ if (backToTop) {
   });
 }
 
-// =========================================
+// =====================
 // ELEMENT REFERENCES
-// =========================================
+// =====================
 
 const patternInput = document.getElementById('patternInput');
 const flagsInput = document.getElementById('flagsInput');
@@ -70,9 +70,9 @@ const detailsContent = document.getElementById('detailsContent');
 
 let lastResults = [];
 
-// =========================================
+// ====================
 // DETAILS TOGGLE
-// =========================================
+// ===================
 
 if (detailsToggle && detailsDropdown) {
   detailsToggle.addEventListener('click', () => {
@@ -94,9 +94,9 @@ presetButtons.forEach(btn => {
   });
 });
 
-// =========================================
+// ===============================
 // FLAG CHIPS (CLICK TO TOGGLE)
-// =========================================
+// ===============================
 
 flagChips.forEach(chip => {
   chip.addEventListener('click', () => {
@@ -116,9 +116,9 @@ flagChips.forEach(chip => {
   });
 });
 
-// =========================================
+// ==========================
 // UPDATE FLAG CHIPS VISUAL
-// =========================================
+// ===========================
 
 function updateFlagChips() {
   const flags = flagsInput.value;
@@ -132,9 +132,9 @@ function updateFlagChips() {
   });
 }
 
-// =========================================
+// ===============
 // INPUT EVENTS
-// =========================================
+// ==============
 
 patternInput.addEventListener('input', runRegex);
 
@@ -152,9 +152,9 @@ testInput.addEventListener('input', () => {
   runRegex();
 });
 
-// =========================================
+// ==============
 // CLEAR BUTTON
-// =========================================
+// ===============
 
 clearBtn.addEventListener('click', () => {
   testInput.value = '';
@@ -163,9 +163,9 @@ clearBtn.addEventListener('click', () => {
   testInput.focus();
 });
 
-// =========================================
+// =====================
 // MAIN REGEX RUNNER
-// =========================================
+// ====================
 
 function runRegex() {
   const pattern = patternInput.value;
@@ -263,9 +263,9 @@ function runRegex() {
   buildMatchDetails(matches);
 }
 
-// =========================================
+// =================
 // HIGHLIGHT TEXT
-// =========================================
+// ================
 
 function highlightText(text, matches) {
   if (matches.length === 0) return escapeHTML(text);
@@ -297,9 +297,9 @@ function escapeHTML(str) {
     .replace(/>/g, '&gt;');
 }
 
-// =========================================
+// ===============
 // STATUS
-// =========================================
+// ==============
 
 function setStatus(type, icon, text) {
   statusBar.className = 'status-bar';
@@ -310,18 +310,18 @@ function setStatus(type, icon, text) {
   statusBar.querySelector('.status-text').textContent = text;
 }
 
-// =========================================
+// =============
 // RESET STATS
-// =========================================
+// ==============
 
 function resetStats() {
   statMatches.textContent = '0';
   statGroups.textContent = '0';
 }
 
-// =========================================
+// ========================
 // MATCH DETAILS BUILDER
-// =========================================
+// ========================
 
 function buildMatchDetails(matches) {
   if (!detailsContent) return;
@@ -363,9 +363,9 @@ function buildMatchDetails(matches) {
   detailsContent.innerHTML = html;
 }
 
-// =========================================
+// ==============
 // COPY BUTTON
-// =========================================
+// ==============
 
 copyBtn.addEventListener('click', () => {
   if (!highlightBox.textContent || highlightBox.textContent.includes('appear here')) return;
@@ -381,9 +381,9 @@ copyBtn.addEventListener('click', () => {
   });
 });
 
-// =========================================
+// ==================
 // SAMPLE BUTTON
-// =========================================
+// ==================
 
 sampleBtn.addEventListener('click', () => {
   patternInput.value = '\\d+';
@@ -397,8 +397,35 @@ Order #67890 shipped on 2024-03-10.`;
   runRegex();
 });
 
-// =========================================
+// ==========
 // INIT
-// =========================================
+// =============
 
 updateFlagChips();
+
+// ===== Theme Toggle (Light default) =====
+const themeBtn = document.getElementById('themeBtn');
+
+document.body.classList.add('light-mode');
+
+if (themeBtn) {
+  const savedTheme = localStorage.getItem('devtools_theme') || 'light';
+
+  if (savedTheme === 'dark') {
+    document.body.classList.remove('light-mode');
+    themeBtn.querySelector('.theme-icon').textContent = '☀️';
+    themeBtn.querySelector('.theme-label').textContent = 'Light Mode';
+  } else {
+    document.body.classList.add('light-mode');
+    themeBtn.querySelector('.theme-icon').textContent = '🌙';
+    themeBtn.querySelector('.theme-label').textContent = 'Dark Mode';
+  }
+
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const isLight = document.body.classList.contains('light-mode');
+    themeBtn.querySelector('.theme-icon').textContent = isLight ? '🌙' : '☀️';
+    themeBtn.querySelector('.theme-label').textContent = isLight ? 'Dark Mode' : 'Light Mode';
+    localStorage.setItem('devtools_theme', isLight ? 'light' : 'dark');
+  });
+}

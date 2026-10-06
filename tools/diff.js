@@ -693,13 +693,25 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// ====
-// INIT
-// ====
-(function init() {
-  const savedTheme = localStorage.getItem('diff_theme');
-  if (savedTheme === 'light') {
-    document.body.classList.add('light-mode');
+// ============================================
+// THEME TOGGLE
+// ============================================
+if (themeBtn) {
+  // Load saved theme (default: light)
+  const savedTheme = localStorage.getItem('diff_theme') || 'light';
+
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
     themeBtn.textContent = '☀️';
+  } else {
+    themeBtn.textContent = '🌙';
   }
-})();
+
+  // Toggle
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    themeBtn.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('diff_theme', isDark ? 'dark' : 'light');
+  });
+}

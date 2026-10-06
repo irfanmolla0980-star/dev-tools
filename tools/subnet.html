@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPv4 Subnet Calculator — Dev Tools</title>
+  <meta name="description" content="Calculate IPv4 subnet, netmask, broadcast, host range, and CIDR instantly. Free online subnet calculator.">
+  <link rel="stylesheet" href="subnet.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+      <li><a href="diff.html" class="nav-link">🔍 Diff</a></li>
+      <li><a href="http-status.html" class="nav-link">🌐 HTTP</a></li>
+      <li><a href="jwt.html" class="nav-link">🎫 JWT</a></li>
+      <li><a href="html-entity.html" class="nav-link">📋 HTML Entity</a></li>
+      <li><a href="hmac.html" class="nav-link">🔐 HMAC</a></li>
+      <li><a href="subnet.html" class="nav-link">🌍 Subnet</a></li>
+      <li><a href="case.html" class="nav-link">🔤 Case</a></li>
+      <li><a href="css-minify.html" class="nav-link">📐 CSS Min</a></li>
+      <li><a href="palette.html" class="nav-link">🎨 Palette</a></li>
+      <li><a href="cron.html" class="nav-link">⏰ Cron</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🌍</div>
+        <h1 class="hero-title">IPv4 Subnet Calculator</h1>
+        <p class="hero-subtitle">Calculate subnet, netmask, broadcast, and host ranges instantly.</p>
+        <p class="hero-hint">Enter an IP address and CIDR to begin.</p>
+        <div class="hero-secure">
+          🔒 <strong>100% Private &amp; Secure</strong><br>
+          All calculations run in your browser. Nothing is ever uploaded.
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Theme Toggle -->
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle" id="themeBtn" type="button">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Dark Mode</span>
+        </button>
+      </div>
+
+      <!-- Input -->
+      <p class="label">IP Address</p>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="ipInput"
+          class="input-box"
+          placeholder="192.168.1.100"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="clear-btn" id="clearIpBtn" type="button">✕</button>
+      </div>
+
+      <!-- CIDR -->
+      <p class="label">CIDR / Subnet Mask</p>
+      <div class="select-wrapper">
+        <select id="cidrSelect" class="select-field">
+          <option value="8">/8 — 255.0.0.0</option>
+          <option value="9">/9 — 255.128.0.0</option>
+          <option value="10">/10 — 255.192.0.0</option>
+          <option value="11">/11 — 255.224.0.0</option>
+          <option value="12">/12 — 255.240.0.0</option>
+          <option value="13">/13 — 255.248.0.0</option>
+          <option value="14">/14 — 255.252.0.0</option>
+          <option value="15">/15 — 255.254.0.0</option>
+          <option value="16">/16 — 255.255.0.0</option>
+          <option value="17">/17 — 255.255.128.0</option>
+          <option value="18">/18 — 255.255.192.0</option>
+          <option value="19">/19 — 255.255.224.0</option>
+          <option value="20">/20 — 255.255.240.0</option>
+          <option value="21">/21 — 255.255.248.0</option>
+          <option value="22">/22 — 255.255.252.0</option>
+          <option value="23">/23 — 255.255.254.0</option>
+          <option value="24" selected>/24 — 255.255.255.0</option>
+          <option value="25">/25 — 255.255.255.128</option>
+          <option value="26">/26 — 255.255.255.192</option>
+          <option value="27">/27 — 255.255.255.224</option>
+          <option value="28">/28 — 255.255.255.240</option>
+          <option value="29">/29 — 255.255.255.248</option>
+          <option value="30">/30 — 255.255.255.252</option>
+          <option value="31">/31 — 255.255.255.254</option>
+          <option value="32">/32 — 255.255.255.255</option>
+        </select>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <button class="mini-btn" id="pasteBtn" type="button">📋 Paste IP</button>
+        <button class="mini-btn" id="sampleBtn" type="button">📄 Sample</button>
+        <button class="mini-btn" id="clearAllBtn" type="button">✕ Clear</button>
+      </div>
+
+      <!-- Quick CIDR -->
+      <p class="label">Quick CIDR</p>
+      <div class="cidr-chips">
+        <button class="cidr-chip" data-cidr="8" type="button">/8</button>
+        <button class="cidr-chip" data-cidr="16" type="button">/16</button>
+        <button class="cidr-chip active" data-cidr="24" type="button">/24</button>
+        <button class="cidr-chip" data-cidr="25" type="button">/25</button>
+        <button class="cidr-chip" data-cidr="26" type="button">/26</button>
+        <button class="cidr-chip" data-cidr="27" type="button">/27</button>
+        <button class="cidr-chip" data-cidr="28" type="button">/28</button>
+        <button class="cidr-chip" data-cidr="30" type="button">/30</button>
+        <button class="cidr-chip" data-cidr="32" type="button">/32</button>
+      </div>
+
+      <!-- Status -->
+      <div class="status-bar" id="statusBar">
+        <span class="status-icon">🌍</span>
+        <span class="status-text">Enter an IP address to calculate subnet</span>
+      </div>
+
+      <!-- Output Grid -->
+      <p class="label">Network Information</p>
+      <div class="results-grid" id="resultsGrid">
+        <!-- JS will fill -->
+      </div>
+
+      <!-- Copy All / Download -->
+      <div class="action-row">
+        <button class="action-btn primary" id="copyAllBtn" type="button">⧉ Copy All</button>
+        <button class="action-btn secondary" id="downloadBtn" type="button">⬇ Download</button>
+      </div>
+
+      <!-- Binary Breakdown -->
+      <p class="label">Binary Breakdown</p>
+      <div class="binary-section" id="binarySection">
+        <div class="binary-row">
+          <span class="binary-label">IP</span>
+          <span class="binary-value" id="binaryIp">—</span>
+        </div>
+        <div class="binary-row">
+          <span class="binary-label">Mask</span>
+          <span class="binary-value" id="binaryMask">—</span>
+        </div>
+        <div class="binary-row">
+          <span class="binary-label">Network</span>
+          <span class="binary-value" id="binaryNetwork">—</span>
+        </div>
+        <div class="binary-row">
+          <span class="binary-label">Broadcast</span>
+          <span class="binary-value" id="binaryBroadcast">—</span>
+        </div>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Enter an IP address to see details.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is it?</h3>
+          <p>IPv4 Subnet Calculator takes an IP address and CIDR (like <strong>192.168.1.100/24</strong>) and calculates all network details — subnet mask, broadcast, host range, and more.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is a Subnet?</h3>
+          <p>A subnet is a smaller division of an IP network. It helps organize devices into groups and improves security and performance.</p>
+          <p><strong>Subnet Mask</strong> tells which part of the IP is the <em>network</em> and which part is the <em>host</em>.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>What is CIDR?</h3>
+          <p><strong>CIDR</strong> (Classless Inter-Domain Routing) is a shorthand for the subnet mask — written as <strong>/24</strong>, <strong>/16</strong>, etc.</p>
+          <p><strong>/24</strong> means 24 bits are used for the network, leaving 8 bits for hosts.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Key Values</h3>
+          <ul>
+            <li><strong>Network Address</strong> — the first address (e.g. .0)</li>
+            <li><strong>Broadcast Address</strong> — the last address (e.g. .255)</li>
+            <li><strong>First Host</strong> — network + 1</li>
+            <li><strong>Last Host</strong> — broadcast − 1</li>
+            <li><strong>Usable Hosts</strong> — Total − 2</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Common CIDR</h3>
+          <ul>
+            <li><strong>/8</strong> — 255.0.0.0 — 16,777,214 hosts</li>
+            <li><strong>/16</strong> — 255.255.0.0 — 65,534 hosts</li>
+            <li><strong>/24</strong> — 255.255.255.0 — 254 hosts</li>
+            <li><strong>/25</strong> — 255.255.255.128 — 126 hosts</li>
+            <li><strong>/26</strong> — 255.255.255.192 — 62 hosts</li>
+            <li><strong>/30</strong> — 255.255.255.252 — 2 hosts</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>IP Classes</h3>
+          <ul>
+            <li><strong>Class A</strong> — 1.0.0.0 to 126.255.255.255</li>
+            <li><strong>Class B</strong> — 128.0.0.0 to 191.255.255.255</li>
+            <li><strong>Class C</strong> — 192.0.0.0 to 223.255.255.255</li>
+            <li><strong>Class D</strong> — 224.0.0.0 to 239.255.255.255 (Multicast)</li>
+            <li><strong>Class E</strong> — 240.0.0.0 to 255.255.255.255 (Reserved)</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Private IP Ranges</h3>
+          <ul>
+            <li><strong>10.0.0.0/8</strong></li>
+            <li><strong>172.16.0.0/12</strong></li>
+            <li><strong>192.168.0.0/16</strong></li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Where is it used?</h3>
+          <ul>
+            <li>Network setup and configuration</li>
+            <li>Cloud infrastructure (AWS, Azure, GCP)</li>
+            <li>Docker and Kubernetes networking</li>
+            <li>Firewall and security rules</li>
+            <li>VPN configuration</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="subnet.html">Subnet Calculator</a></li>
+          <li><a href="http-status.html">HTTP Status</a></li>
+          <li><a href="jwt.html">JWT Decoder</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Network Tools</h4>
+        <ul>
+          <li><a href="url.html">URL Encode</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="hmac.html">HMAC</a></li>
+          <li><a href="base64.html">Base64</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="subnet.js"></script>
+</body>
+</html>

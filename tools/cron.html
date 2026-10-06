@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cron Expression Parser — Dev Tools</title>
+  <meta name="description" content="Parse and understand cron expressions instantly. See human-readable meaning, next run times, and field breakdown. Free online cron parser.">
+  <link rel="stylesheet" href="cron.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+      <li><a href="diff.html" class="nav-link">🔍 Diff</a></li>
+      <li><a href="http-status.html" class="nav-link">🌐 HTTP</a></li>
+      <li><a href="jwt.html" class="nav-link">🎫 JWT</a></li>
+      <li><a href="html-entity.html" class="nav-link">📋 HTML Entity</a></li>
+      <li><a href="hmac.html" class="nav-link">🔐 HMAC</a></li>
+      <li><a href="subnet.html" class="nav-link">🌍 Subnet</a></li>
+      <li><a href="case.html" class="nav-link">🔤 Case</a></li>
+      <li><a href="css-minify.html" class="nav-link">📐 CSS Min</a></li>
+      <li><a href="palette.html" class="nav-link">🎨 Palette</a></li>
+      <li><a href="cron.html" class="nav-link">⏰ Cron</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">⏰</div>
+        <h1 class="hero-title">Cron Expression Parser</h1>
+        <p class="hero-subtitle">Understand any cron expression in plain English — plus next run times, field breakdown, and common pitfalls.</p>
+        <p class="hero-hint">Type a cron expression below.</p>
+        <div class="hero-secure">
+          ⏰ <strong>Human-readable in seconds</strong><br>
+          Parse, validate, and preview cron schedules — all in your browser.
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Theme Toggle -->
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle" id="themeBtn" type="button">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Dark Mode</span>
+        </button>
+      </div>
+
+      <!-- Cron Input -->
+      <p class="label">Cron Expression</p>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="cronInput"
+          class="input-box"
+          placeholder="*/15 9-17 * * 1-5"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="clear-btn" id="clearBtn" type="button">✕</button>
+      </div>
+
+      <!-- Field Labels (visual guide) -->
+      <div class="field-guide">
+        <div class="field-guide-item">
+          <span class="fg-name">Minute</span>
+          <span class="fg-range">0–59</span>
+        </div>
+        <div class="field-guide-item">
+          <span class="fg-name">Hour</span>
+          <span class="fg-range">0–23</span>
+        </div>
+        <div class="field-guide-item">
+          <span class="fg-name">Day</span>
+          <span class="fg-range">1–31</span>
+        </div>
+        <div class="field-guide-item">
+          <span class="fg-name">Month</span>
+          <span class="fg-range">1–12</span>
+        </div>
+        <div class="field-guide-item">
+          <span class="fg-name">Weekday</span>
+          <span class="fg-range">0–6</span>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <button class="mini-btn" id="pasteBtn" type="button">📋 Paste</button>
+        <button class="mini-btn" id="sampleBtn" type="button">📄 Sample</button>
+        <button class="mini-btn" id="clearAllBtn" type="button">✕ Clear</button>
+      </div>
+
+      <!-- Presets -->
+      <p class="label">Quick Presets</p>
+      <div class="preset-grid">
+        <button class="preset-chip" data-cron="* * * * *" type="button">Every minute</button>
+        <button class="preset-chip" data-cron="*/5 * * * *" type="button">Every 5 min</button>
+        <button class="preset-chip" data-cron="0 * * * *" type="button">Hourly</button>
+        <button class="preset-chip" data-cron="0 0 * * *" type="button">Daily midnight</button>
+        <button class="preset-chip" data-cron="0 9 * * 1-5" type="button">Weekdays 9 AM</button>
+        <button class="preset-chip" data-cron="0 0 1 * *" type="button">Monthly 1st</button>
+        <button class="preset-chip" data-cron="0 0 * * 0" type="button">Weekly Sunday</button>
+        <button class="preset-chip" data-cron="0 0 1 1 *" type="button">Yearly Jan 1</button>
+      </div>
+
+      <!-- Status -->
+      <div class="status-bar" id="statusBar">
+        <span class="status-icon">⏰</span>
+        <span class="status-text">Enter a cron expression to parse</span>
+      </div>
+
+      <!-- Human Readable -->
+      <p class="label">Human Readable</p>
+      <div class="human-readable" id="humanReadable">
+        <div class="hr-icon">💬</div>
+        <div class="hr-text" id="hrText">—</div>
+      </div>
+
+      <!-- Next Run Times -->
+      <p class="label">Next Run Times</p>
+      <div class="next-runs" id="nextRuns">
+        <p class="empty-note">Next run times will appear here.</p>
+      </div>
+
+      <!-- Field Breakdown -->
+      <p class="label">Field Breakdown</p>
+      <div class="field-breakdown" id="fieldBreakdown">
+        <p class="empty-note">Field breakdown will appear here.</p>
+      </div>
+
+      <!-- Action Row -->
+      <div class="action-row">
+        <button class="action-btn primary" id="copyAllBtn" type="button">⧉ Copy All</button>
+        <button class="action-btn secondary" id="downloadBtn" type="button">⬇ Download</button>
+      </div>
+
+      <!-- Details Toggle -->
+      <button class="details-toggle" id="detailsToggle" type="button">
+        <span>Details — How it works</span>
+        <span class="arrow">⌄</span>
+      </button>
+
+      <div class="details-dropdown" id="detailsDropdown">
+        <div class="details-content" id="detailsContent">
+          <p class="no-details">Enter a cron expression to see step-by-step details.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is Cron?</h3>
+          <p>Cron is a time-based job scheduler found on Unix-like systems. It runs commands automatically at fixed times, dates, or intervals — like backups, emails, reports, or CI/CD jobs.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Why do developers need it?</h3>
+          <ul>
+            <li><strong>Automation</strong> — schedule tasks without manual work</li>
+            <li><strong>Easy to get wrong</strong> — one wrong character = job never runs</li>
+            <li><strong>Hard to read</strong> — <code>*/15 9-17 * * 1-5</code> is not obvious</li>
+            <li><strong>Used everywhere</strong> — Linux, GitHub Actions, Jenkins, Kubernetes, AWS</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>The 5 Fields</h3>
+          <ul>
+            <li><strong>Minute</strong> — 0 to 59</li>
+            <li><strong>Hour</strong> — 0 to 23</li>
+            <li><strong>Day of Month</strong> — 1 to 31</li>
+            <li><strong>Month</strong> — 1 to 12 (or JAN–DEC)</li>
+            <li><strong>Day of Week</strong> — 0 to 6 (Sunday = 0, or SUN–SAT)</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Special Characters</h3>
+          <ul>
+            <li><strong>*</strong> — every value (any)</li>
+            <li><strong>,</strong> — list (e.g. <code>1,15,30</code>)</li>
+            <li><strong>-</strong> — range (e.g. <code>9-17</code>)</li>
+            <li><strong>/</strong> — step (e.g. <code>*/5</code> = every 5)</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>⚠️ The Biggest Pitfall</h3>
+          <p>When <strong>both</strong> Day-of-Month and Day-of-Week are restricted (not <code>*</code>), cron uses <strong>OR logic</strong>, not AND.</p>
+          <p><strong>Example:</strong> <code>0 0 15 * 1</code> means "midnight on the 15th <em>OR</em> every Monday" — not "midnight on the 15th if it's a Monday".</p>
+          <p>This confuses almost every developer at least once.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Where is it used?</h3>
+          <ul>
+            <li>Linux crontab (<code>crontab -e</code>)</li>
+            <li>GitHub Actions — <code>on: schedule: cron:</code></li>
+            <li>Jenkins, GitLab CI</li>
+            <li>Kubernetes CronJob</li>
+            <li>AWS EventBridge, CloudWatch</li>
+            <li>Node.js — node-cron, cron packages</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Pro tip</h3>
+          <p>Always test your cron expression with a parser before deploying. A wrong character means your job either never runs or runs at the wrong time — and you might not notice for days.</p>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="cron.html">Cron Parser</a></li>
+          <li><a href="timestamp.html">Timestamp</a></li>
+          <li><a href="timezone.html">Time Zone</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Dev Tools</h4>
+        <ul>
+          <li><a href="css-minify.html">CSS Minifier</a></li>
+          <li><a href="palette.html">Palette</a></li>
+          <li><a href="json.html">JSON Formatter</a></li>
+          <li><a href="regex.html">Regex Tester</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="cron.js"></script>
+</body>
+</html>

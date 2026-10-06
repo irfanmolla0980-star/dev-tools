@@ -198,6 +198,241 @@ body {
   font-style: italic;
 }
 
+/* ============================================
+   LIGHT MODE (Default) + Theme Toggle
+   ============================================ */
+
+.theme-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 1.5px solid #00a077;
+  border-radius: 30px;
+  color: #007755;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  background: rgba(0, 160, 119, 0.1);
+  box-shadow: 0 0 15px rgba(0, 160, 119, 0.4);
+}
+
+.theme-icon { font-size: 16px; }
+.theme-label { white-space: nowrap; }
+
+/* ===== LIGHT MODE OVERRIDES ===== */
+body.light-mode {
+  background: #f0fffa;
+}
+
+body.light-mode .navbar {
+  background: #ffffff;
+  backdrop-filter: none;
+  border-bottom-color: #00a077;
+  box-shadow: 0 2px 20px rgba(0, 160, 119, 0.12);
+}
+
+body.light-mode .nav-logo {
+  color: #007755;
+  text-shadow: none;
+}
+
+body.light-mode .nav-toggle-label { color: #007755; }
+body.light-mode .nav-toggle-arrow { color: #007755; }
+body.light-mode .nav-toggle {
+  border-color: #007755;
+  color: #007755;
+}
+body.light-mode .nav-toggle:hover { background: rgba(0, 119, 85, 0.08); }
+
+body.light-mode .nav-link { color: #2a6655; }
+body.light-mode .nav-link:hover {
+  color: #00a077;
+  background: rgba(0, 160, 119, 0.1);
+}
+body.light-mode .nav-link.active {
+  color: #00a077;
+  background: rgba(0, 160, 119, 0.15);
+  box-shadow: 0 0 10px rgba(0, 160, 119, 0.3);
+}
+
+body.light-mode .nav-menu { scrollbar-color: #00a077 rgba(0, 160, 119, 0.1); }
+body.light-mode .nav-menu::-webkit-scrollbar-track { background: rgba(0, 160, 119, 0.1); }
+body.light-mode .nav-menu::-webkit-scrollbar-thumb { background: #00a077; }
+
+body.light-mode .tool-section {
+  background: #ffffff;
+  backdrop-filter: none;
+  border-color: rgba(0, 160, 119, 0.15);
+  box-shadow: 0 0 30px rgba(0, 160, 119, 0.08);
+}
+
+body.light-mode .hero-title {
+  background: linear-gradient(135deg, #003322 0%, #007755 50%, #00a077 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: none;
+}
+body.light-mode .hero-subtitle { color: #2a6655; }
+body.light-mode .hero-hint { color: #559988; }
+body.light-mode .hero-icon { filter: drop-shadow(0 0 22px rgba(0, 160, 119, 0.6)); }
+
+/* Mode Buttons */
+body.light-mode .mode-buttons {
+  background: #e8fff8;
+  border-color: #b8eedd;
+}
+
+body.light-mode .mode-btn { color: #559988; }
+body.light-mode .mode-btn:hover:not(.active) { color: #00a077; }
+body.light-mode .mode-btn.active {
+  background: linear-gradient(135deg, #00ffaa, #00bfff);
+  color: #003322;
+}
+
+/* Label */
+body.light-mode .label { color: #2a6655; }
+
+/* Quantity Buttons */
+body.light-mode .qty-btn {
+  background: #ffffff;
+  border-color: #b8eedd;
+  color: #2a6655;
+}
+body.light-mode .qty-btn:hover:not(.active) {
+  border-color: #00a077;
+  color: #00a077;
+}
+body.light-mode .qty-btn.active {
+  background: linear-gradient(135deg, #00ffaa, #00bfff);
+  color: #003322;
+  border-color: transparent;
+}
+
+/* Generate Button */
+body.light-mode .generate-btn {
+  background: linear-gradient(135deg, #00ffaa, #00bfff);
+  color: #003322;
+  box-shadow: 0 0 22px rgba(0, 160, 119, 0.4);
+}
+body.light-mode .generate-btn:hover {
+  box-shadow: 0 0 32px rgba(0, 160, 119, 0.7);
+}
+
+/* Copy All Button */
+body.light-mode .copy-all-btn {
+  border-color: #0088cc;
+  color: #0088cc;
+}
+body.light-mode .copy-all-btn:hover {
+  background: rgba(0, 136, 204, 0.1);
+  box-shadow: 0 0 18px rgba(0, 136, 204, 0.4);
+}
+body.light-mode .copy-all-btn.copied {
+  background: #0088cc;
+  color: #ffffff;
+}
+
+/* Empty State */
+body.light-mode .empty-state {
+  background: #f0fffa;
+  border-color: #b8eedd;
+  color: #559988;
+}
+body.light-mode .empty-state strong { color: #007755; }
+
+/* UUID Items */
+body.light-mode .uuid-item {
+  background: #ffffff;
+  border-color: #b8eedd;
+}
+body.light-mode .uuid-item:hover {
+  border-color: #00a077;
+  box-shadow: 0 0 15px rgba(0, 160, 119, 0.15);
+}
+body.light-mode .uuid-text { color: #006644; }
+body.light-mode .uuid-copy {
+  border-color: #00a077;
+  color: #007755;
+}
+body.light-mode .uuid-copy:hover { background: rgba(0, 160, 119, 0.12); }
+body.light-mode .uuid-copy.copied {
+  background: #00a077;
+  color: #ffffff;
+}
+
+/* Details */
+body.light-mode .details-toggle {
+  color: #2a6655;
+  border-color: #b8eedd;
+}
+body.light-mode .details-toggle:hover {
+  border-color: #00a077;
+  color: #00a077;
+}
+body.light-mode .details-content {
+  background: #f0fffa;
+  border-color: #b8eedd;
+  color: #2a6655;
+}
+body.light-mode .details-content .no-details { color: #66aa99; }
+body.light-mode .details-content .detail-row { border-bottom-color: #b8eedd; }
+body.light-mode .details-content .detail-char { color: #007755; }
+body.light-mode .details-content .detail-arrow { color: #66aa99; }
+body.light-mode .details-content .detail-value { color: #006644; }
+
+/* About */
+body.light-mode .about-section { border-top-color: #b8eedd; }
+body.light-mode .about-title { color: #007755; text-shadow: none; }
+body.light-mode .about-block {
+  background: #ffffff;
+  border-color: #b8eedd;
+}
+body.light-mode .about-block:hover {
+  border-color: #00a077;
+  box-shadow: 0 0 15px rgba(0, 160, 119, 0.12);
+}
+body.light-mode .about-block h3 { color: #002a1f; }
+body.light-mode .about-block p,
+body.light-mode .about-block ul,
+body.light-mode .about-block ol { color: #2a6655; }
+body.light-mode .about-block strong { color: #007755; }
+
+/* Footer */
+body.light-mode .footer {
+  background: #ffffff;
+  border-top-color: #00a077;
+}
+body.light-mode .footer-brand h3 { color: #007755; text-shadow: none; }
+body.light-mode .footer-brand p { color: #2a6655; }
+body.light-mode .footer-links h4 { color: #002a1f; }
+body.light-mode .footer-links a { color: #2a6655; }
+body.light-mode .footer-links a:hover { color: #00a077; }
+body.light-mode .footer-bottom {
+  color: #559988;
+  border-top-color: #b8eedd;
+}
+
+/* Navbar Mobile Menu (light) */
+@media (max-width: 768px) {
+  body.light-mode .nav-menu {
+    background: #ffffff;
+    backdrop-filter: none;
+    border-bottom-color: #00a077;
+  }
+}
+
 /* ===== Mode Buttons (Version) ===== */
 .mode-buttons {
   display: grid;

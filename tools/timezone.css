@@ -204,6 +204,370 @@ body {
   font-style: italic;
 }
 
+/* ======LIGHT MODE (Default) + Theme Toggle======= */
+
+.theme-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: #ffffff;
+  border: 1.5px solid #1177cc;
+  border-radius: 30px;
+  color: #005f99;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-toggle:hover {
+  background: rgba(17, 119, 204, 0.1);
+  box-shadow: 0 0 15px rgba(17, 119, 204, 0.4);
+}
+
+.theme-icon { font-size: 16px; }
+.theme-label { white-space: nowrap; }
+
+/* ===== LIGHT MODE OVERRIDES ===== */
+body.light-mode {
+  background: #f0f9ff;
+}
+
+body.light-mode .navbar {
+  background: #ffffff;
+  backdrop-filter: none;
+  border-bottom-color: #1177cc;
+  box-shadow: 0 2px 20px rgba(17, 119, 204, 0.12);
+}
+
+body.light-mode .nav-logo {
+  color: #005f99;
+  text-shadow: none;
+}
+
+body.light-mode .nav-toggle-label { color: #2a6670; }
+body.light-mode .nav-toggle-arrow { color: #005f99; }
+body.light-mode .nav-toggle {
+  border-color: #005f99;
+  color: #005f99;
+}
+body.light-mode .nav-toggle:hover { background: rgba(0, 95, 153, 0.08); }
+
+body.light-mode .nav-link { color: #2a6670; }
+body.light-mode .nav-link:hover {
+  color: #1177cc;
+  background: rgba(17, 119, 204, 0.1);
+}
+body.light-mode .nav-link.active {
+  color: #1177cc;
+  background: rgba(17, 119, 204, 0.15);
+  box-shadow: 0 0 10px rgba(17, 119, 204, 0.3);
+}
+
+body.light-mode .nav-menu { scrollbar-color: #1177cc rgba(17, 119, 204, 0.1); }
+body.light-mode .nav-menu::-webkit-scrollbar-track { background: rgba(17, 119, 204, 0.1); }
+body.light-mode .nav-menu::-webkit-scrollbar-thumb { background: #1177cc; }
+
+body.light-mode .tool-section {
+  background: #ffffff;
+  backdrop-filter: none;
+  border-color: rgba(17, 119, 204, 0.15);
+  box-shadow: 0 0 30px rgba(17, 119, 204, 0.08);
+}
+
+body.light-mode .hero-title {
+  background: linear-gradient(135deg, #002233 0%, #005f99 50%, #1177cc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: none;
+}
+body.light-mode .hero-subtitle { color: #2a6670; }
+body.light-mode .hero-hint { color: #557788; }
+body.light-mode .hero-icon { filter: drop-shadow(0 0 22px rgba(17, 119, 204, 0.6)); }
+
+/* Live Clock */
+body.light-mode .live-clock-box {
+  background: linear-gradient(135deg, rgba(17, 119, 204, 0.06), rgba(17, 204, 170, 0.06));
+  border-color: #1177cc;
+}
+body.light-mode .live-label { color: #005f99; text-shadow: none; }
+body.light-mode .live-clock-time {
+  color: #002233;
+  text-shadow: 0 0 15px rgba(17, 119, 204, 0.3);
+}
+body.light-mode .live-clock-date { color: #005f99; }
+body.light-mode .live-clock-zone { color: #557788; }
+
+/* UTC Box */
+body.light-mode .utc-box {
+  background: rgba(17, 204, 170, 0.06);
+  border-color: #008866;
+}
+body.light-mode .utc-label { color: #008866; text-shadow: none; }
+body.light-mode .utc-time {
+  color: #002233;
+  text-shadow: 0 0 15px rgba(0, 136, 102, 0.25);
+}
+body.light-mode .utc-date { color: #005f99; }
+body.light-mode .utc-copy-btn {
+  border-color: #008866;
+  color: #008866;
+}
+body.light-mode .utc-copy-btn:hover { background: rgba(0, 136, 102, 0.12); }
+body.light-mode .utc-copy-btn.copied {
+  background: #008866;
+  color: #ffffff;
+}
+
+/* Labels */
+body.light-mode .label { color: #005f99; text-shadow: none; }
+
+/* Date & Time */
+body.light-mode .datetime-input {
+  background: #ffffff;
+  border-color: #cceeff;
+  color: #005f99;
+  color-scheme: light;
+}
+body.light-mode .datetime-input:focus {
+  border-color: #1177cc;
+  box-shadow: 0 0 18px rgba(17, 119, 204, 0.4);
+}
+body.light-mode .now-btn {
+  border-color: #1177cc;
+  color: #005f99;
+}
+body.light-mode .now-btn:hover { background: rgba(17, 119, 204, 0.12); }
+
+/* Format Toggle */
+body.light-mode .format-toggle {
+  background: #ffffff;
+  border-color: #cceeff;
+}
+body.light-mode .format-btn { color: #2a6670; }
+body.light-mode .format-btn:hover:not(.active) { color: #1177cc; }
+
+body.light-mode .time-diff {
+  background: #ffffff;
+  border-color: #cceeff;
+  color: #005f99;
+}
+body.light-mode .time-diff.positive {
+  color: #008866;
+  border-color: rgba(0, 136, 102, 0.3);
+}
+body.light-mode .time-diff.negative {
+  color: #cc2244;
+  border-color: rgba(204, 34, 68, 0.3);
+}
+
+/* Zone Picker */
+body.light-mode .select-label { color: #2a6670; }
+body.light-mode .zone-picker-display {
+  background: #ffffff;
+  border-color: #cceeff;
+  color: #005f99;
+}
+body.light-mode .zone-picker-display:hover { border-color: #1177cc; }
+body.light-mode .zone-picker.open .zone-picker-display {
+  border-color: #1177cc;
+  box-shadow: 0 0 18px rgba(17, 119, 204, 0.4);
+}
+body.light-mode .zone-picker-arrow { color: #1177cc; }
+
+body.light-mode .zone-picker-dropdown {
+  background: #ffffff;
+  border-color: #1177cc;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15), 0 0 25px rgba(17, 119, 204, 0.15);
+}
+body.light-mode .zone-picker-search {
+  background: #f0f9ff;
+  border-color: #cceeff;
+  color: #002233;
+}
+body.light-mode .zone-picker-search:focus {
+  border-color: #1177cc;
+  box-shadow: 0 0 12px rgba(17, 119, 204, 0.4);
+}
+body.light-mode .zone-picker-search::placeholder { color: #88aabb; }
+
+body.light-mode .zone-option { color: #005f99; }
+body.light-mode .zone-option:hover {
+  background: rgba(17, 119, 204, 0.1);
+  color: #1177cc;
+}
+body.light-mode .zone-option.selected {
+  background: linear-gradient(135deg, #33aaff, #33ffcc);
+  color: #002233;
+}
+body.light-mode .zone-option.empty { color: #88aabb; }
+
+/* Swap */
+body.light-mode .swap-btn {
+  border-color: #1177cc;
+  color: #1177cc;
+}
+body.light-mode .swap-btn:hover { background: rgba(17, 119, 204, 0.12); }
+
+/* Main Output */
+body.light-mode .main-output {
+  background: linear-gradient(135deg, rgba(17, 119, 204, 0.08), rgba(17, 204, 170, 0.06));
+  border-color: #1177cc;
+}
+body.light-mode .main-output-value { color: #002233; }
+body.light-mode .main-copy-btn {
+  border-color: #008866;
+  color: #008866;
+}
+body.light-mode .main-copy-btn:hover { background: rgba(0, 136, 102, 0.12); }
+body.light-mode .main-copy-btn.copied {
+  background: #008866;
+  color: #ffffff;
+}
+
+/* Quick Zones */
+body.light-mode .quick-zone {
+  background: #ffffff;
+  border-color: #cceeff;
+  color: #2a6670;
+}
+body.light-mode .quick-zone:hover {
+  border-color: #1177cc;
+  color: #005f99;
+}
+body.light-mode .quick-zone.active {
+  background: linear-gradient(135deg, #33aaff, #33ffcc);
+  color: #002233;
+}
+
+/* Search */
+body.light-mode .zone-search {
+  background: #ffffff;
+  border-color: #1177cc;
+  color: #002233;
+}
+body.light-mode .zone-search::placeholder { color: #88aabb; }
+body.light-mode .zone-search:focus {
+  box-shadow: 0 0 25px rgba(17, 119, 204, 0.4);
+  border-color: #33aaff;
+}
+body.light-mode .search-clear-btn {
+  border-color: #1177cc;
+  color: #1177cc;
+}
+body.light-mode .search-clear-btn:hover { background: rgba(17, 119, 204, 0.12); }
+
+/* All Zones */
+body.light-mode .all-zones-title { color: #005f99; text-shadow: none; }
+body.light-mode .mini-btn {
+  border-color: #008866;
+  color: #008866;
+}
+body.light-mode .mini-btn:hover { background: rgba(0, 136, 102, 0.1); }
+body.light-mode .mini-btn.copied {
+  background: #008866;
+  color: #ffffff;
+}
+
+body.light-mode .output-placeholder {
+  color: #88aabb;
+  background: #f0f9ff;
+  border-color: #cceeff;
+}
+
+body.light-mode .zone-row {
+  background: #ffffff;
+  border-color: #cceeff;
+}
+body.light-mode .zone-row::before { background: #cceeff; }
+body.light-mode .zone-row:hover {
+  border-color: #1177cc;
+  box-shadow: 0 0 15px rgba(17, 119, 204, 0.2);
+}
+body.light-mode .zone-row:hover::before {
+  background: linear-gradient(180deg, #1177cc, #33aaff);
+}
+body.light-mode .zone-row.highlight {
+  border-color: #008866;
+  background: rgba(0, 136, 102, 0.05);
+}
+body.light-mode .zone-row.highlight::before {
+  background: linear-gradient(180deg, #008866, #33aaff);
+}
+body.light-mode .zone-name { color: #005f99; }
+body.light-mode .zone-meta { color: #557788; }
+body.light-mode .zone-meta .dst-badge { color: #cc7700; }
+body.light-mode .zone-value { color: #002233; }
+body.light-mode .zone-row.highlight .zone-value { color: #002233; }
+
+/* Details */
+body.light-mode .details-toggle {
+  color: #2a6670;
+  border-color: #cceeff;
+}
+body.light-mode .details-toggle:hover {
+  border-color: #1177cc;
+  color: #1177cc;
+}
+body.light-mode .details-content {
+  background: #f0f9ff;
+  border-color: #cceeff;
+  color: #2a6670;
+}
+body.light-mode .details-content .no-details { color: #88aabb; }
+body.light-mode .details-content .detail-row { border-bottom-color: #cceeff; }
+body.light-mode .details-content .detail-char { color: #005f99; }
+body.light-mode .details-content .detail-arrow { color: #88aabb; }
+body.light-mode .details-content .detail-value { color: #005f99; }
+
+/* About */
+body.light-mode .about-section { border-top-color: #cceeff; }
+body.light-mode .about-title { color: #005f99; text-shadow: none; }
+body.light-mode .about-block {
+  background: #ffffff;
+  border-color: #cceeff;
+}
+body.light-mode .about-block:hover {
+  border-color: #1177cc;
+  box-shadow: 0 0 15px rgba(17, 119, 204, 0.12);
+}
+body.light-mode .about-block h3 { color: #002233; }
+body.light-mode .about-block p,
+body.light-mode .about-block ul,
+body.light-mode .about-block ol { color: #2a6670; }
+body.light-mode .about-block strong { color: #005f99; }
+
+/* Footer */
+body.light-mode .footer {
+  background: #ffffff;
+  border-top-color: #1177cc;
+}
+body.light-mode .footer-brand h3 { color: #005f99; text-shadow: none; }
+body.light-mode .footer-brand p { color: #2a6670; }
+body.light-mode .footer-links h4 { color: #002233; }
+body.light-mode .footer-links a { color: #2a6670; }
+body.light-mode .footer-links a:hover { color: #1177cc; }
+body.light-mode .footer-bottom {
+  color: #557788;
+  border-top-color: #cceeff;
+}
+
+/* Navbar Mobile Menu (light) */
+@media (max-width: 768px) {
+  body.light-mode .nav-menu {
+    background: #ffffff;
+    backdrop-filter: none;
+    border-bottom-color: #1177cc;
+  }
+}
+
 /* Tool Section */
 .tool-section {
   background: rgba(5, 15, 25, 0.75);
