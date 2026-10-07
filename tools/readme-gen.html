@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub README Generator — Dev Tools</title>
+  <meta name="description" content="Generate a beautiful GitHub profile README in seconds. Add bio, skills, social links, stats cards, and more.">
+  <link rel="stylesheet" href="readme-gen.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../index.html" class="nav-logo">🛠️ Dev Tools</a>
+    <div class="nav-toggle-wrapper">
+      <span class="nav-toggle-label">see all tools</span>
+      <span class="nav-toggle-arrow">></span>
+      <button class="nav-toggle" id="navToggle">☰</button>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="number.html" class="nav-link">🔢 Number</a></li>
+      <li><a href="ascii.html" class="nav-link">🔤 ASCII</a></li>
+      <li><a href="binary-text.html" class="nav-link">💻 Binary</a></li>
+      <li><a href="hex-text.html" class="nav-link">🔡 Hex</a></li>
+      <li><a href="unicode.html" class="nav-link">🌐 Unicode</a></li>
+      <li><a href="base64.html" class="nav-link">🔐 Base64</a></li>
+      <li><a href="url.html" class="nav-link">🔗 URL</a></li>
+      <li><a href="hash.html" class="nav-link">#️⃣ Hash</a></li>
+      <li><a href="color.html" class="nav-link">🎨 Color</a></li>
+      <li><a href="uuid.html" class="nav-link">🆔 UUID</a></li>
+      <li><a href="timestamp.html" class="nav-link">⏰ Timestamp</a></li>
+      <li><a href="json.html" class="nav-link">📝 JSON</a></li>
+      <li><a href="regex.html" class="nav-link">🔍 Regex</a></li>
+      <li><a href="lorem.html" class="nav-link">📋 Lorem</a></li>
+      <li><a href="password.html" class="nav-link">🔑 Password</a></li>
+      <li><a href="unit.html" class="nav-link">📏 Unit</a></li>
+      <li><a href="timezone.html" class="nav-link">🕐 Time Zone</a></li>
+      <li><a href="qrcode.html" class="nav-link">📱 QR Code</a></li>
+      <li><a href="image-base64.html" class="nav-link">🖼️ Image</a></li>
+      <li><a href="markdown.html" class="nav-link">📊 Markdown</a></li>
+      <li><a href="readme-gen.html" class="nav-link">🚀 README</a></li>
+      <li><a href="diff.html" class="nav-link">🔍 Diff</a></li>
+      <li><a href="http-status.html" class="nav-link">🌐 HTTP</a></li>
+      <li><a href="jwt.html" class="nav-link">🎫 JWT</a></li>
+      <li><a href="html-entity.html" class="nav-link">📋 HTML Entity</a></li>
+      <li><a href="hmac.html" class="nav-link">🔐 HMAC</a></li>
+      <li><a href="subnet.html" class="nav-link">🌍 Subnet</a></li>
+      <li><a href="case.html" class="nav-link">🔤 Case</a></li>
+      <li><a href="css-minify.html" class="nav-link">📐 CSS Min</a></li>
+      <li><a href="palette.html" class="nav-link">🎨 Palette</a></li>
+      <li><a href="cron.html" class="nav-link">⏰ Cron</a></li>
+    </ul>
+  </nav>
+
+  <div class="app">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero">
+        <div class="hero-icon">🚀</div>
+        <h1 class="hero-title">GitHub README Generator</h1>
+        <p class="hero-subtitle">Build a stunning GitHub profile README in seconds. Add bio, skills, stats, and social links — no coding needed.</p>
+        <p class="hero-hint">Fill the form and watch it come alive.</p>
+        <div class="hero-secure">
+          ⚡ <strong>Live preview + copy-ready Markdown</strong><br>
+          Everything runs in your browser — nothing is uploaded.
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+
+      <!-- Theme Toggle -->
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle" id="themeBtn" type="button">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Dark Mode</span>
+        </button>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="quick-actions">
+        <button class="mini-btn" id="sampleBtn" type="button">📄 Load Sample</button>
+        <button class="mini-btn" id="clearAllBtn" type="button">✕ Clear All</button>
+      </div>
+
+      <!-- Status -->
+      <div class="status-bar" id="statusBar">
+        <span class="status-icon">🚀</span>
+        <span class="status-text">Start filling the form to generate your README</span>
+      </div>
+
+      <!-- ============ TWO COLUMN LAYOUT ============ -->
+      <div class="main-layout">
+
+        <!-- LEFT COLUMN: FORM -->
+        <div class="form-column">
+
+          <!-- Section 1: Basic Info -->
+          <div class="form-section">
+            <h3 class="section-title">👤 Basic Info</h3>
+
+            <label class="label" for="nameInput">Name</label>
+            <input type="text" id="nameInput" class="input-field" placeholder="John Doe" autocomplete="off" />
+
+            <label class="label" for="taglineInput">Tagline</label>
+            <input type="text" id="taglineInput" class="input-field" placeholder="Full Stack Developer • AI Enthusiast" autocomplete="off" />
+
+            <label class="label" for="bioInput">Bio / About</label>
+            <textarea id="bioInput" class="input-field" placeholder="I build web apps and love clean code..."></textarea>
+
+            <label class="label" for="currentWorkInput">Currently Working On</label>
+            <input type="text" id="currentWorkInput" class="input-field" placeholder="My new portfolio site" autocomplete="off" />
+
+            <label class="label" for="learningInput">Currently Learning</label>
+            <input type="text" id="learningInput" class="input-field" placeholder="Rust, WebAssembly" autocomplete="off" />
+
+            <label class="label" for="askMeInput">Ask Me About</label>
+            <input type="text" id="askMeInput" class="input-field" placeholder="React, Python, AI, DevOps" autocomplete="off" />
+          </div>
+
+          <!-- Section 2: Social Links -->
+          <div class="form-section">
+            <h3 class="section-title">🔗 Social Links</h3>
+
+            <label class="label" for="githubInput">GitHub Username</label>
+            <input type="text" id="githubInput" class="input-field" placeholder="johndoe" autocomplete="off" />
+
+            <label class="label" for="linkedinInput">LinkedIn Username</label>
+            <input type="text" id="linkedinInput" class="input-field" placeholder="johndoe" autocomplete="off" />
+
+            <label class="label" for="twitterInput">Twitter / X Username</label>
+            <input type="text" id="twitterInput" class="input-field" placeholder="johndoe" autocomplete="off" />
+
+            <label class="label" for="portfolioInput">Portfolio URL</label>
+            <input type="text" id="portfolioInput" class="input-field" placeholder="https://johndoe.com" autocomplete="off" />
+
+            <label class="label" for="emailInput">Email</label>
+            <input type="text" id="emailInput" class="input-field" placeholder="john@example.com" autocomplete="off" />
+
+            <label class="label" for="blogInput">Blog / YouTube (optional)</label>
+            <input type="text" id="blogInput" class="input-field" placeholder="https://blog.johndoe.com" autocomplete="off" />
+          </div>
+
+          <!-- Section 3: Tech Stack -->
+          <div class="form-section">
+            <h3 class="section-title">🛠️ Tech Stack</h3>
+            <p class="section-hint">Click to select skills. Badges will be auto-generated.</p>
+            <div id="techContainer">
+              <!-- JS will generate tech chips here -->
+            </div>
+          </div>
+
+          <!-- Section 4: Stats Cards -->
+          <div class="form-section">
+            <h3 class="section-title">📊 GitHub Stats</h3>
+
+            <label class="checkbox-item">
+              <input type="checkbox" id="statsCard" checked />
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">GitHub Stats Card</span>
+            </label>
+
+            <label class="checkbox-item">
+              <input type="checkbox" id="langCard" checked />
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">Top Languages Card</span>
+            </label>
+
+            <label class="checkbox-item">
+              <input type="checkbox" id="streakCard" />
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">Streak Stats</span>
+            </label>
+
+            <label class="checkbox-item">
+              <input type="checkbox" id="trophyCard" />
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">GitHub Trophies</span>
+            </label>
+
+            <label class="checkbox-item">
+              <input type="checkbox" id="visitorCounter" checked />
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">Profile Visitor Counter</span>
+            </label>
+          </div>
+
+          <!-- Section 5: Extras -->
+          <div class="form-section">
+            <h3 class="section-title">✨ Extras</h3>
+
+            <label class="label" for="coffeeInput">Buy Me a Coffee Username (optional)</label>
+            <input type="text" id="coffeeInput" class="input-field" placeholder="johndoe" autocomplete="off" />
+
+            <label class="label" for="devtoInput">Dev.to Username (optional)</label>
+            <input type="text" id="devtoInput" class="input-field" placeholder="johndoe" autocomplete="off" />
+
+            <label class="label" for="mediumInput">Medium Username (optional)</label>
+            <input type="text" id="mediumInput" class="input-field" placeholder="@johndoe" autocomplete="off" />
+          </div>
+
+        </div>
+
+        <!-- RIGHT COLUMN: PREVIEW + OUTPUT -->
+        <div class="preview-column">
+
+          <div class="sticky-wrapper">
+
+            <!-- Live Preview -->
+            <div class="output-header">
+              <span class="output-label">👁️ Live Preview</span>
+              <button class="mini-btn" id="openPreviewBtn" type="button">🔍 Open in MD</button>
+            </div>
+
+            <div class="preview-box" id="previewBox">
+              <div class="preview-placeholder">
+                <span class="preview-icon">👁️</span>
+                <p>Live preview will appear here</p>
+              </div>
+            </div>
+
+            <!-- Markdown Output -->
+            <div class="output-header">
+              <span class="output-label">📝 Markdown</span>
+              <div class="output-actions">
+                <button class="mini-btn" id="copyBtn" type="button">⧉ Copy</button>
+                <button class="mini-btn" id="downloadBtn" type="button">⬇ Save</button>
+              </div>
+            </div>
+
+            <div class="output-box" id="outputBox">
+              <span class="output-placeholder">Your README.md will appear here...</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <!-- ============ END TWO COLUMN ============ -->
+
+      <!-- How to Use -->
+      <section class="how-to-section">
+        <h2 class="how-to-title">📖 How to Use This Tool</h2>
+
+        <div class="how-to-step">
+          <span class="step-num">1</span>
+          <div class="step-content">
+            <h4>Fill the form</h4>
+            <p>Enter your name, tagline, bio, and social links on the left. Everything is optional — fill what you want to show.</p>
+          </div>
+        </div>
+
+        <div class="how-to-step">
+          <span class="step-num">2</span>
+          <div class="step-content">
+            <h4>Select your tech stack</h4>
+            <p>Click the skill chips to add them. Logos and badges will be auto-generated from official sources (Shields.io).</p>
+          </div>
+        </div>
+
+        <div class="how-to-step">
+          <span class="step-num">3</span>
+          <div class="step-content">
+            <h4>Choose stats cards</h4>
+            <p>Toggle GitHub Stats, Top Languages, Streak, Trophies, and Visitor Counter as per your preference.</p>
+          </div>
+        </div>
+
+        <div class="how-to-step">
+          <span class="step-num">4</span>
+          <div class="step-content">
+            <h4>Watch the live preview</h4>
+            <p>As you type, the live preview on the right updates instantly. See exactly how your README will look on GitHub.</p>
+          </div>
+        </div>
+
+        <div class="how-to-step">
+          <span class="step-num">5</span>
+          <div class="step-content">
+            <h4>Copy or download the README</h4>
+            <p>Click <strong>Copy</strong> to copy the Markdown, or <strong>Save</strong> to download it as <code>README.md</code>.</p>
+          </div>
+        </div>
+
+        <div class="how-to-step">
+          <span class="step-num">6</span>
+          <div class="step-content">
+            <h4>Create a special repository on GitHub</h4>
+            <p>Go to GitHub and create a <strong>new repository</strong> with the <strong>exact same name as your username</strong> (e.g. <code>johndoe/johndoe</code>). Check <strong>"Add a README file"</strong>. This is the special repo GitHub uses for your profile README.</p>
+          </div>
+        </div>
+
+        <div class="how-to-step">
+          <span class="step-num">7</span>
+          <div class="step-content">
+            <h4>Paste and commit</h4>
+            <p>Open the <code>README.md</code> file in that repo, click the <strong>✏️ Edit</strong> button, delete the default content, paste your generated README, then scroll down and click <strong>Commit changes</strong>. Refresh your profile — done! 🎉</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="about-section">
+        <h2 class="about-title">📖 About This Tool</h2>
+
+        <div class="about-block">
+          <h3>What is a GitHub Profile README?</h3>
+          <p>A GitHub Profile README is a special Markdown file that appears at the top of your GitHub profile. It's your developer "business card" — a chance to introduce yourself, showcase your skills, and link to your work.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>Why do developers need it?</h3>
+          <ul>
+            <li><strong>First impression</strong> — recruiters and collaborators see it first</li>
+            <li><strong>Showcase skills</strong> — badges and stats highlight your stack</li>
+            <li><strong>Stand out</strong> — a polished profile looks professional</li>
+            <li><strong>Easy to share</strong> — one link shows your entire developer identity</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>How does this tool work?</h3>
+          <p>You fill in the form on the left. As you type, this tool generates the Markdown code and renders a live preview instantly. Everything runs in your browser — no data is uploaded anywhere.</p>
+          <p>At the end, you copy the Markdown or download it as <code>README.md</code>. Paste it into your GitHub profile repository and you're done.</p>
+        </div>
+
+        <div class="about-block">
+          <h3>How to add it to GitHub (quick recap)</h3>
+          <ol>
+            <li>Create a new repository with the <strong>exact same name as your GitHub username</strong></li>
+            <li>Check "Add a README file"</li>
+            <li>Edit the README file and paste your generated content</li>
+            <li>Commit the changes — it will appear on your profile immediately</li>
+          </ol>
+        </div>
+
+        <div class="about-block">
+          <h3>Powered by</h3>
+          <ul>
+            <li><strong>Shields.io</strong> — for tech stack badges and logos</li>
+            <li><strong>GitHub Readme Stats</strong> — for stats cards</li>
+            <li><strong>Streak Stats</strong> — for contribution streaks</li>
+            <li><strong>GitHub Profile Trophy</strong> — for trophies</li>
+            <li><strong>Komarev Visitor Badge</strong> — for visitor counter</li>
+          </ul>
+        </div>
+
+        <div class="about-block">
+          <h3>Pro tip</h3>
+          <p>Start simple. Add your name, tagline, and a few skills. Then iterate — add stats, links, and extras as you go. A clean, minimal README often works better than a cluttered one.</p>
+        </div>
+      </section>
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>🛠️ Dev Tools</h3>
+        <p>A collection of handy developer tools.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="readme-gen.html">README Generator</a></li>
+          <li><a href="markdown.html">Markdown Preview</a></li>
+          <li><a href="diff.html">Diff Checker</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>GitHub Tools</h4>
+        <ul>
+          <li><a href="readme-gen.html">README Generator</a></li>
+          <li><a href="markdown.html">Markdown Preview</a></li>
+          <li><a href="hash.html">Hash Generator</a></li>
+          <li><a href="uuid.html">UUID Generator</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Dev Tools. All rights reserved.</p>
+      <p>Made with ❤️ for developers</p>
+    </div>
+    <button class="back-to-top" id="backToTop">↑</button>
+  </footer>
+
+  <script src="readme-gen.js"></script>
+</body>
+</html>
