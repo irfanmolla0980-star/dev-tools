@@ -157,6 +157,16 @@
         <button class="main-copy-btn" id="mainCopyBtn" type="button">⧉</button>
       </div>
 
+      <!-- Share URL Button -->
+      <button class="share-btn" id="shareBtn" type="button">
+        🔗 Share This Conversion
+      </button>
+
+      <!-- ISO Format Copy Button -->
+      <button class="share-btn iso-btn" id="isoBtn" type="button">
+        ⏱️ Copy as ISO 8601
+      </button>
+
       <!-- Quick Zones -->
       <p class="label">Quick Zones</p>
       <div class="quick-zones">
@@ -170,6 +180,39 @@
         <button class="quick-zone" data-zone="Asia/Singapore" type="button">SGT — Singapore</button>
         <button class="quick-zone" data-zone="Australia/Sydney" type="button">AEDT — Sydney</button>
         <button class="quick-zone" data-zone="UTC" type="button">UTC — Universal</button>
+      </div>
+
+      <!-- Meeting Planner -->
+      <p class="label">🤝 Meeting Planner</p>
+      <div class="meeting-planner">
+        <div class="meeting-grid" id="meetingGrid"></div>
+        <div class="meeting-slider-wrap">
+          <label class="meeting-slider-label">
+            Adjust Meeting Time
+            <span class="meeting-slider-time" id="meetingSliderTime">—</span>
+          </label>
+          <input type="range" id="meetingSlider" class="meeting-slider" min="0" max="1439" value="540" />
+        </div>
+      </div>
+
+      <!-- Timestamp Mini Converter -->
+      <p class="label">⏱️ Timestamp Converter</p>
+      <div class="ts-mini">
+        <div class="ts-current">
+          <span class="ts-current-label">Current Timestamp</span>
+          <span class="ts-current-value" id="tsCurrent" title="Click to copy">—</span>
+        </div>
+        <div class="ts-inputs">
+          <div class="ts-field">
+            <label class="ts-label" for="tsInput">Timestamp</label>
+            <input type="text" id="tsInput" class="ts-input" placeholder="1700000000" />
+          </div>
+          <div class="ts-field">
+            <label class="ts-label" for="tsDate">Date &amp; Time</label>
+            <input type="datetime-local" id="tsDate" class="ts-input" step="1" />
+          </div>
+        </div>
+        <a href="timestamp.html" class="ts-link">🔗 More options → Timestamp Converter</a>
       </div>
 
       <!-- All Zones Header with Search -->
@@ -215,69 +258,47 @@
 
         <div class="about-block">
           <h3>What is it?</h3>
-          <p>Time Zone Converter shows you the same moment in time across <strong>70+ time zones</strong> — instantly. Includes UTC, GMT offset, DST detection, and more.</p>
+          <p>A powerful, all-in-one Time Zone Converter built for developers and remote teams. It converts time across <strong>70+ zones</strong>, shows live seconds, handles DST, and even helps you plan meetings.</p>
         </div>
 
         <div class="about-block">
-          <h3>Why is it useful?</h3>
+          <h3>Why is it useful for developers?</h3>
           <ul>
-            <li>Scheduling meetings across countries</li>
-            <li>Understanding API timestamps</li>
-            <li>Server logs and debugging</li>
-            <li>International deadlines and events</li>
-            <li>Travel planning</li>
+            <li><strong>Meeting Planner:</strong> Check the perfect overlapping hours for your global team (Work/Off indicators).</li>
+            <li><strong>ISO 8601 Copy:</strong> Instantly copy the exact timestamp (e.g., <code>2026-10-15T14:30:00Z</code>) for your code, API, or database.</li>
+            <li><strong>URL Sharing:</strong> Share a link with your team so they see the exact same conversion you do.</li>
+            <li><strong>Timestamp Converter:</strong> Convert Unix timestamps to human-readable dates instantly.</li>
+            <li><strong>Country Grouping:</strong> Only see separate cities if their time zones actually differ (e.g., USA, China).</li>
           </ul>
         </div>
 
         <div class="about-block">
-          <h3>What is UTC?</h3>
-          <p><strong>UTC</strong> (Coordinated Universal Time) is the global standard. All other zones are expressed as an offset from UTC — like +5:30, -8:00, etc.</p>
-        </div>
-
-        <div class="about-block">
-          <h3>What is DST?</h3>
-          <p><strong>DST</strong> (Daylight Saving Time) — many countries move their clocks forward by 1 hour in summer. This tool automatically detects DST.</p>
-        </div>
-
-        <div class="about-block">
-          <h3>Features</h3>
+          <h3>Key Features</h3>
           <ul>
-            <li><strong>70+ time zones</strong> with cities and abbreviations</li>
-            <li><strong>Live local clock</strong> and <strong>UTC clock</strong></li>
-            <li><strong>Search bar</strong> — find any country, city, or code</li>
-            <li><strong>Custom dropdowns</strong> with their own search</li>
-            <li><strong>12h / 24h format</strong> toggle</li>
-            <li><strong>Time difference</strong> between two zones</li>
-            <li><strong>All zones at once</strong> — click any to copy</li>
-            <li><strong>Details</strong> — offset, DST, abbreviation, difference</li>
+            <li>🔍 <strong>Live search</strong> by country, city, or code (e.g., "IST").</li>
+            <li>⏱️ <strong>Live local clock</strong> and UTC clock with seconds.</li>
+            <li>🔗 <strong>Custom shareable links</strong> for any conversion.</li>
+            <li>📊 <strong>Details panel</strong> showing UTC offsets, abbreviations, and DST status.</li>
+            <li>🌙 <strong>Dark / Light mode</strong> toggle.</li>
           </ul>
         </div>
 
         <div class="about-block">
           <h3>How to use?</h3>
           <ol>
-            <li>Pick a <strong>date</strong> and <strong>time</strong> (or click <strong>Now</strong>)</li>
-            <li>Choose <strong>From</strong> and <strong>To</strong> zones (search inside dropdown)</li>
-            <li>The result updates instantly</li>
-            <li>Use the search bar to filter all zones</li>
-            <li>Click any row to copy that value</li>
-            <li>Use <strong>⇅ Swap</strong> to reverse</li>
-            <li>Toggle <strong>12h / 24h</strong> as needed</li>
+            <li>Pick a <strong>date</strong> and <strong>time</strong> (or click <strong>Now</strong>).</li>
+            <li>Choose <strong>From</strong> and <strong>To</strong> zones.</li>
+            <li>Check the result, or click <strong>Copy as ISO 8601</strong> for coding.</li>
+            <li>Scroll down to the <strong>Meeting Planner</strong> to find overlapping work hours for your team.</li>
+            <li>Click <strong>Share This Conversion</strong> to send the link to a colleague.</li>
           </ol>
         </div>
 
         <div class="about-block">
-          <h3>Tips</h3>
-          <ul>
-            <li>Use <strong>UTC</strong> when working with servers</li>
-            <li>Click <strong>Now</strong> to jump to the current time</li>
-            <li>Your local time zone is auto-detected</li>
-            <li>DST is handled automatically</li>
-            <li>Click <strong>Copy UTC</strong> to grab the UTC time</li>
-          </ul>
+          <h3>Pro Tip for Developers</h3>
+          <p>Always store timestamps in UTC (using the ISO 8601 button) in your database, and let the frontend convert it to the user's local time zone. This prevents DST bugs and timezone chaos!</p>
         </div>
       </section>
-
     </section>
 
   </div>
