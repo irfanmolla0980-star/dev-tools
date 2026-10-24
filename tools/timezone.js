@@ -33,12 +33,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'New Delhi',
     cities: [
-      { name: 'New Delhi', tz: 'Asia/Kolkata', capital: true },
-      { name: 'Mumbai', tz: 'Asia/Kolkata' },
-      { name: 'Kolkata', tz: 'Asia/Kolkata' },
-      { name: 'Chennai', tz: 'Asia/Kolkata' },
-      { name: 'Bangalore', tz: 'Asia/Kolkata' },
-      { name: 'Hyderabad', tz: 'Asia/Kolkata' }
+      { name: 'New Delhi', tz: 'Asia/Kolkata', capital: true }
     ]
   },
   {
@@ -46,10 +41,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Karachi',
     cities: [
-      { name: 'Karachi', tz: 'Asia/Karachi', capital: true },
-      { name: 'Lahore', tz: 'Asia/Karachi' },
-      { name: 'Islamabad', tz: 'Asia/Karachi' },
-      { name: 'Peshawar', tz: 'Asia/Karachi' }
+      { name: 'Karachi', tz: 'Asia/Karachi', capital: true }
     ]
   },
   {
@@ -77,8 +69,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Dhaka',
     cities: [
-      { name: 'Dhaka', tz: 'Asia/Dhaka', capital: true },
-      { name: 'Chittagong', tz: 'Asia/Dhaka' }
+      { name: 'Dhaka', tz: 'Asia/Dhaka', capital: true }
     ]
   },
   {
@@ -94,8 +85,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Abu Dhabi',
     cities: [
-      { name: 'Abu Dhabi', tz: 'Asia/Dubai', capital: true },
-      { name: 'Dubai', tz: 'Asia/Dubai' }
+      { name: 'Abu Dhabi', tz: 'Asia/Dubai', capital: true }
     ]
   },
   {
@@ -103,8 +93,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Tokyo',
     cities: [
-      { name: 'Tokyo', tz: 'Asia/Tokyo', capital: true },
-      { name: 'Osaka', tz: 'Asia/Tokyo' }
+      { name: 'Tokyo', tz: 'Asia/Tokyo', capital: true }
     ]
   },
   {
@@ -112,8 +101,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Seoul',
     cities: [
-      { name: 'Seoul', tz: 'Asia/Seoul', capital: true },
-      { name: 'Busan', tz: 'Asia/Seoul' }
+      { name: 'Seoul', tz: 'Asia/Seoul', capital: true }
     ]
   },
   {
@@ -163,8 +151,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Hanoi',
     cities: [
-      { name: 'Hanoi', tz: 'Asia/Ho_Chi_Minh', capital: true },
-      { name: 'Ho Chi Minh City', tz: 'Asia/Ho_Chi_Minh' }
+      { name: 'Hanoi', tz: 'Asia/Ho_Chi_Minh', capital: true }
     ]
   },
   {
@@ -172,9 +159,7 @@ const COUNTRIES = [
   continent: 'Asia',
   capital: 'Riyadh',
   cities: [
-    { name: 'Riyadh', tz: 'Asia/Riyadh', capital: true },
-    { name: 'Jeddah', tz: 'Asia/Riyadh' },
-    { name: 'Mecca', tz: 'Asia/Riyadh' }
+    { name: 'Riyadh', tz: 'Asia/Riyadh', capital: true }
   ]
   },
   {
@@ -182,9 +167,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Ankara',
     cities: [
-      { name: 'Ankara', tz: 'Europe/Istanbul', capital: true },
-      { name: 'Istanbul', tz: 'Europe/Istanbul' },
-      { name: 'Izmir', tz: 'Europe/Istanbul' }
+      { name: 'Ankara', tz: 'Europe/Istanbul', capital: true }
     ]
   },
   {
@@ -200,8 +183,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Baghdad',
     cities: [
-      { name: 'Baghdad', tz: 'Asia/Baghdad', capital: true },
-      { name: 'Basra', tz: 'Asia/Baghdad' }
+      { name: 'Baghdad', tz: 'Asia/Baghdad', capital: true }
     ]
   },
   {
@@ -228,9 +210,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Naypyidaw',
     cities: [
-      { name: 'Naypyidaw', tz: 'Asia/Yangon', capital: true },
-      { name: 'Yangon', tz: 'Asia/Yangon' },
-      { name: 'Mandalay', tz: 'Asia/Yangon' }
+      { name: 'Naypyidaw', tz: 'Asia/Yangon', capital: true }
     ]
   },
   {
@@ -238,8 +218,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Phnom Penh',
     cities: [
-      { name: 'Phnom Penh', tz: 'Asia/Phnom_Penh', capital: true },
-      { name: 'Siem Reap', tz: 'Asia/Phnom_Penh' }
+      { name: 'Phnom Penh', tz: 'Asia/Phnom_Penh', capital: true }
     ]
   },
   {
@@ -247,8 +226,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Taipei',
     cities: [
-      { name: 'Taipei', tz: 'Asia/Taipei', capital: true },
-      { name: 'Kaohsiung', tz: 'Asia/Taipei' }
+      { name: 'Taipei', tz: 'Asia/Taipei', capital: true }
     ]
   },
   {
@@ -256,8 +234,7 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Baku',
     cities: [
-      { name: 'Baku', tz: 'Asia/Baku', capital: true },
-      { name: 'Ganja', tz: 'Asia/Baku' }
+      { name: 'Baku', tz: 'Asia/Baku', capital: true }
     ]
   },
   {
@@ -299,8 +276,152 @@ const COUNTRIES = [
     continent: 'Asia',
     capital: 'Damascus',
     cities: [
-      { name: 'Damascus', tz: 'Asia/Damascus', capital: true },
-      { name: 'Aleppo', tz: 'Asia/Damascus' }
+      { name: 'Damascus', tz: 'Asia/Damascus', capital: true }
+    ]
+  },
+  {
+  name: 'Afghanistan',
+  continent: 'Asia',
+  capital: 'Kabul',
+  cities: [
+    { name: 'Kabul', tz: 'Asia/Kabul', capital: true }
+  ]
+  },
+  {
+    name: 'Bhutan',
+    continent: 'Asia',
+    capital: 'Thimphu',
+    cities: [
+      { name: 'Thimphu', tz: 'Asia/Thimphu', capital: true }
+    ]
+  },
+  {
+    name: 'Brunei',
+    continent: 'Asia',
+    capital: 'Bandar Seri Begawan',
+    cities: [
+      { name: 'Bandar Seri Begawan', tz: 'Asia/Brunei', capital: true }
+    ]
+  },
+  {
+    name: 'Jordan',
+    continent: 'Asia',
+    capital: 'Amman',
+    cities: [
+      { name: 'Amman', tz: 'Asia/Amman', capital: true }
+    ]
+  },
+  {
+    name: 'Lebanon',
+    continent: 'Asia',
+    capital: 'Beirut',
+    cities: [
+      { name: 'Beirut', tz: 'Asia/Beirut', capital: true }
+    ]
+  },
+  {
+  name: 'Oman',
+  continent: 'Asia',
+  capital: 'Muscat',
+  cities: [
+    { name: 'Muscat', tz: 'Asia/Muscat', capital: true }
+  ]
+  },
+  {
+    name: 'Yemen',
+    continent: 'Asia',
+    capital: 'Sanaa',
+    cities: [
+      { name: 'Sanaa', tz: 'Asia/Aden', capital: true }
+    ]
+  },
+  {
+    name: 'Kuwait',
+    continent: 'Asia',
+    capital: 'Kuwait City',
+    cities: [
+      { name: 'Kuwait City', tz: 'Asia/Kuwait', capital: true }
+    ]
+  },
+  {
+    name: 'Bahrain',
+    continent: 'Asia',
+    capital: 'Manama',
+    cities: [
+      { name: 'Manama', tz: 'Asia/Bahrain', capital: true }
+    ]
+  },
+  {
+    name: 'Qatar',
+    continent: 'Asia',
+    capital: 'Doha',
+    cities: [
+      { name: 'Doha', tz: 'Asia/Qatar', capital: true }
+    ]
+  },
+  {
+    name: 'Tajikistan',
+    continent: 'Asia',
+    capital: 'Dushanbe',
+    cities: [
+      { name: 'Dushanbe', tz: 'Asia/Dushanbe', capital: true }
+    ]
+  },
+  {
+    name: 'Turkmenistan',
+    continent: 'Asia',
+    capital: 'Ashgabat',
+    cities: [
+      { name: 'Ashgabat', tz: 'Asia/Ashgabat', capital: true }
+    ]
+  },
+  {
+    name: 'Kyrgyzstan',
+    continent: 'Asia',
+    capital: 'Bishkek',
+    cities: [
+      { name: 'Bishkek', tz: 'Asia/Bishkek', capital: true }
+    ]
+  },
+  {
+    name: 'Armenia',
+    continent: 'Asia',
+    capital: 'Yerevan',
+    cities: [
+      { name: 'Yerevan', tz: 'Asia/Yerevan', capital: true }
+    ]
+  },
+  {
+    name: 'Georgia',
+    continent: 'Asia',
+    capital: 'Tbilisi',
+    cities: [
+      { name: 'Tbilisi', tz: 'Asia/Tbilisi', capital: true }
+    ]
+  },
+  {
+    name: 'North Korea',
+    continent: 'Asia',
+    capital: 'Pyongyang',
+    cities: [
+      { name: 'Pyongyang', tz: 'Asia/Pyongyang', capital: true }
+    ]
+  },
+  {
+    name: 'Timor-Leste',
+    continent: 'Asia',
+    capital: 'Dili',
+    cities: [
+      { name: 'Dili', tz: 'Asia/Dili', capital: true }
+    ]
+  },
+  {
+    name: 'Palestine',
+    continent: 'Asia',
+    capital: 'Ramallah',
+    cities: [
+      { name: 'Ramallah', tz: 'Asia/Hebron', capital: true },
+      { name: 'Gaza', tz: 'Asia/Gaza' }
     ]
   },
 
@@ -310,9 +431,7 @@ const COUNTRIES = [
     continent: 'Europe',
     capital: 'London',
     cities: [
-      { name: 'London', tz: 'Europe/London', capital: true },
-      { name: 'Manchester', tz: 'Europe/London' },
-      { name: 'Birmingham', tz: 'Europe/London' }
+      { name: 'London', tz: 'Europe/London', capital: true }
     ]
   },
   {
@@ -320,8 +439,7 @@ const COUNTRIES = [
     continent: 'Europe',
     capital: 'Berlin',
     cities: [
-      { name: 'Berlin', tz: 'Europe/Berlin', capital: true },
-      { name: 'Munich', tz: 'Europe/Berlin' }
+      { name: 'Berlin', tz: 'Europe/Berlin', capital: true }
     ]
   },
   {
@@ -356,8 +474,7 @@ const COUNTRIES = [
     continent: 'Europe',
     capital: 'Rome',
     cities: [
-      { name: 'Rome', tz: 'Europe/Rome', capital: true },
-      { name: 'Milan', tz: 'Europe/Rome' }
+      { name: 'Rome', tz: 'Europe/Rome', capital: true }
     ]
   },
   {
@@ -375,8 +492,7 @@ const COUNTRIES = [
     continent: 'Europe',
     capital: 'Amsterdam',
     cities: [
-      { name: 'Amsterdam', tz: 'Europe/Amsterdam', capital: true },
-      { name: 'Rotterdam', tz: 'Europe/Amsterdam' }
+      { name: 'Amsterdam', tz: 'Europe/Amsterdam', capital: true }
     ]
   },
   {
@@ -384,8 +500,7 @@ const COUNTRIES = [
     continent: 'Europe',
     capital: 'Zurich',
     cities: [
-      { name: 'Zurich', tz: 'Europe/Zurich', capital: true },
-      { name: 'Geneva', tz: 'Europe/Zurich' }
+      { name: 'Zurich', tz: 'Europe/Zurich', capital: true }
     ]
   },
   {
@@ -393,8 +508,7 @@ const COUNTRIES = [
   continent: 'Europe',
   capital: 'Stockholm',
   cities: [
-    { name: 'Stockholm', tz: 'Europe/Stockholm', capital: true },
-    { name: 'Gothenburg', tz: 'Europe/Stockholm' }
+    { name: 'Stockholm', tz: 'Europe/Stockholm', capital: true }
   ]
   },
   {
@@ -412,8 +526,7 @@ const COUNTRIES = [
     continent: 'Europe',
     capital: 'Warsaw',
     cities: [
-      { name: 'Warsaw', tz: 'Europe/Warsaw', capital: true },
-      { name: 'Krakow', tz: 'Europe/Warsaw' }
+      { name: 'Warsaw', tz: 'Europe/Warsaw', capital: true }
     ]
   },
   {
@@ -421,9 +534,7 @@ const COUNTRIES = [
     continent: 'Europe',
     capital: 'Kyiv',
     cities: [
-      { name: 'Kyiv', tz: 'Europe/Kyiv', capital: true },
-      { name: 'Lviv', tz: 'Europe/Kyiv' },
-      { name: 'Odesa', tz: 'Europe/Kyiv' }
+      { name: 'Kyiv', tz: 'Europe/Kyiv', capital: true }
     ]
   },
   {
@@ -431,8 +542,260 @@ const COUNTRIES = [
     continent: 'Europe',
     capital: 'Athens',
     cities: [
-      { name: 'Athens', tz: 'Europe/Athens', capital: true },
-      { name: 'Thessaloniki', tz: 'Europe/Athens' }
+      { name: 'Athens', tz: 'Europe/Athens', capital: true }
+    ]
+  },
+  {
+  name: 'Ireland',
+  continent: 'Europe',
+  capital: 'Dublin',
+  cities: [
+    { name: 'Dublin', tz: 'Europe/Dublin', capital: true }
+  ]
+  },
+  {
+    name: 'Portugal',
+    continent: 'Europe',
+    capital: 'Lisbon',
+    cities: [
+      { name: 'Lisbon', tz: 'Europe/Lisbon', capital: true },
+      { name: 'Porto', tz: 'Europe/Lisbon' },
+      { name: 'Azores', tz: 'Atlantic/Azores' }
+    ]
+  },
+  {
+    name: 'Belgium',
+    continent: 'Europe',
+    capital: 'Brussels',
+    cities: [
+      { name: 'Brussels', tz: 'Europe/Brussels', capital: true }
+    ]
+  },
+  {
+    name: 'Austria',
+    continent: 'Europe',
+    capital: 'Vienna',
+    cities: [
+      { name: 'Vienna', tz: 'Europe/Vienna', capital: true }
+    ]
+  },
+  {
+    name: 'Romania',
+    continent: 'Europe',
+    capital: 'Bucharest',
+    cities: [
+      { name: 'Bucharest', tz: 'Europe/Bucharest', capital: true }
+    ]
+  },
+  {
+  name: 'Czechia',
+  continent: 'Europe',
+  capital: 'Prague',
+  cities: [
+    { name: 'Prague', tz: 'Europe/Prague', capital: true }
+  ]
+  },
+  {
+    name: 'Hungary',
+    continent: 'Europe',
+    capital: 'Budapest',
+    cities: [
+      { name: 'Budapest', tz: 'Europe/Budapest', capital: true }
+    ]
+  },
+  {
+    name: 'Finland',
+    continent: 'Europe',
+    capital: 'Helsinki',
+    cities: [
+      { name: 'Helsinki', tz: 'Europe/Helsinki', capital: true }
+    ]
+  },
+  {
+    name: 'Denmark',
+    continent: 'Europe',
+    capital: 'Copenhagen',
+    cities: [
+      { name: 'Copenhagen', tz: 'Europe/Copenhagen', capital: true },
+      { name: 'Faroe Islands', tz: 'Atlantic/Faroe' }
+    ]
+  },
+  {
+    name: 'Bulgaria',
+    continent: 'Europe',
+    capital: 'Sofia',
+    cities: [
+      { name: 'Sofia', tz: 'Europe/Sofia', capital: true },
+      { name: 'Varna', tz: 'Europe/Sofia' }
+    ]
+  },
+  {
+  name: 'Belarus',
+  continent: 'Europe',
+  capital: 'Minsk',
+  cities: [
+    { name: 'Minsk', tz: 'Europe/Minsk', capital: true }
+  ]
+  },
+  {
+    name: 'Slovakia',
+    continent: 'Europe',
+    capital: 'Bratislava',
+    cities: [
+      { name: 'Bratislava', tz: 'Europe/Bratislava', capital: true }
+    ]
+  },
+  {
+    name: 'Croatia',
+    continent: 'Europe',
+    capital: 'Zagreb',
+    cities: [
+      { name: 'Zagreb', tz: 'Europe/Zagreb', capital: true }
+    ]
+  },
+  {
+    name: 'Serbia',
+    continent: 'Europe',
+    capital: 'Belgrade',
+    cities: [
+      { name: 'Belgrade', tz: 'Europe/Belgrade', capital: true }
+    ]
+  },
+  {
+    name: 'Estonia',
+    continent: 'Europe',
+    capital: 'Tallinn',
+    cities: [
+      { name: 'Tallinn', tz: 'Europe/Tallinn', capital: true }
+    ]
+  },
+  {
+  name: 'Iceland',
+  continent: 'Europe',
+  capital: 'Reykjavik',
+  cities: [
+    { name: 'Reykjavik', tz: 'Atlantic/Reykjavik', capital: true }
+  ]
+  },
+  {
+    name: 'Latvia',
+    continent: 'Europe',
+    capital: 'Riga',
+    cities: [
+      { name: 'Riga', tz: 'Europe/Riga', capital: true }
+    ]
+  },
+  {
+    name: 'Lithuania',
+    continent: 'Europe',
+    capital: 'Vilnius',
+    cities: [
+      { name: 'Vilnius', tz: 'Europe/Vilnius', capital: true }
+    ]
+  },
+  {
+    name: 'Moldova',
+    continent: 'Europe',
+    capital: 'Chisinau',
+    cities: [
+      { name: 'Chisinau', tz: 'Europe/Chisinau', capital: true }
+    ]
+  },
+  {
+    name: 'Albania',
+    continent: 'Europe',
+    capital: 'Tirana',
+    cities: [
+      { name: 'Tirana', tz: 'Europe/Tirane', capital: true }
+    ]
+  },
+  {
+  name: 'Slovenia',
+  continent: 'Europe',
+  capital: 'Ljubljana',
+  cities: [
+    { name: 'Ljubljana', tz: 'Europe/Ljubljana', capital: true }
+  ]
+  },
+  {
+    name: 'Bosnia and Herzegovina',
+    continent: 'Europe',
+    capital: 'Sarajevo',
+    cities: [
+      { name: 'Sarajevo', tz: 'Europe/Sarajevo', capital: true }
+    ]
+  },
+  {
+    name: 'North Macedonia',
+    continent: 'Europe',
+    capital: 'Skopje',
+    cities: [
+      { name: 'Skopje', tz: 'Europe/Skopje', capital: true }
+    ]
+  },
+  {
+    name: 'Montenegro',
+    continent: 'Europe',
+    capital: 'Podgorica',
+    cities: [
+      { name: 'Podgorica', tz: 'Europe/Podgorica', capital: true }
+    ]
+  },
+  {
+    name: 'Luxembourg',
+    continent: 'Europe',
+    capital: 'Luxembourg City',
+    cities: [
+      { name: 'Luxembourg City', tz: 'Europe/Luxembourg', capital: true }
+    ]
+  },
+  {
+    name: 'Malta',
+    continent: 'Europe',
+    capital: 'Valletta',
+    cities: [
+      { name: 'Valletta', tz: 'Europe/Malta', capital: true }
+    ]
+  },
+  {
+    name: 'Cyprus',
+    continent: 'Europe',
+    capital: 'Nicosia',
+    cities: [
+      { name: 'Nicosia', tz: 'Asia/Nicosia', capital: true },
+      { name: 'Limassol', tz: 'Asia/Nicosia' }
+    ]
+  },
+  {
+    name: 'Andorra',
+    continent: 'Europe',
+    capital: 'Andorra la Vella',
+    cities: [
+      { name: 'Andorra la Vella', tz: 'Europe/Andorra', capital: true }
+    ]
+  },
+  {
+    name: 'Monaco',
+    continent: 'Europe',
+    capital: 'Monaco',
+    cities: [
+      { name: 'Monaco', tz: 'Europe/Monaco', capital: true }
+    ]
+  },
+  {
+    name: 'San Marino',
+    continent: 'Europe',
+    capital: 'San Marino',
+    cities: [
+      { name: 'San Marino', tz: 'Europe/San_Marino', capital: true }
+    ]
+  },
+  {
+    name: 'Liechtenstein',
+    continent: 'Europe',
+    capital: 'Vaduz',
+    cities: [
+      { name: 'Vaduz', tz: 'Europe/Vaduz', capital: true }
     ]
   },
 
@@ -442,9 +805,7 @@ const COUNTRIES = [
     continent: 'Africa',
     capital: 'Pretoria',
     cities: [
-      { name: 'Pretoria', tz: 'Africa/Johannesburg', capital: true },
-      { name: 'Cape Town', tz: 'Africa/Johannesburg' },
-      { name: 'Durban', tz: 'Africa/Johannesburg' }
+      { name: 'Pretoria', tz: 'Africa/Johannesburg', capital: true }
     ]
   },
   {
@@ -452,8 +813,7 @@ const COUNTRIES = [
     continent: 'Africa',
     capital: 'Cairo',
     cities: [
-      { name: 'Cairo', tz: 'Africa/Cairo', capital: true },
-      { name: 'Alexandria', tz: 'Africa/Cairo' }
+      { name: 'Cairo', tz: 'Africa/Cairo', capital: true }
     ]
   },
   {
@@ -461,9 +821,7 @@ const COUNTRIES = [
     continent: 'Africa',
     capital: 'Abuja',
     cities: [
-      { name: 'Abuja', tz: 'Africa/Lagos', capital: true },
-      { name: 'Lagos', tz: 'Africa/Lagos' },
-      { name: 'Kano', tz: 'Africa/Lagos' }
+      { name: 'Abuja', tz: 'Africa/Lagos', capital: true }
     ]
   },
   {
@@ -471,8 +829,7 @@ const COUNTRIES = [
     continent: 'Africa',
     capital: 'Nairobi',
     cities: [
-      { name: 'Nairobi', tz: 'Africa/Nairobi', capital: true },
-      { name: 'Mombasa', tz: 'Africa/Nairobi' }
+      { name: 'Nairobi', tz: 'Africa/Nairobi', capital: true }
     ]
   },
   {
@@ -488,8 +845,393 @@ const COUNTRIES = [
     continent: 'Africa',
     capital: 'Rabat',
     cities: [
-      { name: 'Rabat', tz: 'Africa/Casablanca', capital: true },
-      { name: 'Casablanca', tz: 'Africa/Casablanca' }
+      { name: 'Rabat', tz: 'Africa/Casablanca', capital: true }
+    ]
+  },
+  {
+  name: 'Algeria',
+  continent: 'Africa',
+  capital: 'Algiers',
+  cities: [
+    { name: 'Algiers', tz: 'Africa/Algiers', capital: true }
+  ]
+  },
+  {
+    name: 'Tunisia',
+    continent: 'Africa',
+    capital: 'Tunis',
+    cities: [
+      { name: 'Tunis', tz: 'Africa/Tunis', capital: true }
+    ]
+  },
+  {
+    name: 'Ghana',
+    continent: 'Africa',
+    capital: 'Accra',
+    cities: [
+      { name: 'Accra', tz: 'Africa/Accra', capital: true },
+      { name: 'Kumasi', tz: 'Africa/Accra' }
+    ]
+  },
+  {
+    name: 'Senegal',
+    continent: 'Africa',
+    capital: 'Dakar',
+    cities: [
+      { name: 'Dakar', tz: 'Africa/Dakar', capital: true }
+    ]
+  },
+  {
+    name: 'Democratic Republic of the Congo',
+    continent: 'Africa',
+    capital: 'Kinshasa',
+    cities: [
+      { name: 'Kinshasa', tz: 'Africa/Kinshasa', capital: true },
+      { name: 'Lubumbashi', tz: 'Africa/Lubumbashi' }
+    ]
+  },
+  {
+  name: 'Angola',
+  continent: 'Africa',
+  capital: 'Luanda',
+  cities: [
+    { name: 'Luanda', tz: 'Africa/Luanda', capital: true }
+  ]
+  },
+  {
+    name: 'Zambia',
+    continent: 'Africa',
+    capital: 'Lusaka',
+    cities: [
+      { name: 'Lusaka', tz: 'Africa/Lusaka', capital: true }
+    ]
+  },
+  {
+    name: 'Zimbabwe',
+    continent: 'Africa',
+    capital: 'Harare',
+    cities: [
+      { name: 'Harare', tz: 'Africa/Harare', capital: true }
+    ]
+  },
+  {
+    name: 'Mozambique',
+    continent: 'Africa',
+    capital: 'Maputo',
+    cities: [
+      { name: 'Maputo', tz: 'Africa/Maputo', capital: true }
+    ]
+  },
+  {
+    name: 'Madagascar',
+    continent: 'Africa',
+    capital: 'Antananarivo',
+    cities: [
+      { name: 'Antananarivo', tz: 'Indian/Antananarivo', capital: true }
+    ]
+  },
+  {
+  name: 'Tanzania',
+  continent: 'Africa',
+  capital: 'Dar es Salaam',
+  cities: [
+    { name: 'Dar es Salaam', tz: 'Africa/Dar_es_Salaam', capital: true }
+  ]
+  },
+  {
+    name: 'Uganda',
+    continent: 'Africa',
+    capital: 'Kampala',
+    cities: [
+      { name: 'Kampala', tz: 'Africa/Kampala', capital: true }
+    ]
+  },
+  {
+    name: 'Sudan',
+    continent: 'Africa',
+    capital: 'Khartoum',
+    cities: [
+      { name: 'Khartoum', tz: 'Africa/Khartoum', capital: true }
+    ]
+  },
+  {
+    name: 'Libya',
+    continent: 'Africa',
+    capital: 'Tripoli',
+    cities: [
+      { name: 'Tripoli', tz: 'Africa/Tripoli', capital: true }
+    ]
+  },
+  {
+    name: 'Somalia',
+    continent: 'Africa',
+    capital: 'Mogadishu',
+    cities: [
+      { name: 'Mogadishu', tz: 'Africa/Mogadishu', capital: true }
+    ]
+  },
+  {
+  name: 'Rwanda',
+  continent: 'Africa',
+  capital: 'Kigali',
+  cities: [
+    { name: 'Kigali', tz: 'Africa/Kigali', capital: true }
+  ]
+  },
+  {
+    name: 'Mauritius',
+    continent: 'Africa',
+    capital: 'Port Louis',
+    cities: [
+      { name: 'Port Louis', tz: 'Indian/Mauritius', capital: true }
+    ]
+  },
+  {
+    name: 'Seychelles',
+    continent: 'Africa',
+    capital: 'Victoria',
+    cities: [
+      { name: 'Victoria', tz: 'Indian/Mahe', capital: true }
+    ]
+  },
+  {
+    name: 'Namibia',
+    continent: 'Africa',
+    capital: 'Windhoek',
+    cities: [
+      { name: 'Windhoek', tz: 'Africa/Windhoek', capital: true }
+    ]
+  },
+  {
+    name: 'Botswana',
+    continent: 'Africa',
+    capital: 'Gaborone',
+    cities: [
+      { name: 'Gaborone', tz: 'Africa/Gaborone', capital: true }
+    ]
+  },
+  {
+  name: 'Mali',
+  continent: 'Africa',
+  capital: 'Bamako',
+  cities: [
+    { name: 'Bamako', tz: 'Africa/Bamako', capital: true }
+  ]
+  },
+  {
+    name: 'Burkina Faso',
+    continent: 'Africa',
+    capital: 'Ouagadougou',
+    cities: [
+      { name: 'Ouagadougou', tz: 'Africa/Ouagadougou', capital: true }
+    ]
+  },
+  {
+    name: 'Niger',
+    continent: 'Africa',
+    capital: 'Niamey',
+    cities: [
+      { name: 'Niamey', tz: 'Africa/Niamey', capital: true }
+    ]
+  },
+  {
+    name: 'Chad',
+    continent: 'Africa',
+    capital: 'N\'Djamena',
+    cities: [
+      { name: 'N\'Djamena', tz: 'Africa/Ndjamena', capital: true }
+    ]
+  },
+  {
+    name: 'Cameroon',
+    continent: 'Africa',
+    capital: 'Yaoundé',
+    cities: [
+      { name: 'Yaoundé', tz: 'Africa/Douala', capital: true }
+    ]
+  },
+  {
+  name: 'Ivory Coast',
+  continent: 'Africa',
+  capital: 'Yamoussoukro',
+  cities: [
+    { name: 'Yamoussoukro', tz: 'Africa/Abidjan', capital: true }
+  ]
+  },
+  {
+    name: 'Guinea',
+    continent: 'Africa',
+    capital: 'Conakry',
+    cities: [
+      { name: 'Conakry', tz: 'Africa/Conakry', capital: true }
+    ]
+  },
+  {
+    name: 'Benin',
+    continent: 'Africa',
+    capital: 'Porto-Novo',
+    cities: [
+      { name: 'Porto-Novo', tz: 'Africa/Porto-Novo', capital: true }
+    ]
+  },
+  {
+    name: 'Togo',
+    continent: 'Africa',
+    capital: 'Lomé',
+    cities: [
+      { name: 'Lomé', tz: 'Africa/Lome', capital: true }
+    ]
+  },
+  {
+    name: 'Malawi',
+    continent: 'Africa',
+    capital: 'Lilongwe',
+    cities: [
+      { name: 'Lilongwe', tz: 'Africa/Blantyre', capital: true }
+    ]
+  },
+  {
+  name: 'Mauritania',
+  continent: 'Africa',
+  capital: 'Nouakchott',
+  cities: [
+    { name: 'Nouakchott', tz: 'Africa/Nouakchott', capital: true }
+  ]
+  },
+  {
+    name: 'Gabon',
+    continent: 'Africa',
+    capital: 'Libreville',
+    cities: [
+      { name: 'Libreville', tz: 'Africa/Libreville', capital: true }
+    ]
+  },
+  {
+    name: 'Republic of the Congo',
+    continent: 'Africa',
+    capital: 'Brazzaville',
+    cities: [
+      { name: 'Brazzaville', tz: 'Africa/Brazzaville', capital: true }
+    ]
+  },
+  {
+    name: 'Cape Verde',
+    continent: 'Africa',
+    capital: 'Praia',
+    cities: [
+      { name: 'Praia', tz: 'Atlantic/Cape_Verde', capital: true }
+    ]
+  },
+  {
+    name: 'Sao Tome and Principe',
+    continent: 'Africa',
+    capital: 'São Tomé',
+    cities: [
+      { name: 'São Tomé', tz: 'Africa/Sao_Tome', capital: true }
+    ]
+  },
+  {
+  name: 'South Sudan',
+  continent: 'Africa',
+  capital: 'Juba',
+  cities: [
+    { name: 'Juba', tz: 'Africa/Juba', capital: true }
+  ]
+  },
+  {
+    name: 'Eritrea',
+    continent: 'Africa',
+    capital: 'Asmara',
+    cities: [
+      { name: 'Asmara', tz: 'Africa/Asmara', capital: true }
+    ]
+  },
+  {
+    name: 'Djibouti',
+    continent: 'Africa',
+    capital: 'Djibouti',
+    cities: [
+      { name: 'Djibouti', tz: 'Africa/Djibouti', capital: true }
+    ]
+  },
+  {
+    name: 'Somaliland',
+    continent: 'Africa',
+    capital: 'Hargeisa',
+    cities: [
+      { name: 'Hargeisa', tz: 'Africa/Mogadishu', capital: true }
+    ]
+  },
+  {
+    name: 'Lesotho',
+    continent: 'Africa',
+    capital: 'Maseru',
+    cities: [
+      { name: 'Maseru', tz: 'Africa/Maseru', capital: true }
+    ]
+  },
+  {
+  name: 'Eswatini',
+  continent: 'Africa',
+  capital: 'Mbabane',
+  cities: [
+    { name: 'Mbabane', tz: 'Africa/Mbabane', capital: true }
+  ]
+  },
+  {
+    name: 'Comoros',
+    continent: 'Africa',
+    capital: 'Moroni',
+    cities: [
+      { name: 'Moroni', tz: 'Indian/Comoro', capital: true }
+    ]
+  },
+  {
+    name: 'Guinea-Bissau',
+    continent: 'Africa',
+    capital: 'Bissau',
+    cities: [
+      { name: 'Bissau', tz: 'Africa/Bissau', capital: true }
+    ]
+  },
+  {
+    name: 'Equatorial Guinea',
+    continent: 'Africa',
+    capital: 'Malabo',
+    cities: [
+      { name: 'Malabo', tz: 'Africa/Malabo', capital: true }
+    ]
+  },
+  {
+    name: 'Liberia',
+    continent: 'Africa',
+    capital: 'Monrovia',
+    cities: [
+      { name: 'Monrovia', tz: 'Africa/Monrovia', capital: true }
+    ]
+  },
+  {
+    name: 'Sierra Leone',
+    continent: 'Africa',
+    capital: 'Freetown',
+    cities: [
+      { name: 'Freetown', tz: 'Africa/Freetown', capital: true }
+    ]
+  },
+  {
+    name: 'Gambia',
+    continent: 'Africa',
+    capital: 'Banjul',
+    cities: [
+      { name: 'Banjul', tz: 'Africa/Banjul', capital: true }
+    ]
+  },
+  {
+    name: 'Central African Republic',
+    continent: 'Africa',
+    capital: 'Bangui',
+    cities: [
+      { name: 'Bangui', tz: 'Africa/Bangui', capital: true }
     ]
   },
 
@@ -530,6 +1272,167 @@ const COUNTRIES = [
       { name: 'Cancun', tz: 'America/Cancun' },
       { name: 'Chihuahua', tz: 'America/Chihuahua' },
       { name: 'Tijuana', tz: 'America/Tijuana' }
+    ]
+  },
+  {
+  name: 'Guatemala',
+  continent: 'North America',
+  capital: 'Guatemala City',
+  cities: [
+    { name: 'Guatemala City', tz: 'America/Guatemala', capital: true }
+  ]
+  },
+  {
+    name: 'Belize',
+    continent: 'North America',
+    capital: 'Belmopan',
+    cities: [
+      { name: 'Belmopan', tz: 'America/Belize', capital: true },
+      { name: 'Belize City', tz: 'America/Belize' }
+    ]
+  },
+  {
+    name: 'Honduras',
+    continent: 'North America',
+    capital: 'Tegucigalpa',
+    cities: [
+      { name: 'Tegucigalpa', tz: 'America/Tegucigalpa', capital: true }
+    ]
+  },
+  {
+    name: 'El Salvador',
+    continent: 'North America',
+    capital: 'San Salvador',
+    cities: [
+      { name: 'San Salvador', tz: 'America/El_Salvador', capital: true }
+    ]
+  },
+  {
+    name: 'Nicaragua',
+    continent: 'North America',
+    capital: 'Managua',
+    cities: [
+      { name: 'Managua', tz: 'America/Managua', capital: true }
+    ]
+  },
+  {
+    name: 'Costa Rica',
+    continent: 'North America',
+    capital: 'San José',
+    cities: [
+      { name: 'San José', tz: 'America/Costa_Rica', capital: true }
+    ]
+  },
+  {
+    name: 'Panama',
+    continent: 'North America',
+    capital: 'Panama City',
+    cities: [
+      { name: 'Panama City', tz: 'America/Panama', capital: true }
+    ]
+  },
+  {
+    name: 'Cuba',
+    continent: 'North America',
+    capital: 'Havana',
+    cities: [
+      { name: 'Havana', tz: 'America/Havana', capital: true }
+    ]
+  },
+  {
+    name: 'Jamaica',
+    continent: 'North America',
+    capital: 'Kingston',
+    cities: [
+      { name: 'Kingston', tz: 'America/Jamaica', capital: true }
+    ]
+  },
+  {
+    name: 'Haiti',
+    continent: 'North America',
+    capital: 'Port-au-Prince',
+    cities: [
+      { name: 'Port-au-Prince', tz: 'America/Port-au-Prince', capital: true }
+    ]
+  },
+  {
+    name: 'Dominican Republic',
+    continent: 'North America',
+    capital: 'Santo Domingo',
+    cities: [
+      { name: 'Santo Domingo', tz: 'America/Santo_Domingo', capital: true }
+    ]
+  },
+  {
+    name: 'Bahamas',
+    continent: 'North America',
+    capital: 'Nassau',
+    cities: [
+      { name: 'Nassau', tz: 'America/Nassau', capital: true }
+    ]
+  },
+  {
+    name: 'Trinidad and Tobago',
+    continent: 'North America',
+    capital: 'Port of Spain',
+    cities: [
+      { name: 'Port of Spain', tz: 'America/Port_of_Spain', capital: true }
+    ]
+  },
+  {
+    name: 'Barbados',
+    continent: 'North America',
+    capital: 'Bridgetown',
+    cities: [
+      { name: 'Bridgetown', tz: 'America/Barbados', capital: true }
+    ]
+  },
+  {
+    name: 'Saint Lucia',
+    continent: 'North America',
+    capital: 'Castries',
+    cities: [
+      { name: 'Castries', tz: 'America/St_Lucia', capital: true }
+    ]
+  },
+  {
+    name: 'Grenada',
+    continent: 'North America',
+    capital: 'St. George\'s',
+    cities: [
+      { name: 'St. George\'s', tz: 'America/Grenada', capital: true }
+    ]
+  },
+  {
+    name: 'Antigua and Barbuda',
+    continent: 'North America',
+    capital: 'St. John\'s',
+    cities: [
+      { name: 'St. John\'s', tz: 'America/Antigua', capital: true }
+    ]
+  },
+  {
+    name: 'Dominica',
+    continent: 'North America',
+    capital: 'Roseau',
+    cities: [
+      { name: 'Roseau', tz: 'America/Dominica', capital: true }
+    ]
+  },
+  {
+    name: 'Saint Vincent and the Grenadines',
+    continent: 'North America',
+    capital: 'Kingstown',
+    cities: [
+      { name: 'Kingstown', tz: 'America/St_Vincent', capital: true }
+    ]
+  },
+  {
+    name: 'Saint Kitts and Nevis',
+    continent: 'North America',
+    capital: 'Basseterre',
+    cities: [
+      { name: 'Basseterre', tz: 'America/St_Kitts', capital: true }
     ]
   },
 
@@ -585,6 +1488,62 @@ const COUNTRIES = [
       { name: 'Lima', tz: 'America/Lima', capital: true }
     ]
   },
+  {
+  name: 'Colombia',
+  continent: 'South America',
+  capital: 'Bogotá',
+  cities: [
+    { name: 'Bogotá', tz: 'America/Bogota', capital: true }
+  ]
+  },
+  {
+    name: 'Venezuela',
+    continent: 'South America',
+    capital: 'Caracas',
+    cities: [
+      { name: 'Caracas', tz: 'America/Caracas', capital: true }
+    ]
+  },
+  {
+    name: 'Guyana',
+    continent: 'South America',
+    capital: 'Georgetown',
+    cities: [
+      { name: 'Georgetown', tz: 'America/Guyana', capital: true }
+    ]
+  },
+  {
+    name: 'Suriname',
+    continent: 'South America',
+    capital: 'Paramaribo',
+    cities: [
+      { name: 'Paramaribo', tz: 'America/Paramaribo', capital: true }
+    ]
+  },
+  {
+    name: 'Uruguay',
+    continent: 'South America',
+    capital: 'Montevideo',
+    cities: [
+      { name: 'Montevideo', tz: 'America/Montevideo', capital: true }
+    ]
+  },
+  {
+    name: 'Paraguay',
+    continent: 'South America',
+    capital: 'Asunción',
+    cities: [
+      { name: 'Asunción', tz: 'America/Asuncion', capital: true }
+    ]
+  },
+  {
+    name: 'Bolivia',
+    continent: 'South America',
+    capital: 'La Paz',
+    cities: [
+      { name: 'La Paz', tz: 'America/La_Paz', capital: true }
+    ]
+  },
 
   // === OCEANIA ===
   {
@@ -607,7 +1566,104 @@ const COUNTRIES = [
     cities: [
       { name: 'Auckland', tz: 'Pacific/Auckland', capital: true }
     ]
-  }
+  },
+  {
+  name: 'Fiji',
+  continent: 'Oceania',
+  capital: 'Suva',
+  cities: [
+    { name: 'Suva', tz: 'Pacific/Fiji', capital: true }
+  ]
+  },
+  {
+    name: 'Papua New Guinea',
+    continent: 'Oceania',
+    capital: 'Port Moresby',
+    cities: [
+      { name: 'Port Moresby', tz: 'Pacific/Port_Moresby', capital: true }
+    ]
+  },
+  {
+    name: 'Solomon Islands',
+    continent: 'Oceania',
+    capital: 'Honiara',
+    cities: [
+      { name: 'Honiara', tz: 'Pacific/Guadalcanal', capital: true }
+    ]
+  },
+  {
+    name: 'Vanuatu',
+    continent: 'Oceania',
+    capital: 'Port Vila',
+    cities: [
+      { name: 'Port Vila', tz: 'Pacific/Efate', capital: true }
+    ]
+  },
+  {
+    name: 'Samoa',
+    continent: 'Oceania',
+    capital: 'Apia',
+    cities: [
+      { name: 'Apia', tz: 'Pacific/Apia', capital: true }
+    ]
+  },
+  {
+    name: 'Tonga',
+    continent: 'Oceania',
+    capital: 'Nuku\'alofa',
+    cities: [
+      { name: 'Nuku\'alofa', tz: 'Pacific/Tongatapu', capital: true }
+    ]
+  },
+  {
+  name: 'Kiribati',
+  continent: 'Oceania',
+  capital: 'Tarawa',
+  cities: [
+    { name: 'Tarawa', tz: 'Pacific/Tarawa', capital: true },
+    { name: 'Kiritimati', tz: 'Pacific/Kiritimati' }
+  ]
+  },
+  {
+    name: 'Micronesia',
+    continent: 'Oceania',
+    capital: 'Palikir',
+    cities: [
+      { name: 'Palikir', tz: 'Pacific/Pohnpei', capital: true }
+    ]
+  },
+  {
+    name: 'Marshall Islands',
+    continent: 'Oceania',
+    capital: 'Majuro',
+    cities: [
+      { name: 'Majuro', tz: 'Pacific/Majuro', capital: true }
+    ]
+  },
+  {
+    name: 'Palau',
+    continent: 'Oceania',
+    capital: 'Ngerulmud',
+    cities: [
+      { name: 'Ngerulmud', tz: 'Pacific/Palau', capital: true }
+    ]
+  },
+  {
+    name: 'Nauru',
+    continent: 'Oceania',
+    capital: 'Yaren',
+    cities: [
+      { name: 'Yaren', tz: 'Pacific/Nauru', capital: true }
+    ]
+  },
+  {
+    name: 'Tuvalu',
+    continent: 'Oceania',
+    capital: 'Funafuti',
+    cities: [
+      { name: 'Funafuti', tz: 'Pacific/Funafuti', capital: true }
+    ]
+  },
 ];
 
 // Elements
@@ -1054,17 +2110,25 @@ function renderAllZones(date, time, fromZone) {
     return;
   }
 
-  let html = '';
-  let lastContinent = '';
+    let html = '';
+    let lastContinent = '';
+    let continentCount = 0; 
 
-  filtered.forEach(country => {
-  const continent = country.continent || 'Other';
+    const continentTotals = {};
+    COUNTRIES.forEach(c => {
+      const cont = c.continent || 'Other';
+      continentTotals[cont] = (continentTotals[cont] || 0) + 1;
+    });
 
-  // Add heading when continent changes
-  if (continent !== lastContinent) {
-    html += `<div class="continent-heading">🌍 ${continent}</div>`;
-    lastContinent = continent;
-  }
+    filtered.forEach(country => {
+    const continent = country.continent || 'Other';
+
+    // Add heading when continent changes
+    if (continent !== lastContinent) {
+      const total = continentTotals[continent] || 0;
+      html += `<div class="continent-heading">🌍 ${continent} <span class="continent-count">(${total})</span></div>`;
+      lastContinent = continent;
+    }
 
   const isExpanded = expandedCountries.has(country.name) || search.length > 0;
     const capital = country.cities.find(c => c.capital) || country.cities[0];
